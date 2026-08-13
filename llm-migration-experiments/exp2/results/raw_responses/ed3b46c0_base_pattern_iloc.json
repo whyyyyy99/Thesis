@@ -1,0 +1,105 @@
+{
+  "id": "resp_06697c13768ea97f006a7a39a01e88819fa633f9172e40eaf0",
+  "created_at": 1786395040.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_06697c13768ea97f006a7a39a07b10819fa9c04dbd4d23f289",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_06697c13768ea97f006a7a39a20204819f969b6e73fa07812a",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ntrain_X = ds.X[train_idx]\ntrain_y = ds.y[train_idx].to_numpy().reshape(-1)\ntrain_w = ds.w[train_idx].to_numpy().reshape(-1)\nvalid_X = ds.X[valid_idx]\nvalid_y = ds.y[valid_idx].to_numpy().reshape(-1)\nvalid_w = ds.w[valid_idx].to_numpy().reshape(-1)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395042.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3981,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 299,
+    "output_tokens_details": {
+      "reasoning_tokens": 205
+    },
+    "total_tokens": 4280
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

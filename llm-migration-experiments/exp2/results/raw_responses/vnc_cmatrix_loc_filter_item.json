@@ -1,0 +1,105 @@
+{
+  "id": "resp_082b0df87b39b9a7006a7a3b233e7881a38de51570960ac692",
+  "created_at": 1786395427.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_082b0df87b39b9a7006a7a3b24220081a3a0f50fc9e0f87c10",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_082b0df87b39b9a7006a7a3b277dbc81a39f2256f2e1e31a7f",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import typing\nimport polars as pl\n\n    def __convert_index_to_uid(\n        self, index: int | list[int], axis: typing.Literal[\"row\", \"column\"] = \"row\"\n    ):\n        if isinstance(index, int):\n            index = [index]\n        lookup = self.get_lookup()\n        if axis == \"row\":\n            uids = [\n                lookup.filter(pl.col(\"row_index\") == id)\n                .get_column(\"uid\")\n                .to_list()[0]\n                for id in index\n            ]\n        elif axis == \"column\":\n            uids = [\n                lookup.filter(pl.col(\"column_index\") == id)\n                .get_column(\"uid\")\n                .to_list()[0]\n                for id in index\n            ]\n        else:\n            raise ValueError('The axis must be either \"row\" or \"column\".')\n        return uids\n\n    def __convert_index_to_bodyid(self, index, axis=\"row\"):\n        if isinstance(index, int):\n            index = [index]\n        lookup = self.get_lookup()\n        if axis == \"row\":\n            body_ids = [\n                lookup.filter(pl.col(\"row_index\") == id)\n                .get_column(\"body_id\")\n                .to_list()[0]\n                for id in index\n            ]\n        elif axis == \"column\":\n            body_ids = [\n                lookup.filter(pl.col(\"column_index\") == id)\n                .get_column(\"body_id\")\n                .to_list()[0]\n                for id in index\n            ]\n        else:\n            raise ValueError('The axis must be either \"row\" or \"column\".')\n        return body_ids\n\n    def __get_uids_from_bodyids(self, body_ids: list[BodyId] | list[int]) -> list[UID]:\n        lookup = self.get_lookup().clone()\n        lookup = lookup.filter(pl.col(\"body_id\").is_in(body_ids))\n        missing = set(body_ids) - set(lookup.get_column(\"body_id\").to_list())\n        if len(missing) > 0:\n            print(f\"Warning: {len(missing)} body ids not found.\")\n        uids = lookup.get_column(\"uid\").to_list()\n        return uids",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395432.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 8025,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 599,
+    "output_tokens_details": {
+      "reasoning_tokens": 139
+    },
+    "total_tokens": 8624
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

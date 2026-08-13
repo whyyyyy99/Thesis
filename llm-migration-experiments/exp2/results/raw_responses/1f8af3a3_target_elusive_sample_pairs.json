@@ -1,0 +1,105 @@
+{
+  "id": "resp_03f9ffb598bdd7d7006a7a377c33ec81a3acef1694e31aca8a",
+  "created_at": 1786394492.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_03f9ffb598bdd7d7006a7a377f115c81a3ac187bb33a6c72c0",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_03f9ffb598bdd7d7006a7a3786a84881a3967a081e4af008c1",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\n_sample_pairs_rows = []\nfor target, data in unbinned.group_by(\"target\", maintain_order=True):\n    res = find_pairs(data)\n    if isinstance(res, pl.DataFrame):\n        values = res.to_series(0).to_list() if res.width == 1 else res.rows()\n    elif isinstance(res, pl.Series):\n        values = res.to_list()\n    else:\n        values = res\n    if not isinstance(values, list):\n        values = [values]\n    for v in values:\n        _sample_pairs_rows.append({\"target\": target[0] if isinstance(target, tuple) and len(target) == 1 else target, \"sample_pairs\": v})\n\nsample_pairs = pl.DataFrame(_sample_pairs_rows).explode(\"sample_pairs\").drop_nulls(subset=[\"sample_pairs\"])\nsample_pairs = pl.concat([sample_pairs, taxonomy], how=\"horizontal\")\nsample_pairs = sample_pairs.with_columns(\n    pl.col(\"taxonomy\").map_elements(get_taxa_group, return_dtype=pl.Null).alias(\"taxa_group\")\n)\nsample_pairs = sample_pairs.drop_nulls(subset=[\"taxa_group\"])",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394503.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 21045,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1242,
+    "output_tokens_details": {
+      "reasoning_tokens": 1003
+    },
+    "total_tokens": 22287
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

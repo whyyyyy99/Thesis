@@ -1,0 +1,1 @@
+return [c for c in data.columns if c.endswith(pat)]

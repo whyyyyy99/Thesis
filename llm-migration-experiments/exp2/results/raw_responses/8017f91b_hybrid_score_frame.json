@@ -1,0 +1,105 @@
+{
+  "id": "resp_04c2ef00956bacb2006a7a3848ab2081a3aa0157fbd617874b",
+  "created_at": 1786394696.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_04c2ef00956bacb2006a7a3848fba081a3bb2d7be2c3b88c8c",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_04c2ef00956bacb2006a7a384a41cc81a3b444e249f0311b3a",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ndef to_frame(language_model_name, citation_to_language_candidates, citation_to_language, language_to_citation_candidates, language_to_citation):\n    return pl.DataFrame(\n        [\n            {\n                \"Language Model\": language_model_name,\n                \"Citation -> Language Candidates\": round(\n                    citation_to_language_candidates, ndigits=3\n                ),\n                \"Citation -> Language Final\": round(citation_to_language, ndigits=3),\n                \"Language -> Citation Candidates\": round(\n                    language_to_citation_candidates, ndigits=3\n                ),\n                \"Language -> Citation Final\": round(language_to_citation, ndigits=3),\n            }\n        ]\n    )",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394698.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2321,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 322,
+    "output_tokens_details": {
+      "reasoning_tokens": 177
+    },
+    "total_tokens": 2643
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

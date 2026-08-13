@@ -1,0 +1,105 @@
+{
+  "id": "resp_01934da7cfbb7448006a7a39f2175081a28d984827111fac72",
+  "created_at": 1786395122.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_01934da7cfbb7448006a7a39f2951481a2b0439b5e670abbfd",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_01934da7cfbb7448006a7a39f92d4881a2b79a9d51c7624113",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import pandas as pd\nimport polars as pl\n\ntry:\n    df_bbox_delimiters = (\n        df_bbox_delimiters.filter(pl.col(\"dels\").is_not_null())\n        .explode(\"dels\")\n        .with_columns(\n            pl.col(\"dels\").list.get(0).alias(\"del1\"),\n            pl.col(\"dels\").list.get(1).alias(\"del2\"),\n        )\n        .with_columns(\n            pl.col(\"del1\").alias(\"x1_bbox\"),\n            pl.col(\"del2\").alias(\"x2_bbox\"),\n        )\n    )\n    df_cells = df_bbox_delimiters.select([\"x1_bbox\", \"y1_bbox\", \"x2_bbox\", \"y2_bbox\"])\n    df_cells.columns = [\"x1\", \"y1\", \"x2\", \"y2\"]\n    return df_cells.with_row_count(\"index\")\nexcept ValueError:\n    return pl.DataFrame(schema={\"index\": pl.Int64, \"x1\": pl.Null, \"y1\": pl.Null, \"x2\": pl.Null, \"y2\": pl.Null})",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395130.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 14204,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1125,
+    "output_tokens_details": {
+      "reasoning_tokens": 892
+    },
+    "total_tokens": 15329
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

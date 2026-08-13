@@ -1,0 +1,7 @@
+openai
+numpy
+pandas
+polars
+sentence-transformers
+jupyter
+nbconvert

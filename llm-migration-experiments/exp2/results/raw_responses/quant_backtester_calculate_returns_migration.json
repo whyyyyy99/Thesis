@@ -1,0 +1,105 @@
+{
+  "id": "resp_0119165f7775cc95006a7a3ad4a60c819f8130c73553307009",
+  "created_at": 1786395348.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0119165f7775cc95006a7a3ad5253c819fa7efc3c84540c3b1",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0119165f7775cc95006a7a3ad7c408819fac42102a97c30088",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\nportfolio = pl.DataFrame({\"positions\": signals[\"positions\"]})\n\n# Pairs trading\nif \"Close_1\" in self.data.columns and \"Close_2\" in self.data.columns:\n    portfolio = portfolio.with_columns(\n        (\n            self.data[\"Close_1\"].pct_change() - self.data[\"Close_2\"].pct_change()\n        ).alias(\"asset_returns\")\n    )\n# Single asset trading\nelif \"Close\" in self.data.columns:\n    portfolio = portfolio.with_columns(\n        self.data[\"Close\"].pct_change().alias(\"asset_returns\")\n    )\nelse:\n    raise ValueError(\"Data does not contain required 'Close' columns\")\n\nportfolio = portfolio.with_columns(\n    (pl.col(\"positions\").shift(1) * pl.col(\"asset_returns\")).alias(\"strategy_returns\")\n)\n\n# Handle potential NaN or inf values\nportfolio = portfolio.with_columns(\n    pl.when(pl.col(\"strategy_returns\").is_finite())\n    .then(pl.col(\"strategy_returns\"))\n    .otherwise(0)\n    .alias(\"strategy_returns\")\n)\n\nportfolio = portfolio.with_columns(\n    (1 + pl.col(\"strategy_returns\")).cum_prod().alias(\"cumulative_returns\"),\n    (self.initial_capital * pl.col(\"cumulative_returns\")).alias(\"equity_curve\"),\n)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395352.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 16347,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 656,
+    "output_tokens_details": {
+      "reasoning_tokens": 384
+    },
+    "total_tokens": 17003
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

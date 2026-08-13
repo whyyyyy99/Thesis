@@ -1,0 +1,105 @@
+{
+  "id": "resp_00fbde7917ad549c006a7a39c270bc81a2b77325d657a75ff4",
+  "created_at": 1786395074.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_00fbde7917ad549c006a7a39c2c03881a2a42dfa6ededb7b45",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_00fbde7917ad549c006a7a39c5ee5081a2a69ff0ed480a6e2a",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\nfrom sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score\n\npred_df = pl.DataFrame(\n    {\"index\": ds.y.index[valid_idx], \"pred\": pred}\n)\nbase_dfs.append(\n    pred_df.join(\n        base_df,\n        on=\"index\",\n        how=\"inner\",\n    )\n)\nbase_df = pl.concat(base_dfs)\n_metrics = {\n    \"roc_auc\": roc_auc_score(base_df[\"y\"].to_numpy(), base_df[\"pred\"].to_numpy()),\n    \"accuracy\": accuracy_score(base_df[\"y\"].to_numpy(), (base_df[\"pred\"] > 0.5).to_numpy()),\n    \"precision\": precision_score(base_df[\"y\"].to_numpy(), (base_df[\"pred\"] > 0.5).to_numpy()),\n    \"recall\": recall_score(base_df[\"y\"].to_numpy(), (base_df[\"pred\"] > 0.5).to_numpy()),\n    \"f1\": f1_score(base_df[\"y\"].to_numpy(), (base_df[\"pred\"] > 0.5).to_numpy()),\n}",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395078.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 936,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 756,
+    "output_tokens_details": {
+      "reasoning_tokens": 516
+    },
+    "total_tokens": 1692
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

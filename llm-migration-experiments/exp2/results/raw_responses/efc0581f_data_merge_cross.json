@@ -1,0 +1,105 @@
+{
+  "id": "resp_0439e48faf4b89eb006a7a39da266c819d8e048557d4127242",
+  "created_at": 1786395098.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0439e48faf4b89eb006a7a39da7458819d91219a1b473bae26",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0439e48faf4b89eb006a7a39e1cc50819d945782fd1834f745",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import pandas as pd\nimport numpy as np\nimport polars as pl\n\ndf_words = self.df.filter(pl.col(\"class\") == \"ocrx_word\")\nif page_number:\n    df_words = df_words.filter(pl.col(\"page\") == page_number)\ndf_words = df_words.filter(pl.col(\"value\").is_not_null() & (pl.col(\"confidence\") >= min_confidence))\n\nlist_cells = [{\"row\": id_row, \"col\": id_col,\n               \"x1_w\": cell.x1, \"x2_w\": cell.x2,\n               \"y1_w\": cell.y1, \"y2_w\": cell.y2}\n              for id_row, row in enumerate(table.items)\n              for id_col, cell in enumerate(row.items)]\ndf_cells = pl.DataFrame(list_cells)\n\ndf_word_cells = df_words.join(df_cells, how=\"cross\")\n\ndf_word_cells = df_word_cells.with_columns([\n    pl.max_horizontal(\"x1\", \"x1_w\").alias(\"x_left\"),\n    pl.max_horizontal(\"y1\", \"y1_w\").alias(\"y_top\"),\n    pl.min_horizontal(\"x2\", \"x2_w\").alias(\"x_right\"),\n    pl.min_horizontal(\"y2\", \"y2_w\").alias(\"y_bottom\"),\n])\n\ndf_word_cells = df_word_cells.filter(pl.col(\"x_right\") > pl.col(\"x_left\"))\ndf_word_cells = df_word_cells.filter(pl.col(\"y_bottom\") > pl.col(\"y_top\"))\n\ndf_text_parent = (\n    df_word_cells\n    .group_by([\"row\", \"col\", \"parent\"])\n    .agg([\n        pl.col(\"value\").implode().list.join(\" \").alias(\"value\"),\n        pl.col(\"y1\").min().alias(\"y1\"),\n        pl.col(\"x1\").min().alias(\"x1\"),\n    ])\n    .sort([\"row\", \"col\", \"y1\", \"x1\"])\n    .group_by([\"row\", \"col\"])\n    .agg(\n        pl.col(\"value\").implode().list.join(\"\\n\").alias(\"text\")\n    )\n    .with_columns(\n        pl.when(pl.col(\"text\") == \"\").then(None).otherwise(pl.col(\"text\")).alias(\"text\")\n    )\n    .select([\"row\", \"col\", \"text\"])\n)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395107.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1181,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1509,
+    "output_tokens_details": {
+      "reasoning_tokens": 1034
+    },
+    "total_tokens": 2690
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

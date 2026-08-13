@@ -1,0 +1,16 @@
+layer,category,count
+L1,import or unresolved-reference error,1
+L1,incomplete runnable code,3
+L1,incorrect column reference,1
+L1,invalid target API usage,24
+L1,shape or structural mismatch,1
+L1,type or runtime error,2
+L2,incorrect aggregation/filter/join logic,2
+L2,index or datetime contract mismatch,6
+L2,invalid target API usage,1
+L2,missing one or more steps,4
+L2,return-type mismatch,5
+L2,schema mismatch,2
+L2,wrong logical direction,1
+L3,dtype-sensitive behaviour,3
+L3,empty-input handling,1

@@ -1,0 +1,105 @@
+{
+  "id": "resp_087260319f1ae2db006a7a391e7ba4819295a8be573142106a",
+  "created_at": 1786394910.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_087260319f1ae2db006a7a391f019c8192aa34ed028df7296b",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_087260319f1ae2db006a7a392538d481929695863e07ef5518",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\nrft_data = pl.DataFrame(pressure_vals)\nensemble_data = []\nfor iens in realizations:\n    realization_frame = pl.DataFrame(\n        {\n            \"TVD\": tvd_arg,\n            \"Pressure\": rft_data.get_column(iens),\n            \"ObsValue\": obs_node[\"observations\"].to_list()[0],\n            \"ObsStd\": obs_node[\"std\"].to_list()[0],\n        }\n    )\n    realization_frame = realization_frame.with_columns(\n        pl.lit(iens).alias(\"Realization\"),\n        pl.lit(well).alias(\"Well\"),\n    )\n    ensemble_data.append(realization_frame)\ndata.append(pl.concat(ensemble_data))",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394917.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 8755,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1033,
+    "output_tokens_details": {
+      "reasoning_tokens": 883
+    },
+    "total_tokens": 9788
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

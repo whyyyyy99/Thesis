@@ -1,0 +1,105 @@
+{
+  "id": "resp_06c0492e8c615e1f006a7a3abe73e0819db92565cfb1afc09a",
+  "created_at": 1786395326.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_06c0492e8c615e1f006a7a3abee70c819daf5cd73c2c762705",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_06c0492e8c615e1f006a7a3ac1c740819da87d2745ba37020a",
+      "content": [
+        {
+          "annotations": [],
+          "text": "stochastic_oscillator_low_min = self.df[\"Low\"].rolling_min(window_size=window)\nstochastic_oscillator_high_max = self.df[\"High\"].rolling_max(window_size=window)\n\nstochastic_oscillator_stoch = (\n    (self.df[\"Close\"] - stochastic_oscillator_low_min)\n    / (stochastic_oscillator_high_max - stochastic_oscillator_low_min)\n    * 100\n)\n\nif fillna:\n    stochastic_oscillator_stoch = stochastic_oscillator_stoch.fill_nan(50).fill_null(50)\n    stochastic_oscillator_stoch_signal = (\n        stochastic_oscillator_stoch.rolling_mean(window_size=smooth_window)\n        .fill_nan(50)\n        .fill_null(50)\n    )\nelse:\n    stochastic_oscillator_stoch_signal = stochastic_oscillator_stoch.rolling_mean(window_size=smooth_window)\n\nself.df = self.df.with_columns(\n    stoch=stochastic_oscillator_stoch,\n    stoch_signal=stochastic_oscillator_stoch_signal,\n)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395330.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 839,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 667,
+    "output_tokens_details": {
+      "reasoning_tokens": 442
+    },
+    "total_tokens": 1506
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

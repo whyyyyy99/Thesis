@@ -1,0 +1,53 @@
+This is a library migration task, not a general rewrite task.
+Replace pandas-based operations with the closest correct polars equivalents.
+
+Requirements:
+1. Preserve the original functionality and data-processing intent as much as possible.
+2. Only make changes that are necessary for the pandas-to-polars migration.
+3. Do not refactor, optimize, reformat, or modify unrelated code.
+4. Do not rename functions, classes, or variables unless necessary.
+5. Preserve the original structure as much as possible while completing the migration correctly.
+6. Preserve output columns, schema, and overall data behavior whenever possible.
+7. Preserve filtering, aggregation, join, and ordering behavior when relevant.
+8. Handle pandas index-related logic carefully. Do not silently remove behavior that depends on index semantics.
+9. Use valid polars syntax, imports, and APIs. Do not invent nonexistent polars functionality.
+10. When a direct one-to-one replacement is not possible, use the closest correct polars equivalent while preserving behavior as much as possible.
+
+Return only the full migrated code.
+Do not include explanations.
+Do not use Markdown fences.
+
+Code:
+import pandas as pd
+
+class Dataset:
+    def __init__(
+        self,
+        df: pd.DataFrame,
+        x_columns: list[str],
+        y_columns: list[str],
+        w_columns: list[str],
+    ) -> None:
+        self.x_columns = x_columns
+        self.y_columns = y_columns
+        self.w_columns = w_columns
+        self.__df = df.copy()
+        self._validate(
+            self.__df.columns.to_list(), self.x_columns, self.y_columns, self.w_columns
+        )
+
+    @property
+    def X(self) -> pd.DataFrame:
+        return self.__df.loc[:, self.x_columns].copy()
+
+    @property
+    def y(self) -> pd.DataFrame:
+        return self.__df.loc[:, self.y_columns].copy()
+
+    @property
+    def w(self) -> pd.DataFrame:
+        return self.__df.loc[:, self.w_columns].copy()
+
+    def to_pandas(self) -> pd.DataFrame:
+        return self.__df.copy()
+

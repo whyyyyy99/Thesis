@@ -1,0 +1,218 @@
+## Profile
+You are a careful Python code migration assistant specialized in pandas-to-Polars translation. You have deep knowledge of both libraries and understand their behavioral differences precisely.
+
+## Rules
+- Preserve the original logic and execution flow exactly; change only what is necessary for migration.
+- Preserve the observable output contract, including required columns, column order when semantically meaningful, and compatible return type.
+- Polars has no row index; handle index-dependent logic explicitly using column operations.
+- Do not alter behavior on edge cases such as empty input, null values, duplicate keys, or single-column outputs.
+- Prefer vectorised Polars expressions over element-wise operations wherever possible.
+- Use valid Polars APIs only; do not copy pandas-only idioms into Polars.
+- Include all necessary imports at the top.
+
+## Workflow
+1. Read the source pandas code carefully and identify all data transformations and their execution order.
+2. Check the AST-detected pandas APIs listed below, but treat this list only as a reference, not ground truth: the detector can miss operations entirely, or misclassify whether a call applies to a DataFrame, a Series, or a GroupBy. Independently work out the pandas operations from the source code yourself, then compare your own reading against the detected list. Where they disagree, trust your own reading of the source code.
+3. For each detected API, look up the matched Polars equivalent in the Knowledge section.
+4. Treat the matched mapping records as primary references, but still verify that they preserve the behavior of the source pandas operation.
+5. For any unmatched or unknown APIs, translate manually using your knowledge of valid Polars APIs.
+6. Do not introduce a Polars API solely because it appears in the mapping records. Prioritize behavioral equivalence and the simplest valid Polars implementation.
+7. Translate each operation to its Polars equivalent, preserving the behavioral contract.
+8. Assemble the final Polars code. Preserve variable names, comments, and overall structure whenever possible, unless a change is necessary for a correct Polars implementation.
+9. Output only executable Polars code — no markdown, no explanations.
+
+## Library
+- Source language: Python
+- Source library: pandas
+- Target library: Polars
+- Target language: Python
+
+## Source Code
+import pandas as pd
+
+def get_cells_dataframe(horizontal_lines: List[Line], vertical_lines: List[Line]) -> pd.DataFrame:
+    default_df = pd.DataFrame(columns=["x1", "x2", "y1", "y2", 'width', "height"])
+    df_h_lines = pd.DataFrame(map(lambda l: l.dict, horizontal_lines)) if horizontal_lines else default_df.copy()
+    df_v_lines = pd.DataFrame(map(lambda l: l.dict, vertical_lines)) if vertical_lines else default_df.copy()
+
+    df_h_lines_cp = df_h_lines.copy()
+    df_h_lines_cp.columns = ["x1_", "x2_", "y1_", "y2_", 'width_', "height_"]
+
+    cross_h_lines = df_h_lines.merge(df_h_lines_cp, how='cross')
+    cross_h_lines = cross_h_lines[cross_h_lines["y1"] < cross_h_lines["y1_"]]
+
+    cross_h_lines["l_corresponds"] = (cross_h_lines["x1"] - cross_h_lines["x1_"] / cross_h_lines["width"]).abs() <= 0.02
+    cross_h_lines["r_corresponds"] = (cross_h_lines["x2"] - cross_h_lines["x2_"] / cross_h_lines["width"]).abs() <= 0.02
+    cross_h_lines["l_contained"] = (((cross_h_lines["x1"] <= cross_h_lines["x1_"])
+                                    & (cross_h_lines["x1_"] <= cross_h_lines["x2"]))
+                                    | ((cross_h_lines["x1_"] <= cross_h_lines["x1"])
+                                       & (cross_h_lines["x1"] <= cross_h_lines["x2_"])))
+    cross_h_lines["r_contained"] = (((cross_h_lines["x1"] <= cross_h_lines["x2_"])
+                                     & (cross_h_lines["x2_"] <= cross_h_lines["x2"]))
+                                    | ((cross_h_lines["x1_"] <= cross_h_lines["x2"])
+                                       & (cross_h_lines["x2"] <= cross_h_lines["x2_"])))
+
+    matching_condition = ((cross_h_lines["l_corresponds"] | cross_h_lines["l_contained"])
+                          & (cross_h_lines["r_corresponds"] | cross_h_lines["r_contained"]))
+    cross_h_lines = cross_h_lines[matching_condition]
+
+    cross_h_lines["x1_bbox"] = cross_h_lines[["x1", "x1_"]].max(axis=1)
+    cross_h_lines["x2_bbox"] = cross_h_lines[["x2", "x2_"]].min(axis=1)
+    cross_h_lines["y1_bbox"] = cross_h_lines["y1"]
+    cross_h_lines["y2_bbox"] = cross_h_lines["y1_"]
+    df_bbox = cross_h_lines[["x1_bbox", "y1_bbox", "x2_bbox", "y2_bbox"]].reset_index()
+
+    df_bbox["h_margin"] = pd.concat([(df_bbox["x2_bbox"] - df_bbox["x1_bbox"]) * 0.05,
+                                     pd.Series(5.0, index=range(len(df_bbox)))],
+                                    axis=1).max(axis=1).round()
+    df_bbox_v = df_bbox.merge(df_v_lines, how='cross')
+
+    horizontal_cond = ((df_bbox_v["x1_bbox"] - df_bbox_v["h_margin"] <= df_bbox_v["x1"])
+                       & (df_bbox_v["x2_bbox"] + df_bbox_v["h_margin"] > + df_bbox_v["x1"]))
+    df_bbox_v = df_bbox_v[horizontal_cond]
+
+    df_bbox_v["overlapping"] = df_bbox_v[["y2", "y2_bbox"]].min(axis=1) - df_bbox_v[["y1", "y1_bbox"]].max(axis=1)
+    df_bbox_v = df_bbox_v[df_bbox_v["overlapping"] / (df_bbox_v["y2_bbox"] - df_bbox_v["y1_bbox"]) >= 0.8]
+
+    df_bbox_delimiters = (df_bbox_v.groupby(['index', "x1_bbox", "x2_bbox", "y1_bbox", "y2_bbox"])
+                          .agg(dels=('x1', lambda x: [bound for bound in zip(sorted(x), sorted(x)[1:])] or None))
+                          )
+
+    try:
+        df_bbox_delimiters = df_bbox_delimiters[df_bbox_delimiters["dels"].notnull()].explode(column="dels").reset_index()
+        df_bbox_delimiters[['del1', 'del2']] = pd.DataFrame(df_bbox_delimiters.dels.tolist(),
+                                                            index=df_bbox_delimiters.index)
+        df_bbox_delimiters["x1_bbox"] = df_bbox_delimiters["del1"]
+        df_bbox_delimiters["x2_bbox"] = df_bbox_delimiters["del2"]
+
+        df_cells = df_bbox_delimiters[["x1_bbox", "y1_bbox", "x2_bbox", "y2_bbox"]]
+        df_cells.columns = ["x1", "y1", "x2", "y2"]
+
+        return df_cells.reset_index()
+    except ValueError:
+        return pd.DataFrame(columns=["index", "x1", "y1", "x2", "y2"])
+
+
+## Detected pandas APIs (by AST)
+Note: generated by static analysis and may be incomplete or wrong (missed calls, or DataFrame/Series/GroupBy misclassification). Verify against the source code above rather than trusting this list outright.
+  - DataFrameGroupBy.agg
+  - pandas.DataFrame
+  - pandas.DataFrame.columns
+  - pandas.DataFrame.copy
+  - pandas.DataFrame.explode
+  - pandas.DataFrame.groupby
+  - pandas.DataFrame.index
+  - pandas.DataFrame.max
+  - pandas.DataFrame.merge
+  - pandas.DataFrame.min
+  - pandas.DataFrame.reset_index
+  - pandas.DataFrame.round
+  - pandas.Series
+  - pandas.Series.abs
+  - pandas.Series.notnull
+  - pandas.Series.to_list
+  - pandas.concat
+
+## Knowledge: Matched pandas-to-Polars API Mapping Records
+The following records were retrieved by exact lookup from a curated pandas-to-Polars mapping knowledge base. Each record is a confirmed mapping — use it as your primary reference, but verify that it preserves the behavior of the source pandas operation before applying it.
+
+[1] Source API: pandas.DataFrame
+    Target API: polars.DataFrame
+    Description: Creates a two-dimensional tabular data object.
+    Usage Limitations: Use pl.DataFrame(data, schema=...); pandas index has no direct Polars equivalent.
+    Discrepancies: pandas DataFrame has row index labels, while Polars DataFrame only has columns and row positions.
+
+[2] Source API: pandas.DataFrame.columns
+    Target API: polars.DataFrame.columns
+    Description: Returns column labels.
+    Usage Limitations: Use df.columns.
+    Discrepancies: Mostly direct; Polars columns are the main labels because there is no row index.
+
+[3] Source API: pandas.DataFrame.copy
+    Target API: polars.DataFrame.clone
+    Description: Make a copy of the DataFrame.
+    Usage Limitations: Use df.clone() in Polars; deep/shallow distinction does not apply since Polars DataFrames are immutable.
+    Discrepancies: pandas copy(deep=True/False) controls deep vs shallow copy; Polars clone() always produces an independent copy because DataFrames are immutable.
+
+[4] Source API: pandas.DataFrame.explode
+    Target API: polars.DataFrame.explode
+    Description: Transform each element of a list-like column into a separate row.
+    Usage Limitations: Direct mapping; Polars explode works on List-type columns. Use pl.col(col).cast(pl.List(...)) if needed first.
+    Discrepancies: pandas explode works on any iterable cell; Polars explode requires the column to be of List dtype.
+
+[5] Source API: pandas.DataFrame.groupby
+    Target API: polars.DataFrame.group_by
+    Description: Groups rows by one or more columns for aggregation.
+    Usage Limitations: Use df.group_by(...).agg(...); as_index, level, and index grouping need manual review.
+    Discrepancies: pandas can group by index/mapper and has as_index; Polars groups by columns/expressions and has no pandas-style index.
+
+[6] Source API: pandas.DataFrame.index
+    Target API: No direct Polars equivalent; use explicit index column or with_row_index()
+    Description: Returns row labels of the DataFrame.
+    Usage Limitations: Do not translate to df.index; create an explicit column if row labels matter.
+    Discrepancies: pandas has hidden row index, while Polars has no pandas-style index.
+
+[7] Source API: pandas.DataFrame.max
+    Target API: df.select(pl.all().max()) / pl.col(...).max()
+    Description: Returns maximum values.
+    Usage Limitations: Use expressions; select numeric columns if needed.
+    Discrepancies: pandas has axis/skipna/numeric_only; Polars aggregates columns explicitly.
+
+[8] Source API: pandas.DataFrame.merge
+    Target API: polars.DataFrame.join
+    Description: Merge DataFrames with a database-style join.
+    Usage Limitations: Map on/left_on/right_on directly; how maps to how in Polars; suffixes maps to suffix= (single tuple in Polars); validate and indicator are not supported.
+    Discrepancies: pandas merge supports indicator column and validate mode; Polars join does not. Polars suffix is a single string, not a two-element tuple.
+
+[9] Source API: pandas.DataFrame.min
+    Target API: df.select(pl.all().min()) / pl.col(...).min()
+    Description: Returns minimum values.
+    Usage Limitations: Use expressions; select relevant columns explicitly.
+    Discrepancies: pandas supports axis/numeric options; Polars uses column expressions.
+
+[10] Source API: pandas.DataFrame.reset_index
+    Target API: No direct Polars equivalent; use with_row_index() only for row numbers
+    Description: Resets index into columns or drops it.
+    Usage Limitations: If pandas index contains meaningful values, preserve it as a real column before migration.
+    Discrepancies: pandas has hidden index to reset; Polars has no hidden index.
+
+[11] Source API: pandas.DataFrame.round
+    Target API: df.select(pl.all().round(decimals)) / pl.col(...).round(...)
+    Description: Rounds numeric columns.
+    Usage Limitations: Use round; dictionary-per-column decimals need explicit column expressions.
+    Discrepancies: pandas supports per-column decimals dict; Polars requires explicit expressions.
+
+[12] Source API: pandas.Series
+    Target API: polars.Series
+    Description: Creates a one-dimensional labeled pandas array-like object.
+    Usage Limitations: Use pl.Series(name, values, dtype=...); pandas index has no direct Polars equivalent.
+    Discrepancies: pandas Series has axis labels/index, while Polars Series has a name but no pandas-style index.
+
+[13] Source API: pandas.Series.abs
+    Target API: polars.Series.abs / polars.Expr.abs
+    Description: Returns absolute numeric values.
+    Usage Limitations: Use Series method or Expr in select/with_columns.
+    Discrepancies: Mostly similar, but dtype/null behavior may differ.
+
+[14] Source API: pandas.Series.notnull
+    Target API: polars.Series.is_not_null / polars.Expr.is_not_null; use is_not_nan additionally for NaN
+    Description: Alias for detecting non-missing values.
+    Usage Limitations: Same as notna; use is_not_null and optionally is_not_nan.
+    Discrepancies: pandas notnull is alias of notna; Polars uses is_not_null.
+
+[15] Source API: pandas.Series.to_list
+    Target API: polars.Series.to_list
+    Description: Returns Series values as a Python list.
+    Usage Limitations: Use s.to_list().
+    Discrepancies: Both return Python lists, but pandas missing values and Polars null/NaN handling may differ.
+
+[16] Source API: pandas.concat
+    Target API: polars.concat
+    Description: Concatenates multiple DataFrames or Series.
+    Usage Limitations: Map axis=0 to vertical concat; axis=1 to horizontal concat; review schema alignment.
+    Discrepancies: pandas concat handles index alignment, while Polars concat uses explicit strategies such as vertical, horizontal, diagonal, or align.
+
+## Unmatched or Unknown APIs
+The following APIs were detected by AST but could not be matched to any mapping record. Translate them manually.
+
+  - DataFrameGroupBy.agg

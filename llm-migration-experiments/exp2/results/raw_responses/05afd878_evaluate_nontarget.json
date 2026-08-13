@@ -1,0 +1,105 @@
+{
+  "id": "resp_0985e55c82666435006a7a3751902c81919c8d4619290e9380",
+  "created_at": 1786394449.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0985e55c82666435006a7a375252848191b259b271c681f70a",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0985e55c82666435006a7a37587ac48191b54c4dfc8e25a5fe",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import re\nimport polars as pl\n\nbinned_otu_table = binned_otu_table.with_columns(\n    pl.col(\"sample\").map_elements(lambda x: re.sub(r\"\\.1$\", \"\", x), return_dtype=pl.Utf8)\n)\n\nnontarget_otu_table = (\n    binned_otu_table\n    .select([\"sample\", \"gene\", \"sequence\", \"taxonomy\", \"found_in\"])\n    .join(elusive_clusters, on=\"sample\", how=\"inner\")\n    .filter(pl.col(\"coassembly\").is_not_null())\n    .unique(maintain_order=True)\n    .select([\"coassembly\", \"gene\", \"sequence\", \"taxonomy\", \"found_in\"])\n)\nnontarget_otu_table = nontarget_otu_table.with_columns(pl.lit(None).alias(\"target\"))\n\nhaystack_otu_table = pl.concat([elusive_otu_table, nontarget_otu_table], how=\"diagonal\")",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394457.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 23508,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1077,
+    "output_tokens_details": {
+      "reasoning_tokens": 875
+    },
+    "total_tokens": 24585
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

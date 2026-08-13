@@ -1,0 +1,105 @@
+{
+  "id": "resp_009a70e6a18b8ef4006a7a3a44116c819fb4eda6aa8efe1d22",
+  "created_at": 1786395204.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_009a70e6a18b8ef4006a7a3a446410819fa24bbc4bb1d07d48",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_009a70e6a18b8ef4006a7a3a44ed88819f9cbdeaaf5d718547",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ncondition_adjacent = (\n    (\n        (pl.col(\"overlapping_y\") > 5)\n        & (\n            pl.col(\"diff_x\")\n            / pl.max_horizontal(pl.col(\"width\"), pl.col(\"width_\"))\n            <= 0.05\n        )\n    )\n    | (\n        (pl.col(\"overlapping_x\") > 5)\n        & (\n            pl.col(\"diff_y\")\n            / pl.max_horizontal(pl.col(\"height\"), pl.col(\"height_\"))\n            <= 0.05\n        )\n    )\n)\n\ndf_cross_cells = df_cross_cells.with_columns(\n    adjacent=condition_adjacent,\n    redundant=pl.col(\"contained\") & condition_adjacent,\n)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395205.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1704,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 223,
+    "output_tokens_details": {
+      "reasoning_tokens": 69
+    },
+    "total_tokens": 1927
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

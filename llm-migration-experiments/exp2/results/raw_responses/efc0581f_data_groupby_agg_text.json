@@ -1,0 +1,105 @@
+{
+  "id": "resp_0ad9d9f1e62496d2006a7a39d06574819fa2a71327b30ee660",
+  "created_at": 1786395088.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0ad9d9f1e62496d2006a7a39d0c908819fb8b500fb3c71002c",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0ad9d9f1e62496d2006a7a39d93fec819f81f7b5a60bd1ada9",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ndf_text_parent = (\n    df_words_contained.group_by(\"parent\")\n    .agg(\n        x1=pl.col(\"x1\").min(),\n        x2=pl.col(\"x2\").max(),\n        y1=pl.col(\"y1\").min(),\n        y2=pl.col(\"y2\").max(),\n        value=pl.col(\"value\"),\n    )\n    .with_columns(value=pl.col(\"value\").list.join(\" \"))\n    .sort([\"y1\", \"x1\"])\n)\n\nif df_text_parent.height == 0:\n    return None\n\nreturn df_text_parent[\"value\"].cast(pl.Utf8).str.concat(delimiter=\"\\n\").strip() or None",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395097.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 9207,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 787,
+    "output_tokens_details": {
+      "reasoning_tokens": 634
+    },
+    "total_tokens": 9994
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

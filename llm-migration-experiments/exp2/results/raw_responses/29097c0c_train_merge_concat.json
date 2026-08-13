@@ -1,0 +1,105 @@
+{
+  "id": "resp_0c4ab59518c3b473006a7a37bb02e0819e925a30b3d55afd93",
+  "created_at": 1786394555.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0c4ab59518c3b473006a7a37bb4c6c819e9635bb28b1d86d1e",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0c4ab59518c3b473006a7a37c15f60819e98cad48a4639d3fa",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\n_pred_df = pl.DataFrame(\n    {\"index\": test_ds.y.index, \"pred\": pred.reshape(-1)}\n)\n_base_df = (\n    pl.from_pandas(test_ds.y.reset_index())\n    .rename({test_ds.y.reset_index().columns[0]: \"index\", test_ds.y_columns[0]: \"y\"})\n    .join(\n        pl.from_pandas(test_ds.w.reset_index()).rename(\n            {test_ds.w.reset_index().columns[0]: \"index\", test_ds.w_columns[0]: \"w\"}\n        ),\n        on=\"index\",\n        how=\"inner\",\n    )\n    .join(_pred_df, on=\"index\", how=\"inner\")\n    .select([\"y\", \"w\", \"pred\"])\n)\nbase_dfs.append(_base_df)\nbase_df = pl.concat(base_dfs)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394562.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 897,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1108,
+    "output_tokens_details": {
+      "reasoning_tokens": 928
+    },
+    "total_tokens": 2005
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

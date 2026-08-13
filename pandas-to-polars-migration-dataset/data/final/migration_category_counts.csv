@@ -1,0 +1,12 @@
+migration_category,pairs
+Core dataframe transformations,139
+Index and row semantics,86
+Aggregation and combination,60
+IO boundaries,37
+"Types, schemas, and temporal operations",32
+UDF and custom-logic rewrites,32
+Lazy execution and evaluation strategy,28
+Missing and null semantics,24
+Import and setup only,21
+Reshaping,11
+Other/manual,1

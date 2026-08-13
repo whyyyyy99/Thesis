@@ -1,0 +1,105 @@
+{
+  "id": "resp_0a998a3d85fc18db006a7a3a8c4ae481a396ec3e44cc6e213a",
+  "created_at": 1786395276.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0a998a3d85fc18db006a7a3a8cb31081a3a2eff3567a5f2138",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0a998a3d85fc18db006a7a3a8e97e081a38f27664ea581d8de",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import numpy as np\nimport polars as pl\nfrom typing import List, Optional, Union\n\ndef nearest_neighbor(\n    treated_set: pl.DataFrame,\n    control_set: pl.DataFrame,\n    metric: str,\n    covariates: Optional[Union[List[str], pl.Series]] = None,\n) -> pl.DataFrame:\n    columns = treated_set.columns\n\n    if not covariates:\n        covariates = columns\n\n    treated_array = treated_set.select(covariates).to_numpy().astype(float)\n    control_array = control_set.select(covariates).to_numpy().astype(float)\n    control_array_full = control_set.to_numpy()\n    matched_rows = []\n\n    cov = np.array([])\n    if metric == \"mahalanobis\":\n        cov = np.cov(np.concatenate((treated_array, control_array)).T)\n\n    for element_ss in treated_array:\n        if metric == \"mahalanobis\":\n            if cov.ndim == 0:\n                inv_cov = 1 / cov\n            else:\n                try:\n                    inv_cov = np.linalg.inv(cov)\n                except np.linalg.LinAlgError:\n                    raise ValueError(\n                        \"The covariance matrix is singular. Please, check the data.\"\n                    )\n\n            dist = [\n                metrics.mahalanobis_metric(element_ss, element_bs, inv_cov=inv_cov)\n                for element_bs in control_array\n            ]\n\n        else:\n            metric_function = metrics.METRICS[metric]\n\n            dist = [\n                metric_function(element_ss, element_bs) for element_bs in control_array\n            ]\n\n        nn_index = np.argmin(dist)\n\n        matched_rows.append([float(x) for x in control_array_full[nn_index]])\n\n        control_array_full = np.delete(control_array_full, nn_index, 0)\n        control_array = np.delete(control_array, nn_index, 0)\n\n    if not matched_rows:\n        return pl.DataFrame(schema={col: pl.Null for col in columns})\n\n    matched_group = pl.DataFrame(matched_rows, schema=columns).with_columns(\n        pl.all().cast(pl.Float64)\n    )\n    return matched_group\n",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395280.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 17816,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 710,
+    "output_tokens_details": {
+      "reasoning_tokens": 264
+    },
+    "total_tokens": 18526
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

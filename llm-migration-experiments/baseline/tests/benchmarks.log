@@ -1,0 +1,962 @@
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784314835.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.07s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.08s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.08s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.09s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.09s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.09s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.13s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.14s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.14s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.14s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.15s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784315245.15s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.84s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.85s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.86s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.86s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.87s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.87s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.88s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.88s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.88s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.89s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.89s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784327824.90s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.17s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784725439.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.71s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.72s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.73s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.73s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.74s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.74s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.75s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.75s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.75s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.76s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.76s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784727612.77s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.21s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.22s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784728673.23s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.23s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.24s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.25s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.25s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.25s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.25s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784755360.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.29s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756501.29s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.29s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.29s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.29s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.32s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.33s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.33s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.33s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.33s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.33s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.34s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784756887.34s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.24s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.25s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.26s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.27s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784787297.28s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.65s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.66s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.67s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.67s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.68s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.68s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.69s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.69s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.69s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.70s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.70s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1784836145.70s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.58s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.59s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.60s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.61s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.62s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.62s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.63s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.63s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.64s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.64s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.65s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785576213.65s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.17s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.18s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed   Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0   ONNX       ✅        5.2  0.92                    12.3  81.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (1, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str    ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX   ┆ ✅       ┆ 5.2       ┆ 0.92 ┆ 12.3                   ┆ 81.0 │
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed         Format Status❔  Size (MB)   mAP  Inference time (ms/im)   FPS
+0         ONNX       ✅        5.2     -                    12.3  81.0
+1  TorchScript       ✅        4.8  0.91                    10.1  99.0
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.19s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (2, 6)
+┌─────────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format      ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---         ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ str         ┆ str      ┆ f64       ┆ f64  ┆ f64                    ┆ f64  │
+╞═════════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+│ ONNX        ┆ ✅       ┆ 5.2       ┆ null ┆ 12.3                   ┆ 81.0 │
+│ TorchScript ┆ ✅       ┆ 4.8       ┆ 0.91 ┆ 10.1                   ┆ 99.0 │
+└─────────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed Empty DataFrame
+Columns: [Format, Status❔, Size (MB), mAP, Inference time (ms/im), FPS]
+Index: []
+
+Benchmarks complete for yolov8n on coco128.yaml at imgsz=640 (1785676364.20s) Benchmarks legend:  - ✅ Success  - ❎ Export passed but validation failed  - ❌️ Export failed shape: (0, 6)
+┌────────┬──────────┬───────────┬──────┬────────────────────────┬──────┐
+│ Format ┆ Status❔ ┆ Size (MB) ┆ mAP  ┆ Inference time (ms/im) ┆ FPS  │
+│ ---    ┆ ---      ┆ ---       ┆ ---  ┆ ---                    ┆ ---  │
+│ null   ┆ null     ┆ null      ┆ null ┆ null                   ┆ null │
+╞════════╪══════════╪═══════════╪══════╪════════════════════════╪══════╡
+└────────┴──────────┴───────────┴──────┴────────────────────────┴──────┘

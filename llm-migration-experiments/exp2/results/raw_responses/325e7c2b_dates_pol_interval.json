@@ -1,0 +1,105 @@
+{
+  "id": "resp_0514558cd0395ec6006a7a37c33c1081a2b3216feb96b89b22",
+  "created_at": 1786394563.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0514558cd0395ec6006a7a37c394f081a29096ae4e724d3962",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0514558cd0395ec6006a7a37cbf95881a2b7c399df62c85914",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import numpy as np\nimport pandas as pd\nimport polars as pl\nfrom dateutil.relativedelta import relativedelta\nfrom pandas.core.indexes.datetimes import DatetimeIndex\n\ndef pol_interval(dates: str | datetime | DatetimeIndex | pd.Series,\n                 issue_date: str | datetime | DatetimeIndex | pd.Series,\n                 dur_length: str) -> np.ndarray:\n    arg_match('dur_length', dur_length, ['year', 'quarter', 'month', 'week'])\n\n    dates = _convert_date(dates)\n    issue_date = _convert_date(issue_date)\n\n    n = max(len2(dates), len2(issue_date))\n\n    def _to_list(x, n):\n        if isinstance(x, pl.Series):\n            vals = x.to_list()\n        elif isinstance(x, (pd.Series, DatetimeIndex, np.ndarray, list, tuple)):\n            vals = list(x)\n        else:\n            return [x] * n\n        if len(vals) < n:\n            vals = vals + [None] * (n - len(vals))\n        return vals\n\n    dates = _to_list(dates, n)\n    issue_date = _to_list(issue_date, n)\n\n    dat = pl.DataFrame({\n        'issue_date': issue_date,\n        'dates': dates\n    })\n\n    if dur_length == \"year\":\n        res = [relativedelta(a, b).years for a, b in\n               zip(dat[\"dates\"].to_list(), dat[\"issue_date\"].to_list())]\n\n    elif dur_length in [\"month\", \"quarter\"]:\n        def mth_calc(a, b):\n            delta = relativedelta(a, b)\n            return 12 * delta.years + delta.months\n\n        if dur_length == \"quarter\":\n            res = [mth_calc(a, b) // 3 for a, b\n                   in zip(dat[\"dates\"].to_list(), dat[\"issue_date\"].to_list())]\n        else:\n            res = [mth_calc(a, b) for a, b in zip(dat[\"dates\"].to_list(), dat[\"issue_date\"].to_list())]\n\n    else:\n        res = (pl.Series(dat[\"dates\"]) - pl.Series(dat[\"issue_date\"])).dt.total_days().to_list()\n        res = [x // 7 if x is not None else None for x in res]\n\n    return np.array(res) + 1",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394574.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3932,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1539,
+    "output_tokens_details": {
+      "reasoning_tokens": 1034
+    },
+    "total_tokens": 5471
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

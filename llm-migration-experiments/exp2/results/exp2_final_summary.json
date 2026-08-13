@@ -1,0 +1,31 @@
+{
+  "experiment": "exp2_v2_reasoning_low_20260810",
+  "total_snippets": 238,
+  "evaluation_valid": 231,
+  "unassessed": 7,
+  "end_to_end_pass": 174,
+  "primary_l1_failure": 32,
+  "primary_l2_failure": 21,
+  "primary_l3_failure": 4,
+  "raw_238_pass_rate": 0.7310924369747899,
+  "evaluation_valid_pass_rate": 0.7532467532467533,
+  "conditional_rates": {
+    "l1_pass": {
+      "numerator": 199,
+      "denominator": 231,
+      "rate": 0.8614718614718615
+    },
+    "l2_pass_given_l1": {
+      "numerator": 178,
+      "denominator": 199,
+      "rate": 0.8944723618090452
+    },
+    "l3_pass_given_l2": {
+      "numerator": 174,
+      "denominator": 178,
+      "rate": 0.9775280898876404
+    }
+  },
+  "nbconvert_failures": 0,
+  "manual_review_rows": 238
+}

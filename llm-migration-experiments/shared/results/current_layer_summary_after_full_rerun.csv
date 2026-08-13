@@ -1,0 +1,5 @@
+experiment,total_snippets,evaluation_invalid,scored_snippets,l1_pass,l1_fail,l2_eligible,l2_pass,l2_independent_fail,l3_eligible,l3_pass,l3_independent_fail,all_pass,l2_cascade_fail_not_counted,l3_cascade_fail_not_counted
+Baseline,238,7,231,205,26,205,179,26,179,170,9,170,26,40
+Exp1,238,7,231,205,26,205,178,27,178,172,6,172,26,37
+Exp2,238,7,231,199,32,199,178,21,178,174,4,174,32,39
+Exp3,238,7,231,200,31,200,175,25,175,170,5,170,31,43

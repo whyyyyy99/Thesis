@@ -1,0 +1,105 @@
+{
+  "id": "resp_04ec4ea12e025328006a7a3addb2c88191b9e64cb82e05bd18",
+  "created_at": 1786395357.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_04ec4ea12e025328006a7a3ade2f488191bc0beb5460a30d69",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_04ec4ea12e025328006a7a3ae4234081918fdd008fe0a5cba2",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import datetime\n\nimport polars as pl\nimport streamlit as st\nimport yfinance as yf\n\n\n@st.cache_data\ndef load_yfinance_data_two_tickers(\n    ticker1: str, ticker2: str, start_date: datetime.date, end_date: datetime.date\n) -> pl.DataFrame:\n    data1 = yf.download(ticker1, start=start_date, end=end_date)\n    data2 = yf.download(ticker2, start=start_date, end=end_date)\n\n    data1_pl = pl.from_pandas(data1.reset_index())\n    data2_pl = pl.from_pandas(data2.reset_index())\n\n    date_col1 = data1_pl.columns[0]\n    date_col2 = data2_pl.columns[0]\n\n    combined_data = (\n        data1_pl.select([pl.col(date_col1), pl.col(\"Close\").alias(\"Close_1\")])\n        .join(\n            data2_pl.select([pl.col(date_col2), pl.col(\"Close\").alias(\"Close_2\")]),\n            left_on=date_col1,\n            right_on=date_col2,\n            how=\"outer\",\n        )\n        .sort(date_col1)\n        .rename({date_col1: \"Date\"})\n    )\n\n    return combined_data.select([\"Date\", \"Close_1\", \"Close_2\"])",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395365.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1863,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1076,
+    "output_tokens_details": {
+      "reasoning_tokens": 802
+    },
+    "total_tokens": 2939
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

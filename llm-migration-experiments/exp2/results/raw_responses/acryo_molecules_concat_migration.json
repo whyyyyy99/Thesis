@@ -1,0 +1,105 @@
+{
+  "id": "resp_0f797f9d6293782b006a7a393a29a481a298a7a5431e8e99d5",
+  "created_at": 1786394938.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0f797f9d6293782b006a7a393aa8b081a28a17da35e4a655ee",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0f797f9d6293782b006a7a393be01c81a281756e9b834f5809",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import numpy as np\nimport polars as pl\nfrom typing import Iterable, Self\n\n\n@classmethod\ndef concat(cls, moles: Iterable[Molecules], concat_features: bool = True) -> Self:\n    \"\"\"Concatenate Molecules objects.\"\"\"\n    pos: list[np.ndarray] = []\n    quat: list[np.ndarray] = []\n    features: list[pl.DataFrame] = []\n    for mol in moles:\n        pos.append(mol.pos)\n        quat.append(mol.quaternion())\n        features.append(mol.features)\n\n    all_pos = np.concatenate(pos, axis=0)\n    all_quat = np.concatenate(quat, axis=0)\n    if concat_features:\n        all_features = pl.concat(features, how=\"vertical\")\n    else:\n        all_features = None\n\n    return cls(all_pos, Rotation(all_quat), features=all_features)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394940.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 9606,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 340,
+    "output_tokens_details": {
+      "reasoning_tokens": 158
+    },
+    "total_tokens": 9946
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

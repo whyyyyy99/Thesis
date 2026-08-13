@@ -1,0 +1,105 @@
+{
+  "id": "resp_0e1dcfa78457f62b006a7a3859803881a2b3a61f2ffb275812",
+  "created_at": 1786394713.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0e1dcfa78457f62b006a7a3859df2c81a2a1b7ff7a09f25125",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0e1dcfa78457f62b006a7a385c66b081a2a9c8968d7a43ee6e",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import pickle\nfrom pathlib import Path\n\nimport polars as pl\n\n\ndef write_df_to_pickle(\n    df: pl.DataFrame,\n    path: Path,\n) -> None:\n    \"\"\"Write a Pandas DataFrame to a pickle file.\"\"\"\n    with open(path, \"wb\") as f:\n        pickle.dump(df, f)\n\n\ndef load_df_from_pickle(path: Path) -> pl.DataFrame:\n    \"\"\"Load a Pandas DataFrame from a pickle file.\"\"\"\n    with open(path, \"rb\") as f:\n        return pickle.load(f)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394717.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3377,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 386,
+    "output_tokens_details": {
+      "reasoning_tokens": 269
+    },
+    "total_tokens": 3763
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

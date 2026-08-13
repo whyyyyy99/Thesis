@@ -1,0 +1,105 @@
+{
+  "id": "resp_063ecf70a109a9d5006a7a3b2b94c88192b55fb83017427d6f",
+  "created_at": 1786395435.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_063ecf70a109a9d5006a7a3b2be7e88192891c3688c167f1b1",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_063ecf70a109a9d5006a7a3b2d24088192976ea17c80c430f8",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import pandas as pd\nimport polars as pl\n\n    def __init__(\n        self,\n        matrix: sc.sparse.csr_matrix,\n        lookup: pd.DataFrame,\n        CR: ConnectomeReader | None = None,\n    ):\n        if not sc.sparse.issparse(matrix):\n            matrix = sc.sparse.csr_matrix(matrix)\n        if not isinstance(matrix, sc.sparse.csr_matrix):\n            matrix = matrix.tocsr()\n        self.matrix = matrix\n\n        if not isinstance(lookup, pl.DataFrame):\n            raise ValueError(\"The lookup must be a pandas dataframe.\")\n\n        lookup = lookup.clone()\n        lookup = lookup.with_columns(\n            pl.col(\"index\").alias(\"row_index\"),\n            pl.col(\"index\").alias(\"column_index\"),\n        )\n        self.lookup = lookup.drop(\"index\")\n\n        if not self.lookup.get_column(\"row_index\").is_in(range(self.matrix.shape[0])).all():\n            raise ValueError(\n                \"The lookup must include row indices up to the length of the matrix.\"\n            )\n        if not self.lookup.get_column(\"column_index\").is_in(range(self.matrix.shape[1])).all():\n            raise ValueError(\n                \"The lookup must include column indices up to the length of the matrix.\"\n            )\n\n        self.CR = CR or default_connectome_reader()",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395438.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 7629,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 423,
+    "output_tokens_details": {
+      "reasoning_tokens": 148
+    },
+    "total_tokens": 8052
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

@@ -1,0 +1,113 @@
+repo,pr_title,pr_url,author,comments,created_at,updated_at,hit_pandas,hit_polars,pp_valid
+narwhals-dev/narwhals,feat: add `Schema.to_(arrow|pandas|polars)`,https://github.com/narwhals-dev/narwhals/pull/1924,dangotbanned,21,2025-02-03T14:05:07Z,2025-02-08T17:24:44Z,False,False,False
+ultralytics/ultralytics,"refactor: 🚀 switch core data ops from `pandas` to `polars` (training, benchmarks, plotting, W&B)",https://github.com/ultralytics/ultralytics/pull/21619,Laughing-q,14,2025-08-08T05:52:09Z,2025-08-26T09:53:31Z,False,False,False
+mesa/mesa-frames,Deprecate pandas backend in favor of Polars,https://github.com/mesa/mesa-frames/pull/125,Ben-geo,10,2025-03-20T23:26:19Z,2025-04-03T14:11:29Z,False,False,False
+PyPSA/linopy,Replace pandas-based LP file writing with polars implementation,https://github.com/PyPSA/linopy/pull/496,FabianHofmann,9,2025-09-08T09:51:25Z,2025-11-03T11:20:16Z,False,False,False
+The-Strategy-Unit/data_science,385 write blog post about the move from pandas to polars lessons learned,https://github.com/The-Strategy-Unit/data_science/pull/386,ai-mindset,8,2025-10-29T09:30:18Z,2025-12-02T11:19:14Z,,,
+narwhals-dev/narwhals,"test: Fix yet more tests to work without polars (pandas, pyarrow)",https://github.com/narwhals-dev/narwhals/pull/2250,mgorny,8,2025-03-19T15:13:24Z,2025-03-19T17:53:41Z,False,False,False
+mpds-io/mpds-client,Change Pandas on Polars package ,https://github.com/mpds-io/mpds-client/pull/18,alinzh,6,2024-12-14T11:56:59Z,2025-09-02T12:34:46Z,False,False,False
+narwhals-dev/narwhals,"test: Fix more tests to work without polars (and pandas, pyarrow)",https://github.com/narwhals-dev/narwhals/pull/2245,mgorny,6,2025-03-19T09:17:17Z,2025-03-19T15:57:14Z,False,False,False
+marimo-team/marimo,Typo: pandas -> polars,https://github.com/marimo-team/marimo/pull/3434,ushuz,5,2025-01-14T21:16:28Z,2025-01-14T22:58:03Z,False,False,False
+nasirus/bench_pandas_polars,Add comprehensive pandas vs polars performance benchmark,https://github.com/nasirus/bench_pandas_polars/pull/1,Copilot,4,2025-11-10T18:17:17Z,2025-11-10T21:06:38Z,False,False,False
+conda-forge/ultralytics-feedstock,Remove tqdm and pandas and add polars in requirements,https://github.com/conda-forge/ultralytics-feedstock/pull/449,onuralpszr,4,2025-08-28T20:22:06Z,2025-08-28T21:04:30Z,False,False,False
+visivo-io/visivo,Jared/replace pandas with polars,https://github.com/visivo-io/visivo/pull/258,jpjsonic,4,2025-06-16T17:13:31Z,2025-06-19T14:52:03Z,False,False,False
+kuzudb/kuzu,Fix scan pandas/polars type error,https://github.com/kuzudb/kuzu/pull/5218,acquamarin,3,2025-04-10T05:42:09Z,2025-05-06T20:15:41Z,False,False,False
+Quansight/Quansight-website,[BLOG]: Mastering DuckDB when you're used to pandas or Polars,https://github.com/Quansight/Quansight-website/pull/903,MarcoGorelli,3,2025-01-28T11:38:49Z,2025-02-17T11:11:39Z,False,False,False
+MaastrichtU-CDS/Flyover,Replace pandas with polars for robust CSV data ingestion,https://github.com/MaastrichtU-CDS/Flyover/pull/76,Copilot,2,2025-12-10T08:44:43Z,2025-12-11T09:06:57Z,,,
+typedef-ai/fenic,feat: allow with_column/with_columns to support polars/pandas series,https://github.com/typedef-ai/fenic/pull/266,bcallender,2,2025-10-23T18:20:28Z,2025-11-21T18:34:17Z,,,
+y9c/metagene,Replace pyranges1 and pandas with ruranges and polars,https://github.com/y9c/metagene/pull/6,Copilot,2,2025-10-30T19:57:55Z,2025-10-31T03:29:22Z,False,False,False
+paucablop/chemotools,198 Make pandas and polars optional dependencies to resolve Windows ARM64 compatibility,https://github.com/paucablop/chemotools/pull/211,Gnpd,2,2025-10-23T11:11:01Z,2025-10-29T20:02:32Z,,,
+equinor/ert,Remove `polars_dataframe.to_pandas()` from tests,https://github.com/equinor/ert/pull/12120,jonathan-eq,2,2025-10-23T12:44:59Z,2025-10-27T15:32:36Z,,,
+vietvudanh/vietlott-data,Refactor: Replace pandas with polars in data fetching flow,https://github.com/vietvudanh/vietlott-data/pull/24,Copilot,2,2025-10-18T05:09:57Z,2025-10-18T14:37:06Z,False,False,False
+scipy-conference/scipy_proceedings,Slides: Accelerated DataFrames for all: Bringing GPU acceleration to pandas and Polars,https://github.com/scipy-conference/scipy_proceedings/pull/1165,vyasr,2,2025-09-26T18:03:00Z,2025-10-08T01:43:58Z,,,
+mpds-io/mpds-api,Changes in examples: change Pandas to Polars,https://github.com/mpds-io/mpds-api/pull/63,alinzh,2,2024-12-20T16:42:11Z,2025-09-02T12:56:01Z,False,False,False
+vpduchuynh/ims-coding-agent,Migrate Data Handling from Pandas to Polars for Performance Improvement,https://github.com/vpduchuynh/ims-coding-agent/pull/8,Copilot,2,2025-06-06T09:05:09Z,2025-06-06T10:47:55Z,False,False,False
+EsosaOrumwese/fraud-detection-system,"feat(data-gen): generator spike->create 1M rows with Polars, profile with pandas-profiling, upload to S3 bucket",https://github.com/EsosaOrumwese/fraud-detection-system/pull/16,EsosaOrumwese,2,2025-06-04T13:05:29Z,2025-06-06T04:09:18Z,False,False,False
+marimo-team/marimo,fix: prompt pandas installation instead of polars when duckdb parsing fails,https://github.com/marimo-team/marimo/pull/4905,Light2Dark,2,2025-05-13T17:10:34Z,2025-05-13T17:32:22Z,False,False,False
+Quansight/Quansight-website,BLOG: Mastering DuckDB when you're used to pandas or Polars (part 2),https://github.com/Quansight/Quansight-website/pull/915,MarcoGorelli,2,2025-04-02T14:50:52Z,2025-04-11T15:06:19Z,False,False,False
+posit-dev/positron,"Data Explorer: Support pandas.CategoricalDtype, polars.Categorical, enable sparklines for Polars",https://github.com/posit-dev/positron/pull/6739,wesm,2,2025-03-11T21:36:19Z,2025-03-12T20:41:03Z,False,False,False
+huggingface/datasets,Support faster processing using pandas or polars functions in `IterableDataset.map()`,https://github.com/huggingface/datasets/pull/7370,lhoestq,2,2025-01-14T18:14:13Z,2025-01-31T11:08:15Z,False,False,False
+narwhals-dev/narwhals,"fix: `with_row_index` was returning incorrect results when used with `order_by` for pandas, pyarrow, and polars",https://github.com/narwhals-dev/narwhals/pull/3292,MarcoGorelli,1,2025-11-07T16:59:01Z,2025-11-10T13:36:08Z,False,False,False
+crate/cratedb-guide,"Integrations: Harmonize pages about data frames (pandas, Dask, Polars)",https://github.com/crate/cratedb-guide/pull/478,amotl,1,2025-11-04T02:05:07Z,2025-11-05T13:29:58Z,False,False,False
+marimo-team/marimo,"improvement: migrate mo.ui.dataframe to narwhals; support duckdb, ibis, pandas, polars",https://github.com/marimo-team/marimo/pull/6772,mscolnick,1,2025-10-14T13:47:36Z,2025-10-15T16:06:19Z,False,False,False
+Amsterdam/financiele_overzichten,met polars in plaats van pandas,https://github.com/Amsterdam/financiele_overzichten/pull/12,ic144,1,2025-10-06T13:44:49Z,2025-10-13T09:45:52Z,,,
+CityofToronto/bdit_tt_request_app,Replace Pandas with Polars,https://github.com/CityofToronto/bdit_tt_request_app/pull/226,Nate-Wessel,1,2025-10-02T20:15:57Z,2025-10-03T16:40:16Z,False,False,False
+shuttle-hq/www,blog/pandas vs polars,https://github.com/shuttle-hq/www/pull/502,dcodesdev,1,2025-09-24T11:08:51Z,2025-09-24T11:17:22Z,,,
+eschmidt42/bundestag,chore: swap pandas with polars in most places,https://github.com/eschmidt42/bundestag/pull/24,eschmidt42,1,2025-09-03T17:33:16Z,2025-09-13T07:27:43Z,,,
+posit-dev/great-tables,fix: Align pyarrow float64 type to the right to match pandas and polars behavior,https://github.com/posit-dev/great-tables/pull/734,FBruzzesi,1,2025-07-24T18:12:54Z,2025-07-29T19:57:57Z,False,False,False
+DeepGroundwater/ddr,Fix: speed improvements to adjacency matrix using polars + pyiceberg rather than pandas,https://github.com/DeepGroundwater/ddr/pull/46,taddyb,1,2025-06-19T21:50:46Z,2025-06-25T01:21:29Z,False,False,False
+indian-chutney/Finance1,changed pandas to polars,https://github.com/indian-chutney/Finance1/pull/1,indian-chutney,1,2025-03-14T02:04:31Z,2025-05-13T15:02:13Z,False,False,False
+dagster-io/community-integrations,[dagster-iceberg] Remove pandas for Polars example,https://github.com/dagster-io/community-integrations/pull/194,deepyaman,1,2025-05-01T22:38:01Z,2025-05-02T21:12:12Z,False,False,False
+posit-dev/positron,"Data Explorer: Add Interval ColumnDisplayType, classify pandas timedelta64 and polars Duration as interval",https://github.com/posit-dev/positron/pull/6758,wesm,1,2025-03-12T22:56:00Z,2025-03-16T22:16:30Z,False,False,False
+opensource-observer/oso,fix: use `pandas` and `polars` to address missing columns,https://github.com/opensource-observer/oso/pull/3275,Jabolol,1,2025-03-14T21:25:28Z,2025-03-14T21:41:27Z,False,False,False
+huggingface/datasets,"Add Pandas, PyArrow and Polars docs",https://github.com/huggingface/datasets/pull/7382,lhoestq,1,2025-01-31T13:22:59Z,2025-01-31T16:30:59Z,False,False,False
+saturdata/resources,feat: sam's polars-pandas notebook,https://github.com/saturdata/resources/pull/7,Ho1yShif,0,2025-11-07T03:56:42Z,2026-01-19T19:28:14Z,,,
+nielsen-oss/nebula,python3.9 - spark==3.5.6 - pandas>=2 - polars>=1,https://github.com/nielsen-oss/nebula/pull/2,valerio-maretti,0,2025-10-26T15:31:21Z,2026-01-17T00:36:40Z,,,
+eutwt/pyversus,Support pandas and polars DataFrame inputs,https://github.com/eutwt/pyversus/pull/10,eutwt,0,2025-12-27T20:54:51Z,2025-12-27T20:57:07Z,False,False,False
+aviation-impact-accelerator/aia-analysis-contrail-avoidance,Change main dependency from pandas to polars for working with dataframes,https://github.com/aviation-impact-accelerator/aia-analysis-contrail-avoidance/pull/27,s-ana-314,0,2025-12-12T09:56:05Z,2025-12-19T11:27:25Z,,,
+23skdu/longbow,refactor: replace pandas with polars in ops_test.py,https://github.com/23skdu/longbow/pull/40,23skdu,0,2025-12-15T08:16:28Z,2025-12-15T08:16:39Z,,,
+monarch-initiative/pheval.exomiser,75 replace pandas with polars,https://github.com/monarch-initiative/pheval.exomiser/pull/76,yaseminbridges,0,2025-02-18T17:07:02Z,2025-12-04T16:12:05Z,,,
+vangberg/pdit,Add DataFrame table rendering for pandas and polars,https://github.com/vangberg/pdit/pull/36,vangberg,0,2025-12-02T11:18:04Z,2025-12-02T11:41:00Z,,,
+nanxstats/plaintext-sims,Replace pandas with polars,https://github.com/nanxstats/plaintext-sims/pull/4,nanxstats,0,2025-11-29T03:18:58Z,2025-11-29T03:25:19Z,False,False,False
+litestar-org/sqlspec,"feat(result): add conversion methods to Arrow, Pandas, and Polars",https://github.com/litestar-org/sqlspec/pull/269,cofin,0,2025-11-26T19:27:32Z,2025-11-26T19:39:32Z,False,False,False
+HAILatPitt/concrete-city-of-pgh,"added polars, pyarrow, convert df from polars to pandas",https://github.com/HAILatPitt/concrete-city-of-pgh/pull/3,rossreillypitt,0,2025-11-24T22:05:31Z,2025-11-24T22:05:39Z,,,
+advenn/blog,pandas vs polars,https://github.com/advenn/blog/pull/3,advenn,0,2025-11-24T21:07:37Z,2025-11-24T21:07:46Z,,,
+brandonschabell/alphaflow,Replace pandas with polars,https://github.com/brandonschabell/alphaflow/pull/33,brandonschabell,0,2025-11-11T21:25:19Z,2025-11-11T21:37:31Z,,,
+vupdivup/diffhouse,feat(#127): add pandas and polars extras,https://github.com/vupdivup/diffhouse/pull/130,vupdivup,0,2025-10-27T19:25:07Z,2025-10-27T19:32:19Z,False,False,False
+nj399/first_repo,Changed pandas code to polars chapter 4,https://github.com/nj399/first_repo/pull/2,gem733,0,2025-10-22T13:46:35Z,2025-10-23T12:22:27Z,,,
+ddotta/awesome-polars,Add blog post about comparison between Polars and Pandas in 2025,https://github.com/ddotta/awesome-polars/pull/571,ddotta,0,2025-10-20T12:37:49Z,2025-10-20T12:38:07Z,False,False,False
+shcherbin/mads-siads-696-fall-2025-birds-at-risk,chore: add local notebook (pandas) and big data (polars) geolocation prediction of country,https://github.com/shcherbin/mads-siads-696-fall-2025-birds-at-risk/pull/7,es-lerner,0,2025-09-23T00:21:04Z,2025-10-18T16:33:19Z,,,
+instaui-python/instaui-tdesign,Support pandas and polars DataFrames as table data source,https://github.com/instaui-python/instaui-tdesign/pull/11,CrystalWindSnake,0,2025-10-12T16:55:48Z,2025-10-14T12:17:02Z,,,
+isaacnfairplay/duckplus,Add pandas and polars dataframe helpers,https://github.com/isaacnfairplay/duckplus/pull/48,isaacnfairplay,0,2025-10-13T16:30:08Z,2025-10-13T16:31:02Z,,,
+NeLy-EPFL/vnc_networks,Replace pandas with polars,https://github.com/NeLy-EPFL/vnc_networks/pull/70,Dominic-DallOsto,0,2025-10-13T09:54:53Z,2025-10-13T11:22:47Z,,,
+SanCriolloB/NeuroCampus,feat(data-adapters): creacion rama feat/data-chain-validaciones lectura CSV/XLSX/Parquet y wrapper Pandas/Polars,https://github.com/SanCriolloB/NeuroCampus/pull/14,SanCriolloB,0,2025-10-08T21:58:01Z,2025-10-08T21:58:08Z,,,
+cantonhausfeld-byte/All-22-Atlas-A22A-,Add robust Polars to pandas converter,https://github.com/cantonhausfeld-byte/All-22-Atlas-A22A-/pull/14,cantonhausfeld-byte,0,2025-10-07T21:05:28Z,2025-10-07T21:06:59Z,,,
+carolinajacoby/sia-sus,refactor: Migração do ETL de Pandas para Polars para Performance,https://github.com/carolinajacoby/sia-sus/pull/1,carolinajacoby,0,2025-10-07T15:11:18Z,2025-10-07T15:12:22Z,,,
+capitalone/datacompy,fix: df_to_str function to limit output to sample count for pandas and polars,https://github.com/capitalone/datacompy/pull/449,fdosani,0,2025-10-02T15:01:21Z,2025-10-03T13:40:02Z,False,False,False
+AlexKirkup90/Simplified_Model,Replace polars helper block with pandas-first version,https://github.com/AlexKirkup90/Simplified_Model/pull/128,AlexKirkup90,0,2025-09-29T12:29:29Z,2025-09-29T12:34:49Z,,,
+RomainPeter/discovery-engine-2cat,T08: Optimiser l'agrégation métrique (Polars/Pandas + fallback typé),https://github.com/RomainPeter/discovery-engine-2cat/pull/26,RomainPeter,0,2025-09-28T12:29:37Z,2025-09-28T12:30:07Z,,,
+capitalone/datacompy,"chore: update numpy, pandas, and polars versions",https://github.com/capitalone/datacompy/pull/444,fdosani,0,2025-09-09T21:50:24Z,2025-09-24T17:19:50Z,False,False,False
+vertti/daffy,make import of pandas or polars optional,https://github.com/vertti/daffy/pull/34,vertti,0,2025-09-21T16:10:26Z,2025-09-22T06:25:27Z,,,
+realpython/materials,Polars vs pandas,https://github.com/realpython/materials/pull/697,eyrei123,0,2025-08-20T12:45:01Z,2025-09-21T19:31:17Z,,,
+lsmoker/django-dashboards,use polars instead of pandas,https://github.com/lsmoker/django-dashboards/pull/1,lsmoker,0,2025-09-08T12:43:04Z,2025-09-08T12:43:12Z,,,
+ctasada/stonks-overwatch,Replace Pandas for Polars or local implementations,https://github.com/ctasada/stonks-overwatch/pull/177,ctasada,0,2025-09-04T05:22:36Z,2025-09-04T05:22:46Z,,,
+vedantparikh/portfolia,feat(PA-9): moves from pandas to polars for better performance and adds unit tests,https://github.com/vedantparikh/portfolia/pull/17,vedantparikh,0,2025-08-26T19:12:26Z,2025-08-26T19:13:11Z,False,False,False
+davidstyers/vegas,Implement migration from pandas to polars,https://github.com/davidstyers/vegas/pull/4,davidstyers,0,2025-07-31T06:27:39Z,2025-08-03T01:52:15Z,False,False,False
+seojaeohcode/atio,"pandas numpy polars 메서드 지원 및 예제 추가, WRITER_MAPPING 구조 변경",https://github.com/seojaeohcode/atio/pull/2,jinseok3639,0,2025-07-24T01:08:02Z,2025-07-28T02:01:26Z,False,False,False
+indictechcom/community-activity-alerts,Migrate from pandas to polars,https://github.com/indictechcom/community-activity-alerts/pull/17,harikrishnatp,0,2025-07-27T10:17:51Z,2025-07-27T11:34:29Z,,,
+aryarifki/bei-stock-screener,Replace Polars with Pandas and NumPy for data processing,https://github.com/aryarifki/bei-stock-screener/pull/4,Copilot,0,2025-07-19T00:17:05Z,2025-07-19T00:28:32Z,False,False,False
+aryarifki/bei-stock-screener,Replace pandas with Polars for Better Performance in Mobile Environments,https://github.com/aryarifki/bei-stock-screener/pull/3,Copilot,0,2025-07-13T04:13:47Z,2025-07-14T22:59:55Z,False,False,False
+MTES-MCT/trackdechets-vigiedechets,Migration de la fiche établissement de pandas vers polars,https://github.com/MTES-MCT/trackdechets-vigiedechets/pull/301,Lawiss,0,2025-07-11T11:10:51Z,2025-07-14T09:46:33Z,False,False,False
+ideabosque/s3_connector,use polars module to replace pandas,https://github.com/ideabosque/s3_connector/pull/1,GlenZan,0,2025-07-09T14:14:45Z,2025-07-10T02:31:18Z,False,False,False
+NCSU-High-Powered-Rocketry-Club/AirbrakesV2,Use polars instead of pandas for much faster file read,https://github.com/NCSU-High-Powered-Rocketry-Club/AirbrakesV2/pull/197,harshil21,0,2025-04-21T07:12:19Z,2025-06-28T21:57:04Z,False,False,False
+machow/catfact,dev: make pandas and polars optional with LazyImport,https://github.com/machow/catfact/pull/4,machow,0,2025-06-24T13:56:02Z,2025-06-24T18:34:26Z,False,False,False
+capitalone/datacompy,"updating pandas, polars, and numpy versions",https://github.com/capitalone/datacompy/pull/420,fdosani,0,2025-06-20T16:05:11Z,2025-06-20T16:51:50Z,False,False,False
+capitalone/datacompy,chore: normalize_string_column for polars and pandas,https://github.com/capitalone/datacompy/pull/415,fdosani,0,2025-05-27T00:23:08Z,2025-06-04T15:44:07Z,False,False,False
+biodatageeks/polars-bio,More input combinations of polars and pandas and refactor,https://github.com/biodatageeks/polars-bio/pull/125,zkeram,0,2025-03-28T11:23:41Z,2025-06-03T05:14:05Z,False,False,False
+ddotta/awesome-polars,Add new 2025 benchmark Polars vs. Pandas,https://github.com/ddotta/awesome-polars/pull/464,ddotta,0,2025-05-20T07:42:20Z,2025-05-20T07:42:49Z,False,False,False
+AashishTangnami/data_analysis_tool,removed pandas dependency in polars,https://github.com/AashishTangnami/data_analysis_tool/pull/38,AashishTangnami,0,2025-05-11T23:07:36Z,2025-05-11T23:07:43Z,False,False,False
+AashishTangnami/data_analysis_tool,results matched for both pandas and polars diagnostic analysis,https://github.com/AashishTangnami/data_analysis_tool/pull/37,AashishTangnami,0,2025-05-11T22:41:14Z,2025-05-11T22:41:22Z,False,False,False
+AashishTangnami/data_analysis_tool,Preprocessing refactored in pandas and polars pipeline.,https://github.com/AashishTangnami/data_analysis_tool/pull/31,AashishTangnami,0,2025-04-30T06:09:04Z,2025-04-30T06:09:11Z,False,False,False
+AashishTangnami/data_analysis_tool,Fixed the consistent result for polars and pandas for same file,https://github.com/AashishTangnami/data_analysis_tool/pull/30,AashishTangnami,0,2025-04-30T02:15:49Z,2025-04-30T02:16:16Z,False,False,False
+monarch-initiative/pheval,Pandas to Polars/Parquet migration,https://github.com/monarch-initiative/pheval/pull/392,yaseminbridges,0,2025-03-07T15:05:26Z,2025-04-23T12:09:38Z,False,False,False
+bttex/processador_csv,feat: substituido pandas por polars,https://github.com/bttex/processador_csv/pull/1,bttex,0,2025-04-13T13:47:17Z,2025-04-13T13:47:33Z,False,False,False
+TakumiMukaiyama/recsys2025,Fix/pandas to polars,https://github.com/TakumiMukaiyama/recsys2025/pull/4,TakumiMukaiyama,0,2025-04-11T09:53:58Z,2025-04-11T09:54:43Z,False,False,False
+sukhovtema/python-data-analysis-course,Polars and Pandas optimization,https://github.com/sukhovtema/python-data-analysis-course/pull/4,sukhovtema,0,2025-04-02T17:45:47Z,2025-04-09T12:37:00Z,False,False,False
+xoity/schedule-finder,Replace pandas with polars for improved performance in data handling; update requirements.txt accordingly,https://github.com/xoity/schedule-finder/pull/3,xoity,0,2025-04-06T08:27:54Z,2025-04-06T09:32:41Z,False,False,False
+ChristianD37/yt-stats-wrangler,"Add polars/pandas output functionality, additonal tests, and start wo…",https://github.com/ChristianD37/yt-stats-wrangler/pull/11,ChristianD37,0,2025-03-31T01:51:43Z,2025-03-31T01:51:49Z,False,False,False
+WardDeb/data_viz_kul,polars -> pandas (parquet issue?),https://github.com/WardDeb/data_viz_kul/pull/9,WardDeb,0,2025-03-28T19:34:20Z,2025-03-28T19:34:37Z,False,False,False
+lenvt/lxd-io,Replace pandas by polars to increase speed,https://github.com/lenvt/lxd-io/pull/8,lenvt,0,2025-03-28T15:10:36Z,2025-03-28T15:35:39Z,False,False,False
+yedivanseven/swak,Added pandas and polars partials,https://github.com/yedivanseven/swak/pull/14,yedivanseven,0,2025-03-18T10:46:25Z,2025-03-18T10:47:58Z,False,False,False
+capitalone/datacompy,fix for categorical columns in Pandas and tests for Polars,https://github.com/capitalone/datacompy/pull/392,fdosani,0,2025-03-14T15:08:58Z,2025-03-14T19:28:53Z,False,False,False
+marlanperumal/f1-fantasy-analysis,🚀 feat(analysis): migrate from Pandas to Polars for improved performance,https://github.com/marlanperumal/f1-fantasy-analysis/pull/1,marlanperumal,0,2025-03-14T13:04:22Z,2025-03-14T13:04:57Z,False,False,False
+IBM/Hestia-GOOD,🪲 Clustering accepts polars and converts to pandas,https://github.com/IBM/Hestia-GOOD/pull/97,RaulFD-creator,0,2025-03-10T10:54:07Z,2025-03-10T11:00:35Z,False,False,False
+indapa/SolarProduction,refactor: migrate data loading from pandas to Polars for improved per…,https://github.com/indapa/SolarProduction/pull/6,indapa,0,2025-03-07T01:20:15Z,2025-03-07T01:20:43Z,False,False,False
+bcgov/sdpr-cdw-data-pipelines,Chips migration from pandas to polars,https://github.com/bcgov/sdpr-cdw-data-pipelines/pull/7,JoBoSo,0,2025-02-19T18:42:18Z,2025-02-19T18:43:45Z,False,False,False
+narwhals-dev/narwhals,docs: add `Schema.to_(arrow|pandas|polars)`,https://github.com/narwhals-dev/narwhals/pull/1980,dangotbanned,0,2025-02-09T17:26:20Z,2025-02-09T17:30:50Z,False,False,False
+mayaradaher/michelin-app,refactor: migrate from pandas to polars and update search functionality,https://github.com/mayaradaher/michelin-app/pull/5,mayaradaher,0,2025-02-07T00:34:41Z,2025-02-07T00:34:50Z,False,False,False
+The-Remedy-Project/data_dashboard,"remove pandas dependencies, migrate to polars",https://github.com/The-Remedy-Project/data_dashboard/pull/9,cbadams2,0,2025-01-17T19:58:09Z,2025-01-17T20:04:20Z,False,False,False
+infiniflow/infinity,Update version to 0.6.0-dev2 and use lts-polars-cpu as the pandas module,https://github.com/infiniflow/infinity/pull/2459,JinHai-CN,0,2025-01-15T07:34:16Z,2025-01-15T09:38:15Z,,,
+hugof38/pysnaptest,Make pandas and polars support optional,https://github.com/hugof38/pysnaptest/pull/2,lfn3,0,2025-01-03T07:13:06Z,2025-01-06T06:44:39Z,False,False,False
+blackerby/gpo,replace pandas and requests with polars and httpx,https://github.com/blackerby/gpo/pull/1,blackerby,0,2025-01-04T13:59:45Z,2025-01-04T13:59:55Z,False,False,False
+ML4GLand/SeqData,Allow BED files to be either paths or both pandas/polars DataFrames.,https://github.com/ML4GLand/SeqData/pull/21,d-laub,0,2025-01-03T20:41:08Z,2025-01-03T20:41:23Z,False,False,False
+YuriNakayama/cate,Feature/change dataset from pandas to polars,https://github.com/YuriNakayama/cate/pull/5,YuriNakayama,0,2025-01-01T10:24:17Z,2025-01-01T11:15:26Z,False,False,False

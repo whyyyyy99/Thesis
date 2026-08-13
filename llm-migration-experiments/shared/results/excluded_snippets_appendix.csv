@@ -1,0 +1,163 @@
+snippet_id,exclude_reason,reason_detail,duplicate_of,pandas_code
+8c71f3c7_attr_getter_unseen_iter,incomplete_snippet,incomplete_snippet — for-loop body entirely missing (references undefined `self`); confirmed the LIVE notebook's before_ wrapper crashes with NameError. Not yet fixed.,,"import pandas as pd
+
+        for d3_document_id, candidate_citation_urls in self.documents_data[""citations""].items():"
+medmodels_propensity_score_signature_migration,incomplete_snippet,incomplete_snippet — function body entirely missing after signature; confirmed the LIVE notebook's before_ wrapper is broken (incomplete nested def). Not yet fixed.,,"import pandas as pd
+
+from typing import Any, Dict, List, Optional, Tuple, Union
+
+import numpy as np
+import pandas as pd
+...
+
+def run_propensity_score(
+    treated_set: pd.DataFrame,
+    control_set: pd.DataFrame,
+    model: str = ""logit"",
+    hyperparam: Optional[Any] = None,
+    covariates: Optional[Union[List[str], pd.Index[str]]] = None,
+) -> pd.DataFrame:"
+mexca_data_merge_features_migration,unsuitable,incomplete_snippet — real setup code (dfs population via 3 helper methods) exists in source but omitted from snippet; not yet fixed.,,"import pandas as pd
+
+def merge_features(self) -> pd.DataFrame:
+    # ...
+    if len(dfs) > 0:
+        dfs = map(self._delete_filename_time_col, dfs)
+        self.features = reduce(
+            lambda left, right: pd.merge(
+                left, right, on=[""frame""], how=""left""
+            ),
+            dfs,
+        )
+
+        time = self.features.frame * (1 / self.fps)
+
+        self.features.insert(0, ""filename"", self.filename)
+        self.features.insert(1, ""time"", time)
+    return self.features"
+portfolio_stock_to_dict,unsuitable,"incomplete_snippet — snippet too narrow (dangling list-comprehension clause), real surrounding code exists; not yet fixed.",,"import pandas as pd
+
+        for d in df.to_dict('records')"
+img2table_azure_concat_lazy_migration,duplicate,,img2table_aws_textract_concat_lazy_migration,"import pandas as pd
+
+return OCRDataframe(df=pd.concat(list_dfs))"
+img2table_google_vision_concat_lazy_migration,duplicate,,img2table_aws_textract_concat_lazy_migration,"import pandas as pd
+
+return OCRDataframe(df=pd.concat(list_dfs))"
+img2table_google_vision_list_dfs_migration,duplicate,,img2table_aws_textract_list_dfs_migration,"import pandas as pd
+
+list_dfs = map(pd.DataFrame, content)"
+tesseract_ocr_concat_lazy,duplicate,,azure_ocr_concat_lazy,"import pandas as pd
+
+        return OCRDataframe(df=pd.concat(list_dfs))"
+efc0581f_textract_concat_lazy,duplicate,,azure_ocr_concat_lazy,"import pandas as pd
+
+        return OCRDataframe(df=pd.concat(list_dfs))"
+efc0581f_azure_concat_lazy,duplicate,,azure_ocr_concat_lazy,"import pandas as pd
+
+        return OCRDataframe(df=pd.concat(list_dfs))"
+efc0581f_azure_from_dicts,duplicate,,azure_ocr_from_dicts,"import pandas as pd
+
+            list_dfs.append(pd.DataFrame(word_elements))"
+efc0581f_data_merge_cross,unsuitable,before_unfixable — before snippet itself has a structural/syntax issue that can't be repaired without inventing code,,"import pandas as pd
+import numpy as np
+
+        df_words = self.df[(self.df[""class""] == ""ocrx_word"")]
+        if page_number:
+            df_words = df_words[df_words[""page""] == page_number]
+        df_words = df_words[df_words[""value""].notnull() & (df_words[""confidence""] >= min_confidence)]
+
+        list_cells = [{""row"": id_row, ""col"": id_col,
+                       ""x1_w"": cell.x1, ""x2_w"": cell.x2,
+                       ""y1_w"": cell.y1, ""y2_w"": cell.y2}
+                      for id_row, row in enumerate(table.items)
+                      for id_col, cell in enumerate(row.items)]
+        df_cells = pd.DataFrame(list_cells)
+
+        df_word_cells = df_words.merge(df_cells, how=""cross"")
+
+        df_word_cells[""x_left""] = df_word_cells[[""x1"", ""x1_w""]].max(axis=1)
+        df_word_cells[""y_top""] = df_word_cells[[""y1"", ""y1_w""]].max(axis=1)
+        df_word_cells[""x_right""] = df_word_cells[[""x2"", ""x2_w""]].min(axis=1)
+        df_word_cells[""y_bottom""] = df_word_cells[[""y2"", ""y2_w""]].min(axis=1)
+
+        df_word_cells = df_word_cells[df_word_cells[""x_right""] > df_word_cells[""x_left""]]
+        df_word_cells = df_word_cells[df_word_cells[""y_bottom""] > df_word_cells[""y_top""]]
+
+        df_text_parent = (df_word_cells
+                          .groupby(['row', 'col', 'parent'])
+                          .agg(value=(""value"", lambda x: ' '.join(x)))
+                          .sort_values(by=[""row"", ""col"", ""y1"", ""x1""])
+                          .groupby([""row"", ""col""])
+                          .agg(text=(""value"", lambda x: ""
+"".join(x) or None))
+                          .reset_index())"
+efc0581f_vision_concat_lazy,duplicate,,azure_ocr_concat_lazy,"import pandas as pd
+
+        return OCRDataframe(df=pd.concat(list_dfs))"
+efc0581f_vision_from_dicts,duplicate,,efc0581f_textract_from_dicts,"import pandas as pd
+
+        list_dfs = map(pd.DataFrame, content)"
+efc0581f_pdf_concat_lazy,unsuitable,"trivial_passthrough — one-line passthrough (`return OCRDataframe(df=content_df)`), near-duplicate of img2table_pdf_concat_lazy_migration modulo indentation, no real pandas transformation",,"import pandas as pd
+
+        return OCRDataframe(df=content_df)"
+efc0581f_tesseract_concat_lazy,duplicate,,azure_ocr_concat_lazy,"import pandas as pd
+
+        return OCRDataframe(df=pd.concat(list_dfs))"
+efc0581f_tesseract_from_dicts,duplicate,,tesseract_ocr_from_dicts,"import pandas as pd
+
+            list_dfs.append(pd.DataFrame(list_elements))"
+a52cebfe_es_update_scaling_factors,unsuitable,"external_domain_object — operates on non-pandas objects (xarray via to_xarray(), external `ensemble` save call), not a self-contained pandas transformation",,"import pandas as pd
+
+        scaling_factors_df = pd.concat(scaling_factors_dfs).set_index(
+            [""input_group"", ""obs_key"", ""index""], verify_integrity=True
+        )
+        ensemble.save_observation_scaling_factors(scaling_factors_df.to_xarray())"
+a52cebfe_measured_data_pivot_join,unsuitable,"extraction_mismatch — variable names in extracted snippet (n_real/obs_vals/std_vals/resp_vals) do not appear anywhere in the actual commit's before.py or patch; likely wrong location/commit extracted. Needs re-investigation, not a simple truncation.",,"import pandas as pd
+
+
+            n_real = len(realizations)
+    data = np.vstack([obs_vals, std_vals, resp_vals.reshape(n_real, -1)])
+    return pd.DataFrame(
+        data,
+        index=(""OBS"", ""STD"", *realizations),
+        columns=pd.MultiIndex.from_tuples(index_vals),
+    )"
+acryo_molecules_translation_copy_migration,unsuitable,"no_pandas_api — snippet contains no pandas call at all (missing `import pandas`, no `pd.`/`.df` usage)",,"if features is not None:
+    features = features.copy()
+out = self.__class__(coords, self._rotator, features=features)"
+8017f91b_precompute_id_cross_frame,unsuitable,"function_rewritten — real diff shows the WHOLE function body replaced (per-document scoring loop → vectorized cross-join), before/after take different params and return different types; not a truncation, before/after are not behaviorally comparable.",,"import pandas as pd
+
+    for d3_document_id in input_df.index:
+        if d3_document_id == query_d3_document_id:
+            continue
+        ..."
+8017f91b_model_data_lang_loc_filter,unsuitable,"external_domain_object — depends on multiple opaque `self.*` instance attributes (info_matrix, integer_labels, cosine_similarity_ranks)",,"import pandas as pd
+
+            self.query_document,
+            self.info_matrix.loc[indices],
+            self.integer_labels.loc[indices],
+            self.cosine_similarity_ranks.loc[indices],"
+8017f91b_model_data_loc_filter,unsuitable,external_domain_object — depends on multiple opaque `self.*` instance attributes,,"import pandas as pd
+
+            self.query_document,
+            self.info_matrix.loc[indices],
+            self.integer_labels.loc[indices],
+            self.feature_matrix.loc[indices],"
+pheval_gene_updater_find_identifier,unsuitable,"external_domain_object — `self.hgnc_data` is a plain dict/opaque instance attribute, marginal pandas relevance",,"import pandas as pd
+
+        if gene_symbol in self.hgnc_data.keys():
+            return self.hgnc_data[gene_symbol][self.gene_identifier]
+        else:
+            for _symbol, data in self.hgnc_data.items():
+                for prev_symbol in data[""previous_symbol""]:
+                    if prev_symbol == gene_symbol:
+                        return data[self.gene_identifier]"
+pheval_gene_updater_find_symbol,unsuitable,"external_domain_object — `self.identifier_map` is a plain dict lookup, marginal pandas relevance",,"import pandas as pd
+
+        return self.identifier_map[query_gene_identifier]"
+ultralytics_benchmarks_config,unsuitable,"no_pandas_api — sets `pd.options.display.*` config flags, no data transformation to migrate",,"pd.options.display.max_columns = 10
+    pd.options.display.width = 120"
+img2table_pdf_concat_lazy_migration,unsuitable,"trivial_passthrough — one-line passthrough, near-duplicate of efc0581f_pdf_concat_lazy modulo indentation, no real pandas transformation",,"import pandas as pd
+
+return OCRDataframe(df=content_df)"

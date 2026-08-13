@@ -1,0 +1,105 @@
+{
+  "id": "resp_061a924f1e4ba491006a7a3995143881a0a364df51d966cd0a",
+  "created_at": 1786395029.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_061a924f1e4ba491006a7a39957a2881a0ba9bad1cf2eb66e4",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_061a924f1e4ba491006a7a3998c89081a0881290f5f8610c9d",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ndef split(\n    ds: Dataset,\n    test_frac: float | None = None,\n    test_n: float | None = None,\n    random_state: int = 42,\n) -> tuple[Dataset, Dataset]:\n    if test_frac == 0 or test_n == 0:\n        return ds, Dataset(\n            pl.DataFrame({c: [] for c in ds.to_pandas().columns}),\n            ds.x_columns,\n            ds.y_columns,\n            ds.w_columns,\n        )\n    if test_frac == 1 or test_n == 1:\n        return Dataset(\n            pl.DataFrame({c: [] for c in ds.to_pandas().columns}),\n            ds.x_columns,\n            ds.y_columns,\n            ds.w_columns,\n        ), ds\n\n    test_size = test_frac if test_frac is not None else test_n\n    train_df, test_df = train_test_split(\n        ds.to_pandas(), test_size=test_size, random_state=random_state\n    )\n    return (\n        Dataset(pl.from_pandas(train_df), ds.x_columns, ds.y_columns, ds.w_columns),\n        Dataset(pl.from_pandas(test_df), ds.x_columns, ds.y_columns, ds.w_columns),\n    )",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395033.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 5292,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 748,
+    "output_tokens_details": {
+      "reasoning_tokens": 489
+    },
+    "total_tokens": 6040
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

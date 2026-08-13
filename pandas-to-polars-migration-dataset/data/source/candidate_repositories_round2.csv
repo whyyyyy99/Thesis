@@ -1,0 +1,95 @@
+repo,matched_pr_count,sample_pr_urls,hit_pandas,hit_polars,pp_valid
+narwhals-dev/narwhals,5,https://github.com/narwhals-dev/narwhals/pull/3292 | https://github.com/narwhals-dev/narwhals/pull/2250 | https://github.com/narwhals-dev/narwhals/pull/2245,False,False,False
+capitalone/datacompy,5,https://github.com/capitalone/datacompy/pull/444 | https://github.com/capitalone/datacompy/pull/449 | https://github.com/capitalone/datacompy/pull/420,False,False,False
+AashishTangnami/data_analysis_tool,4,https://github.com/AashishTangnami/data_analysis_tool/pull/38 | https://github.com/AashishTangnami/data_analysis_tool/pull/37 | https://github.com/AashishTangnami/data_analysis_tool/pull/31,False,False,False
+marimo-team/marimo,3,https://github.com/marimo-team/marimo/pull/6772 | https://github.com/marimo-team/marimo/pull/4905 | https://github.com/marimo-team/marimo/pull/3434,False,False,False
+aryarifki/bei-stock-screener,2,https://github.com/aryarifki/bei-stock-screener/pull/4 | https://github.com/aryarifki/bei-stock-screener/pull/3,False,False,False
+huggingface/datasets,2,https://github.com/huggingface/datasets/pull/7382 | https://github.com/huggingface/datasets/pull/7370,False,False,False
+Quansight/Quansight-website,2,https://github.com/Quansight/Quansight-website/pull/915 | https://github.com/Quansight/Quansight-website/pull/903,False,False,False
+ddotta/awesome-polars,2,https://github.com/ddotta/awesome-polars/pull/571 | https://github.com/ddotta/awesome-polars/pull/464,False,False,False
+posit-dev/positron,2,https://github.com/posit-dev/positron/pull/6739 | https://github.com/posit-dev/positron/pull/6758,False,False,False
+TakumiMukaiyama/recsys2025,1,https://github.com/TakumiMukaiyama/recsys2025/pull/4,False,False,False
+kuzudb/kuzu,1,https://github.com/kuzudb/kuzu/pull/5218,False,False,False
+biodatageeks/polars-bio,1,https://github.com/biodatageeks/polars-bio/pull/125,False,False,False
+indian-chutney/Finance1,1,https://github.com/indian-chutney/Finance1/pull/1,False,False,False
+DeepGroundwater/ddr,1,https://github.com/DeepGroundwater/ddr/pull/46,False,False,False
+NCSU-High-Powered-Rocketry-Club/AirbrakesV2,1,https://github.com/NCSU-High-Powered-Rocketry-Club/AirbrakesV2/pull/197,False,False,False
+nanxstats/plaintext-sims,1,https://github.com/nanxstats/plaintext-sims/pull/4,False,False,False
+vpduchuynh/ims-coding-agent,1,https://github.com/vpduchuynh/ims-coding-agent/pull/8,False,False,False
+monarch-initiative/pheval,1,https://github.com/monarch-initiative/pheval/pull/392,False,False,False
+posit-dev/great-tables,1,https://github.com/posit-dev/great-tables/pull/734,False,False,False
+MTES-MCT/trackdechets-vigiedechets,1,https://github.com/MTES-MCT/trackdechets-vigiedechets/pull/301,False,False,False
+seojaeohcode/atio,1,https://github.com/seojaeohcode/atio/pull/2,False,False,False
+vedantparikh/portfolia,1,https://github.com/vedantparikh/portfolia/pull/17,False,False,False
+visivo-io/visivo,1,https://github.com/visivo-io/visivo/pull/258,False,False,False
+davidstyers/vegas,1,https://github.com/davidstyers/vegas/pull/4,False,False,False
+ultralytics/ultralytics,1,https://github.com/ultralytics/ultralytics/pull/21619,False,False,False
+machow/catfact,1,https://github.com/machow/catfact/pull/4,False,False,False
+sukhovtema/python-data-analysis-course,1,https://github.com/sukhovtema/python-data-analysis-course/pull/4,False,False,False
+dagster-io/community-integrations,1,https://github.com/dagster-io/community-integrations/pull/194,False,False,False
+mpds-io/mpds-api,1,https://github.com/mpds-io/mpds-api/pull/63,False,False,False
+ML4GLand/SeqData,1,https://github.com/ML4GLand/SeqData/pull/21,False,False,False
+YuriNakayama/cate,1,https://github.com/YuriNakayama/cate/pull/5,False,False,False
+hugof38/pysnaptest,1,https://github.com/hugof38/pysnaptest/pull/2,False,False,False
+blackerby/gpo,1,https://github.com/blackerby/gpo/pull/1,False,False,False
+mayaradaher/michelin-app,1,https://github.com/mayaradaher/michelin-app/pull/5,False,False,False
+The-Remedy-Project/data_dashboard,1,https://github.com/The-Remedy-Project/data_dashboard/pull/9,False,False,False
+bcgov/sdpr-cdw-data-pipelines,1,https://github.com/bcgov/sdpr-cdw-data-pipelines/pull/7,False,False,False
+opensource-observer/oso,1,https://github.com/opensource-observer/oso/pull/3275,False,False,False
+ChristianD37/yt-stats-wrangler,1,https://github.com/ChristianD37/yt-stats-wrangler/pull/11,False,False,False
+indapa/SolarProduction,1,https://github.com/indapa/SolarProduction/pull/6,False,False,False
+marlanperumal/f1-fantasy-analysis,1,https://github.com/marlanperumal/f1-fantasy-analysis/pull/1,False,False,False
+xoity/schedule-finder,1,https://github.com/xoity/schedule-finder/pull/3,False,False,False
+yedivanseven/swak,1,https://github.com/yedivanseven/swak/pull/14,False,False,False
+mesa/mesa-frames,1,https://github.com/mesa/mesa-frames/pull/125,False,False,False
+IBM/Hestia-GOOD,1,https://github.com/IBM/Hestia-GOOD/pull/97,False,False,False
+EsosaOrumwese/fraud-detection-system,1,https://github.com/EsosaOrumwese/fraud-detection-system/pull/16,False,False,False
+WardDeb/data_viz_kul,1,https://github.com/WardDeb/data_viz_kul/pull/9,False,False,False
+bttex/processador_csv,1,https://github.com/bttex/processador_csv/pull/1,False,False,False
+lenvt/lxd-io,1,https://github.com/lenvt/lxd-io/pull/8,False,False,False
+ideabosque/s3_connector,1,https://github.com/ideabosque/s3_connector/pull/1,False,False,False
+mpds-io/mpds-client,1,https://github.com/mpds-io/mpds-client/pull/18,False,False,False
+conda-forge/ultralytics-feedstock,1,https://github.com/conda-forge/ultralytics-feedstock/pull/449,False,False,False
+eutwt/pyversus,1,https://github.com/eutwt/pyversus/pull/10,False,False,False
+crate/cratedb-guide,1,https://github.com/crate/cratedb-guide/pull/478,False,False,False
+vupdivup/diffhouse,1,https://github.com/vupdivup/diffhouse/pull/130,False,False,False
+vietvudanh/vietlott-data,1,https://github.com/vietvudanh/vietlott-data/pull/24,False,False,False
+PyPSA/linopy,1,https://github.com/PyPSA/linopy/pull/496,False,False,False
+nasirus/bench_pandas_polars,1,https://github.com/nasirus/bench_pandas_polars/pull/1,False,False,False
+litestar-org/sqlspec,1,https://github.com/litestar-org/sqlspec/pull/269,False,False,False
+CityofToronto/bdit_tt_request_app,1,https://github.com/CityofToronto/bdit_tt_request_app/pull/226,False,False,False
+y9c/metagene,1,https://github.com/y9c/metagene/pull/6,False,False,False
+NeLy-EPFL/vnc_networks,1,https://github.com/NeLy-EPFL/vnc_networks/pull/70,,,
+vangberg/pdit,1,https://github.com/vangberg/pdit/pull/36,,,
+aviation-impact-accelerator/aia-analysis-contrail-avoidance,1,https://github.com/aviation-impact-accelerator/aia-analysis-contrail-avoidance/pull/27,,,
+nielsen-oss/nebula,1,https://github.com/nielsen-oss/nebula/pull/2,,,
+monarch-initiative/pheval.exomiser,1,https://github.com/monarch-initiative/pheval.exomiser/pull/76,,,
+advenn/blog,1,https://github.com/advenn/blog/pull/3,,,
+brandonschabell/alphaflow,1,https://github.com/brandonschabell/alphaflow/pull/33,,,
+MaastrichtU-CDS/Flyover,1,https://github.com/MaastrichtU-CDS/Flyover/pull/76,,,
+HAILatPitt/concrete-city-of-pgh,1,https://github.com/HAILatPitt/concrete-city-of-pgh/pull/3,,,
+saturdata/resources,1,https://github.com/saturdata/resources/pull/7,,,
+23skdu/longbow,1,https://github.com/23skdu/longbow/pull/40,,,
+equinor/ert,1,https://github.com/equinor/ert/pull/12120,,,
+The-Strategy-Unit/data_science,1,https://github.com/The-Strategy-Unit/data_science/pull/386,,,
+nj399/first_repo,1,https://github.com/nj399/first_repo/pull/2,,,
+vertti/daffy,1,https://github.com/vertti/daffy/pull/34,,,
+SanCriolloB/NeuroCampus,1,https://github.com/SanCriolloB/NeuroCampus/pull/14,,,
+indictechcom/community-activity-alerts,1,https://github.com/indictechcom/community-activity-alerts/pull/17,,,
+eschmidt42/bundestag,1,https://github.com/eschmidt42/bundestag/pull/24,,,
+scipy-conference/scipy_proceedings,1,https://github.com/scipy-conference/scipy_proceedings/pull/1165,,,
+shcherbin/mads-siads-696-fall-2025-birds-at-risk,1,https://github.com/shcherbin/mads-siads-696-fall-2025-birds-at-risk/pull/7,,,
+RomainPeter/discovery-engine-2cat,1,https://github.com/RomainPeter/discovery-engine-2cat/pull/26,,,
+lsmoker/django-dashboards,1,https://github.com/lsmoker/django-dashboards/pull/1,,,
+carolinajacoby/sia-sus,1,https://github.com/carolinajacoby/sia-sus/pull/1,,,
+ctasada/stonks-overwatch,1,https://github.com/ctasada/stonks-overwatch/pull/177,,,
+typedef-ai/fenic,1,https://github.com/typedef-ai/fenic/pull/266,,,
+instaui-python/instaui-tdesign,1,https://github.com/instaui-python/instaui-tdesign/pull/11,,,
+paucablop/chemotools,1,https://github.com/paucablop/chemotools/pull/211,,,
+realpython/materials,1,https://github.com/realpython/materials/pull/697,,,
+cantonhausfeld-byte/All-22-Atlas-A22A-,1,https://github.com/cantonhausfeld-byte/All-22-Atlas-A22A-/pull/14,,,
+shuttle-hq/www,1,https://github.com/shuttle-hq/www/pull/502,,,
+Amsterdam/financiele_overzichten,1,https://github.com/Amsterdam/financiele_overzichten/pull/12,,,
+AlexKirkup90/Simplified_Model,1,https://github.com/AlexKirkup90/Simplified_Model/pull/128,,,
+isaacnfairplay/duckplus,1,https://github.com/isaacnfairplay/duckplus/pull/48,,,
+infiniflow/infinity,1,https://github.com/infiniflow/infinity/pull/2459,,,

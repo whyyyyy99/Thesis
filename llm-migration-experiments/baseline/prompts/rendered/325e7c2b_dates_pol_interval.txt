@@ -1,0 +1,56 @@
+This is a library migration task, not a general rewrite task.
+Replace pandas-based operations with the closest correct polars equivalents.
+
+Requirements:
+1. Preserve the original functionality and data-processing intent as much as possible.
+2. Only make changes that are necessary for the pandas-to-polars migration.
+3. Do not refactor, optimize, reformat, or modify unrelated code.
+4. Do not rename functions, classes, or variables unless necessary.
+5. Preserve the original structure as much as possible while completing the migration correctly.
+6. Preserve output columns, schema, and overall data behavior whenever possible.
+7. Preserve filtering, aggregation, join, and ordering behavior when relevant.
+8. Handle pandas index-related logic carefully. Do not silently remove behavior that depends on index semantics.
+9. Use valid polars syntax, imports, and APIs. Do not invent nonexistent polars functionality.
+10. When a direct one-to-one replacement is not possible, use the closest correct polars equivalent while preserving behavior as much as possible.
+
+Return only the full migrated code.
+Do not include explanations.
+Do not use Markdown fences.
+
+Code:
+import pandas as pd
+from pandas.core.indexes.datetimes import DatetimeIndex
+
+def pol_interval(dates: str | datetime | DatetimeIndex | pd.Series,
+                 issue_date: str | datetime | DatetimeIndex | pd.Series,
+                 dur_length: str) -> np.ndarray:
+    arg_match('dur_length', dur_length, ['year', 'quarter', 'month', 'week'])
+
+    dates = _convert_date(dates)
+    issue_date = _convert_date(issue_date)
+
+    dat = pd.DataFrame({
+        'issue_date': issue_date,
+        'dates': dates
+    }, index=np.arange(max(len2(dates), len2(issue_date))))
+
+    if dur_length == "year":
+        res = [relativedelta(a, b).years for a, b in
+               zip(dat.dates, dat.issue_date)]
+
+    elif dur_length in ["month", "quarter"]:
+        def mth_calc(a, b):
+            delta = relativedelta(a, b)
+            return 12 * delta.years + delta.months
+
+        if dur_length == "quarter":
+            res = [mth_calc(a, b) // 3 for a, b
+                   in zip(dat.dates, dat.issue_date)]
+        else:
+            res = [mth_calc(a, b) for a, b in zip(dat.dates, dat.issue_date)]
+
+    else:
+        res = (dat.dates - dat.issue_date).dt.days // 7
+
+    return np.array(res) + 1
+

@@ -1,0 +1,105 @@
+{
+  "id": "resp_07579ca9582b74b5006a7a3b3cae2481a0957dadc863b015ea",
+  "created_at": 1786395452.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_07579ca9582b74b5006a7a3b3d055481a0a6738f5a77fdce51",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_07579ca9582b74b5006a7a3b3f5bd881a0943ba8c56ebd67c0",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import typing\nfrom typing import Optional\n\nimport polars as pl\n\n\ndef get_uids(\n    self,\n    sub_indices: Optional[list[int]] = None,\n    axis: typing.Literal[\"row\", \"column\"] = \"row\",\n) -> list:\n    if sub_indices is None:\n        if axis == \"row\":\n            self.lookup = self.lookup.sort(\"row_index\")\n        elif axis == \"column\":\n            self.lookup = self.lookup.sort(\"column_index\")\n        return self.lookup.get_column(\"uid\").to_list()\n    return self.__convert_index_to_uid(sub_indices, axis=axis)\n\n\ndef get_row_indices(\n    self,\n    sub_uid: Optional[list] = None,\n    allow_empty: bool = True,\n    input_type: typing.Literal[\"uid\", \"body_id\"] = \"uid\",\n) -> list:\n    if sub_uid is None:\n        self.lookup = self.lookup.sort(\"row_index\")\n        return self.lookup.get_column(\"row_index\").to_list()\n\n    if input_type == \"body_id\":\n        sub_uid = self.__get_uids_from_bodyids(sub_uid)\n    rows, _ = self.__convert_uid_to_index(sub_uid, allow_empty=allow_empty)\n    if not allow_empty and len(rows) != len(sub_uid):\n        raise ValueError(\"Some row body ids found only in the columns.\")\n    return rows\n\n\ndef get_column_indices(\n    self,\n    sub_uid: Optional[list] = None,\n    allow_empty: bool = True,\n    input_type: typing.Literal[\"uid\", \"body_id\"] = \"uid\",\n) -> list:\n    if sub_uid is None:\n        self.lookup = self.lookup.sort(\"column_index\")\n        return self.lookup.get_column(\"column_index\").to_list()\n    if input_type == \"body_id\":\n        sub_uid = self.__get_uids_from_bodyids(sub_uid)\n    _, columns = self.__convert_uid_to_index(sub_uid, allow_empty=allow_empty)\n    if not allow_empty and len(columns) != len(sub_uid):\n        raise ValueError(\"Some row body ids found only in the columns.\")\n    return columns",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395457.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 4014,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 754,
+    "output_tokens_details": {
+      "reasoning_tokens": 315
+    },
+    "total_tokens": 4768
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

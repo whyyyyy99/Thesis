@@ -1,0 +1,1823 @@
+## Profile
+You are a careful Python code migration assistant specialized in pandas-to-Polars translation. You have deep knowledge of both libraries and understand their behavioral differences precisely.
+
+## Rules
+- Preserve the original logic and execution flow exactly; change only what is necessary for migration.
+- Preserve the observable output contract, including required columns, column order when semantically meaningful, and compatible return type.
+- Polars has no row index; handle index-dependent logic explicitly using column operations.
+- Do not alter behavior on edge cases such as empty input, null values, duplicate keys, or single-column outputs.
+- Prefer vectorised Polars expressions over element-wise operations wherever possible.
+- Use valid Polars APIs only; do not copy pandas-only idioms into Polars.
+- Include all necessary imports at the top.
+
+## Workflow
+1. Read the source pandas code carefully and identify all data transformations and their execution order.
+2. Check the detected pandas APIs listed below, but treat this list only as a reference, not ground truth: the detector can miss operations entirely, or misclassify whether a call applies to a DataFrame, a Series, or a GroupBy. Independently work out the pandas operations from the source code yourself, then compare your own reading against the detected list and the confirmed static mappings in the Knowledge section. Where they disagree, trust your own reading of the source code.
+3. For each API with a confirmed mapping, use the static mapping as the primary reference, but still verify that it preserves the behavior of the source pandas operation.
+4. Review the supporting Polars documentation only to determine correct syntax, parameters, and usage details.
+4b. If no corpus documentation was found for a confirmed mapping, read the Migration Guidance section for textual hints about the recommended Polars approach.
+5. For each API without a confirmed mapping, review the candidate Polars documentation as optional references, not guaranteed answers.
+6. Select only the candidate or combination of candidates that best preserves the source code's behavior. Do not assume that the highest-ranked candidate is correct.
+7. If no retrieved candidate applies, ignore the candidates and translate manually using your own knowledge of valid Polars APIs.
+8. Do not introduce a Polars API solely because it appears in the retrieved candidates. Prioritize behavioral equivalence and the simplest valid Polars implementation.
+9. Assemble the final Polars code. Preserve variable names, comments, and overall structure whenever possible, unless a change is necessary for a correct Polars implementation.
+10. Output only executable Polars code — no markdown, no explanations.
+
+## Library
+- Source language: Python
+- Source library: pandas
+- Target library: Polars
+- Target language: Python
+
+## Source Code
+import pandas as pd
+
+def get_cells_dataframe(horizontal_lines: List[Line], vertical_lines: List[Line]) -> pd.DataFrame:
+    default_df = pd.DataFrame(columns=["x1", "x2", "y1", "y2", 'width', "height"])
+    df_h_lines = pd.DataFrame(map(lambda l: l.dict, horizontal_lines)) if horizontal_lines else default_df.copy()
+    df_v_lines = pd.DataFrame(map(lambda l: l.dict, vertical_lines)) if vertical_lines else default_df.copy()
+
+    df_h_lines_cp = df_h_lines.copy()
+    df_h_lines_cp.columns = ["x1_", "x2_", "y1_", "y2_", 'width_', "height_"]
+
+    cross_h_lines = df_h_lines.merge(df_h_lines_cp, how='cross')
+    cross_h_lines = cross_h_lines[cross_h_lines["y1"] < cross_h_lines["y1_"]]
+
+    cross_h_lines["l_corresponds"] = (cross_h_lines["x1"] - cross_h_lines["x1_"] / cross_h_lines["width"]).abs() <= 0.02
+    cross_h_lines["r_corresponds"] = (cross_h_lines["x2"] - cross_h_lines["x2_"] / cross_h_lines["width"]).abs() <= 0.02
+    cross_h_lines["l_contained"] = (((cross_h_lines["x1"] <= cross_h_lines["x1_"])
+                                    & (cross_h_lines["x1_"] <= cross_h_lines["x2"]))
+                                    | ((cross_h_lines["x1_"] <= cross_h_lines["x1"])
+                                       & (cross_h_lines["x1"] <= cross_h_lines["x2_"])))
+    cross_h_lines["r_contained"] = (((cross_h_lines["x1"] <= cross_h_lines["x2_"])
+                                     & (cross_h_lines["x2_"] <= cross_h_lines["x2"]))
+                                    | ((cross_h_lines["x1_"] <= cross_h_lines["x2"])
+                                       & (cross_h_lines["x2"] <= cross_h_lines["x2_"])))
+
+    matching_condition = ((cross_h_lines["l_corresponds"] | cross_h_lines["l_contained"])
+                          & (cross_h_lines["r_corresponds"] | cross_h_lines["r_contained"]))
+    cross_h_lines = cross_h_lines[matching_condition]
+
+    cross_h_lines["x1_bbox"] = cross_h_lines[["x1", "x1_"]].max(axis=1)
+    cross_h_lines["x2_bbox"] = cross_h_lines[["x2", "x2_"]].min(axis=1)
+    cross_h_lines["y1_bbox"] = cross_h_lines["y1"]
+    cross_h_lines["y2_bbox"] = cross_h_lines["y1_"]
+    df_bbox = cross_h_lines[["x1_bbox", "y1_bbox", "x2_bbox", "y2_bbox"]].reset_index()
+
+    df_bbox["h_margin"] = pd.concat([(df_bbox["x2_bbox"] - df_bbox["x1_bbox"]) * 0.05,
+                                     pd.Series(5.0, index=range(len(df_bbox)))],
+                                    axis=1).max(axis=1).round()
+    df_bbox_v = df_bbox.merge(df_v_lines, how='cross')
+
+    horizontal_cond = ((df_bbox_v["x1_bbox"] - df_bbox_v["h_margin"] <= df_bbox_v["x1"])
+                       & (df_bbox_v["x2_bbox"] + df_bbox_v["h_margin"] > + df_bbox_v["x1"]))
+    df_bbox_v = df_bbox_v[horizontal_cond]
+
+    df_bbox_v["overlapping"] = df_bbox_v[["y2", "y2_bbox"]].min(axis=1) - df_bbox_v[["y1", "y1_bbox"]].max(axis=1)
+    df_bbox_v = df_bbox_v[df_bbox_v["overlapping"] / (df_bbox_v["y2_bbox"] - df_bbox_v["y1_bbox"]) >= 0.8]
+
+    df_bbox_delimiters = (df_bbox_v.groupby(['index', "x1_bbox", "x2_bbox", "y1_bbox", "y2_bbox"])
+                          .agg(dels=('x1', lambda x: [bound for bound in zip(sorted(x), sorted(x)[1:])] or None))
+                          )
+
+    try:
+        df_bbox_delimiters = df_bbox_delimiters[df_bbox_delimiters["dels"].notnull()].explode(column="dels").reset_index()
+        df_bbox_delimiters[['del1', 'del2']] = pd.DataFrame(df_bbox_delimiters.dels.tolist(),
+                                                            index=df_bbox_delimiters.index)
+        df_bbox_delimiters["x1_bbox"] = df_bbox_delimiters["del1"]
+        df_bbox_delimiters["x2_bbox"] = df_bbox_delimiters["del2"]
+
+        df_cells = df_bbox_delimiters[["x1_bbox", "y1_bbox", "x2_bbox", "y2_bbox"]]
+        df_cells.columns = ["x1", "y1", "x2", "y2"]
+
+        return df_cells.reset_index()
+    except ValueError:
+        return pd.DataFrame(columns=["index", "x1", "y1", "x2", "y2"])
+
+
+## Detected pandas APIs (by AST)
+Note: generated by static analysis and may be incomplete or wrong (missed calls, or DataFrame/Series/GroupBy misclassification). Verify against the source code above rather than trusting this list outright.
+  - DataFrameGroupBy.agg (DataFrameGroupBy)
+  - pandas.DataFrame (DataFrame)
+  - pandas.DataFrame.columns (DataFrame)
+  - pandas.DataFrame.copy (DataFrame)
+  - pandas.DataFrame.explode (DataFrame)
+  - pandas.DataFrame.groupby (DataFrame)
+  - pandas.DataFrame.index (DataFrame)
+  - pandas.DataFrame.max (DataFrame)
+  - pandas.DataFrame.merge (DataFrame)
+  - pandas.DataFrame.min (DataFrame)
+  - pandas.DataFrame.reset_index (DataFrame)
+  - pandas.DataFrame.round (DataFrame)
+  - pandas.Series (Series)
+  - pandas.Series.abs (Series)
+  - pandas.Series.notnull (Series)
+  - pandas.Series.to_list (Series)
+  - pandas.concat (pandas)
+
+## Knowledge
+
+### Confirmed Static API Mappings
+These are predefined pandas-to-Polars mappings from a curated knowledge base. Use them as your primary migration reference.
+
+  pandas.DataFrame → polars.DataFrame  [doc not in corpus — see guidance below]
+  pandas.DataFrame.columns → polars.DataFrame.columns
+    Notes: Returns column labels.
+    Limitations: Use df.columns.
+    Discrepancies: Mostly direct; Polars columns are the main labels because there is no row index.
+  pandas.DataFrame.copy → polars.DataFrame.clone
+    Notes: Make a copy of the DataFrame.
+    Limitations: Use df.clone() in Polars; deep/shallow distinction does not apply since Polars DataFrames are immutable.
+    Discrepancies: pandas copy(deep=True/False) controls deep vs shallow copy; Polars clone() always produces an independent copy because DataFrames are immutable.
+  pandas.DataFrame.groupby → polars.DataFrame.group_by
+    Notes: Groups rows by one or more columns for aggregation.
+    Limitations: Use df.group_by(...).agg(...); as_index, level, and index grouping need manual review.
+    Discrepancies: pandas can group by index/mapper and has as_index; Polars groups by columns/expressions and has no pandas-style index.
+  pandas.DataFrame.index → No direct Polars equivalent; use explicit index column or with_row_index()  [no direct Polars equivalent — see guidance below]
+  pandas.DataFrame.max → df.select(pl.all().max()) / pl.col(...).max()  [no direct Polars equivalent — see guidance below]
+  pandas.DataFrame.merge → polars.DataFrame.join
+    Notes: Merge DataFrames with a database-style join.
+    Limitations: Map on/left_on/right_on directly; how maps to how in Polars; suffixes maps to suffix= (single tuple in Polars); validate and indicator are not supported.
+    Discrepancies: pandas merge supports indicator column and validate mode; Polars join does not. Polars suffix is a single string, not a two-element tuple.
+  pandas.DataFrame.min → df.select(pl.all().min()) / pl.col(...).min()  [no direct Polars equivalent — see guidance below]
+  pandas.DataFrame.reset_index → No direct Polars equivalent; use with_row_index() only for row numbers  [no direct Polars equivalent — see guidance below]
+  pandas.DataFrame.round → df.select(pl.all().round(decimals)) / pl.col(...).round(...)  [no direct Polars equivalent — see guidance below]
+  pandas.Series → polars.Series  [doc not in corpus — see guidance below]
+  pandas.Series.abs → polars.Series.abs
+    Notes: Returns absolute numeric values.
+    Limitations: Use Series method or Expr in select/with_columns.
+    Discrepancies: Mostly similar, but dtype/null behavior may differ.
+  pandas.Series.notnull → polars.Series.is_not_null
+    Notes: Alias for detecting non-missing values.
+    Limitations: Same as notna; use is_not_null and optionally is_not_nan.
+    Discrepancies: pandas notnull is alias of notna; Polars uses is_not_null.
+  pandas.Series.to_list → polars.Series.to_list
+    Notes: Returns Series values as a Python list.
+    Limitations: Use s.to_list().
+    Discrepancies: Both return Python lists, but pandas missing values and Polars null/NaN handling may differ.
+  pandas.concat → polars.concat
+    Notes: Concatenates multiple DataFrames or Series.
+    Limitations: Map axis=0 to vertical concat; axis=1 to horizontal concat; review schema alignment.
+    Discrepancies: pandas concat handles index alignment, while Polars concat uses explicit strategies such as vertical, horizontal, diagonal, or align.
+
+### Source pandas Behavior
+Brief descriptions of the source pandas APIs to clarify their intended behavior.
+
+  DataFrameGroupBy.agg: Aggregate using one or more operations over the specified axis.
+
+Function to use for aggregating the data. If a function, must either
+work when passed a DataFrame or when passed to DataFrame.apply.
+
+Accepted combinations are:
+
+- function
+- string function name
+- list of functions and/or function names, e.g.
+  pandas.DataFrame: Two-dimensional, size-mutable, potentially heterogeneous tabular data.
+
+Data structure also contains labeled axes (rows and columns).
+Arithmetic operations align on both row and column labels. Can be
+thought of as a dict-like container for Series objects.
+  pandas.DataFrame.columns: The column labels of the DataFrame.
+
+This property holds the column names as a pandas Index object.
+It provides an immutable sequence of column labels that can be
+used for data selection, renaming, and alignment in DataFrame operations.
+  pandas.DataFrame.copy: Make a copy of this object.
+
+Name is set on the new object.
+
+Set name for new object.
+
+Else makes a shallow copy.
+
+Index refer to new object which is a copy of this object.
+  pandas.DataFrame.groupby: Group DataFrame using a mapper or by a Series of columns.
+
+A groupby operation involves some combination of splitting the
+object, applying a function, and combining the results. This can be
+used to group large amounts of data and compute operations on these
+groups.
+  pandas.DataFrame.index: The index (row labels) of the DataFrame.
+
+The index of a DataFrame is a series of labels that identify each row.
+The labels can be integers, strings, or any other hashable type. The index
+is used for label-based access and alignment, and can be accessed or
+modified using this attribute.
+  pandas.DataFrame.max: Return the maximum of the values over the requested axis.
+
+If you want the index of the maximum, use idxmax.
+This is the equivalent of the numpy.ndarray method argmax.
+
+Axis for the function to be applied on.
+  pandas.DataFrame.merge: Merge DataFrame or named Series objects with a database-style join.
+
+A named Series object is treated as a DataFrame with a single named column.
+
+The join is done on columns or indexes. If joining columns on
+columns, the DataFrame indexes will be ignored.
+  pandas.DataFrame.min: Return the minimum of the values over the requested axis.
+
+If you want the index of the minimum, use idxmin.
+This is the equivalent of the numpy.ndarray method argmin.
+
+Axis for the function to be applied on.
+  pandas.DataFrame.reset_index: Reset the index, or a level of it.
+
+Reset the index of the DataFrame, and use the default one instead.
+If the DataFrame has a MultiIndex, this method can remove one or more
+levels.
+
+Only remove the given levels from the index.
+  pandas.DataFrame.round: Round numeric columns in a DataFrame to a variable number of decimal places.
+
+Number of decimal places to round each column to. If an int is
+given, round each column to the same number of places.
+Otherwise dict and Series round to variable numbers of places.
+  pandas.Series: One-dimensional ndarray with axis labels (including time series).
+
+Labels need not be unique but must be a hashable type. The object
+supports both integer- and label-based indexing and provides a host of
+methods for performing operations involving the index.
+  pandas.Series.abs: Return a Series/DataFrame with absolute numeric value of each element.
+
+This function only applies to elements that are all numeric.
+
+Series/DataFrame containing the absolute value of each element.
+  pandas.Series.notnull: Series.notnull is an alias for Series.notna.
+
+Detect existing (non-missing) values.
+
+Return a boolean same-sized object indicating if the values are not NA.
+Non-missing values get mapped to True. Characters such as empty
+strings '' or numpy.inf are not considered NA values.
+  pandas.Series.to_list: Return a list of the values.
+
+These are each a scalar type, which is a Python scalar
+(for str, int, float) or a pandas scalar
+(for Timestamp/Timedelta/Interval/Period)
+
+List containing the values as P…
+  pandas.concat: Concatenate pandas objects along a particular axis.
+
+Allows optional set logic along the other axes.
+
+Can also add a layer of hierarchical indexing on the concatenation axis,
+which may be useful if the labels are the same (or overlapping) on
+the passed axis number.
+
+### Supporting Polars Documentation (for Confirmed Mappings)
+These Polars documentation chunks were retrieved to supplement the confirmed mappings above. Use them to understand the correct syntax and usage of the mapped Polars APIs.
+
+
+polars.DataFrame.columns
+  property DataFrame.columns: list[str]
+
+Get or set column names.
+
+Returns:
+
+list of str
+
+A list containing the name of each column in order.
+
+polars.DataFrame.clone
+  DataFrame.clone() → DataFrame
+
+Create a copy of this DataFrame.
+
+This is a cheap operation that does not copy data.
+
+See also
+
+clear
+
+Create an empty copy of the current DataFrame, with identical sche…
+
+polars.DataFrame.group_by
+  DataFrame.group_by(
+
+*by: IntoExpr | Iterable[IntoExpr],
+
+maintain_order: bool = False,
+
+**named_by: IntoExpr,
+
+) → GroupBy
+
+Start a group by operation.
+
+Parameters:
+
+*by
+
+Column(s) to group by. Accepts expression input.
+
+polars.DataFrame.join
+  DataFrame.join(
+
+other: DataFrame,
+
+on: str | Expr | Sequence[str | Expr] | None = None,
+
+how: JoinStrategy = 'inner',
+
+*,
+
+left_on: str | Expr | Sequence[str | Expr] | None = None,
+
+right_on: str | E…
+
+polars.Series.abs
+  Series.abs() → Series
+
+Compute absolute values.
+
+Same as abs(series).
+
+polars.Series.is_not_null
+  Series.is_not_null() → Series
+
+Returns a boolean Series indicating which values are not null.
+
+Returns:
+
+Series
+
+Series of data type Boolean.
+
+polars.Series.to_list
+  Series.to_list() → list_[Any]
+
+Convert this Series to a Python list.
+
+This operation copies data.
+
+polars.concat
+  polars.concat(
+
+items: Iterable[PolarsType],
+
+*,
+
+how: ConcatMethod = 'vertical',
+
+rechunk: bool = False,
+
+parallel: bool = True,
+
+strict: bool = False,
+
+) → PolarsType
+
+Combine multiple DataFrames, LazyFrames, or Series into a single object.
+
+### Migration Guidance (for APIs without corpus docs)
+For pandas APIs where the confirmed Polars target API was not found in the documentation corpus, the following textual migration notes from the knowledge base may still be helpful. Use them as guidance about the recommended migration approach, but verify correctness against your own knowledge of valid Polars APIs.
+
+
+pandas.DataFrame:
+  Suggested migration: polars.DataFrame
+  Notes: Creates a two-dimensional tabular data object.
+  Limitations: Use pl.DataFrame(data, schema=...); pandas index has no direct Polars equivalent.
+  Discrepancies: pandas DataFrame has row index labels, while Polars DataFrame only has columns and row positions.
+
+pandas.DataFrame.index:
+  Suggested migration: No direct Polars equivalent; use explicit index column or with_row_index()
+  Notes: Returns row labels of the DataFrame.
+  Limitations: Do not translate to df.index; create an explicit column if row labels matter.
+  Discrepancies: pandas has hidden row index, while Polars has no pandas-style index.
+
+pandas.DataFrame.max:
+  Suggested migration: df.select(pl.all().max()) / pl.col(...).max()
+  Notes: Returns maximum values.
+  Limitations: Use expressions; select numeric columns if needed.
+  Discrepancies: pandas has axis/skipna/numeric_only; Polars aggregates columns explicitly.
+
+pandas.DataFrame.min:
+  Suggested migration: df.select(pl.all().min()) / pl.col(...).min()
+  Notes: Returns minimum values.
+  Limitations: Use expressions; select relevant columns explicitly.
+  Discrepancies: pandas supports axis/numeric options; Polars uses column expressions.
+
+pandas.DataFrame.reset_index:
+  Suggested migration: No direct Polars equivalent; use with_row_index() only for row numbers
+  Notes: Resets index into columns or drops it.
+  Limitations: If pandas index contains meaningful values, preserve it as a real column before migration.
+  Discrepancies: pandas has hidden index to reset; Polars has no hidden index.
+
+pandas.DataFrame.round:
+  Suggested migration: df.select(pl.all().round(decimals)) / pl.col(...).round(...)
+  Notes: Rounds numeric columns.
+  Limitations: Use round; dictionary-per-column decimals need explicit column expressions.
+  Discrepancies: pandas supports per-column decimals dict; Polars requires explicit expressions.
+
+pandas.Series:
+  Suggested migration: polars.Series
+  Notes: Creates a one-dimensional labeled pandas array-like object.
+  Limitations: Use pl.Series(name, values, dtype=...); pandas index has no direct Polars equivalent.
+  Discrepancies: pandas Series has axis labels/index, while Polars Series has a name but no pandas-style index.
+
+### Candidate Polars Documentation (for Unmapped APIs)
+These Polars documentation chunks were retrieved as candidate migration knowledge for pandas APIs that have no confirmed static mapping. They are optional references, not guaranteed one-to-one mappings. Use them only if they preserve the behavior of the original pandas code. Do not assume that the highest-ranked candidate is correct. You may ignore all candidates if none applies, and you may use a different valid Polars API based on your own knowledge.
+
+
+DataFrameGroupBy.agg
+  1. polars.dataframe.group_by.GroupBy.agg (score=0.8560)
+     GroupBy.agg(*aggs: IntoExpr | Iterable[IntoExpr], **named_aggs: IntoExpr) → DataFrame
+
+Compute aggregations for each group of a group by operation.
+
+Parameters:
+
+*aggs
+
+Aggregations to compute for each group of the group by operation,
+specified as positional arguments.
+Accepts expression input.
+     Example: Compute the aggregation of the columns for each group.
+
+>>> df = pl.DataFrame(
+...     {
+...         "a": ["a", "b", "a", "b", "c"],
+...         "b": [1, 2, 1, 3, 3],
+...         "c": [5, 4, 3, 2, 1],
+...     }
+... )
+>>> df.group_by("a").agg(pl.col("b"), pl.col("c"))
+shape: (3, 3)
+┌─────┬───────────┬───────────┐
+│ a   ┆ b         ┆ c         │
+│ --- ┆ ---       ┆ ---       │
+│ str ┆ list[i64] ┆ list[i64] │
+╞═════╪═══════════╪═══════════╡
+│ a   ┆ [1, 1]    ┆ [5, 3]    │
+│ b   ┆ [2, 3]    ┆ [4, 2]    │
+│ c   ┆ [3]       ┆ [1]       │
+└─────┴───────────┴───────────┘
+
+Compute the sum of a column for each group.
+
+>>> df.group_by("a").agg(pl.col("b").sum())
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ str ┆ i64 │
+╞═════╪═════╡
+│ a   ┆ 2   │
+│ b   ┆ 5   │
+│ c   ┆ 3   │
+└─────┴─────┘
+
+Compute multiple aggregates at once by passing a list of expressions.
+
+>>> df.group_by("a").agg([pl.sum("b"), pl.mean("c")])
+shape: (3, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ f64 │
+╞═════╪═════╪═════╡
+│ c   ┆ 3   ┆ 1.0 │
+│ a   ┆ 2   ┆ 4.0 │
+│ b   ┆ 5   ┆ 3.0 │
+└─────┴─────┴─────┘
+
+Or use positional arguments to compute multiple aggregations in the same way.
+
+>>> df.group_by("a").agg(
+...     pl.sum("b").name.suffix("_sum"),
+...     (pl.col("c") ** 2).mean().name.suffix("_mean_squared"),
+... )
+shape: (3, 3)
+┌─────┬───────┬────────────────┐
+│ a   ┆ b_sum ┆ c_mean_squared │
+│ --- ┆ ---   ┆ ---            │
+│ str ┆ i64   ┆ f64            │
+╞═════╪═══════╪════════════════╡
+│ a   ┆ 2     ┆ 17.0           │
+│ c   ┆ 3     ┆ 1.0            │
+│ b   ┆ 5     ┆ 10.0           │
+└─────┴───────┴────────────────┘
+
+Use keyword arguments to easily name your expression inputs.
+
+>>> df.group_by("a").agg(
+...     b_sum=pl.sum("b"),
+...     c_mean_squared=(pl.col("c") ** 2).mean(),
+... )
+shape: (3, 3)
+┌─────┬───────┬────────────────┐
+│ a   ┆ b_sum ┆ c_mean_squared │
+│ --- ┆ ---   ┆ ---            │
+│ str ┆ i64   ┆ f64            │
+╞═════╪═══════╪════════════════╡
+│ a   ┆ 2     ┆ 17.0           │
+│ c   ┆ 3     ┆ 1.0            │
+│ b   ┆ 5     ┆ 10.0           │
+└─────┴───────┴────────────────┘
+  2. polars.Expr.agg_groups (score=0.8080)
+     Expr.agg_groups() → Expr
+
+Get the group indexes of the group by operation.
+
+Deprecated since version 1.35: use df.with_row_index().group_by(...).agg(pl.col('index')) instead.
+This method will be removed in Polars 2.0.
+     Example: >>> import warnings
+>>> warnings.filterwarnings("ignore", category=DeprecationWarning)
+>>> df = pl.DataFrame(
+...     {
+...         "group": [
+...             "one",
+...             "one",
+...             "one",
+...             "two",
+...             "two",
+...             "two",
+...         ],
+...         "value": [94, 95, 96, 97, 97, 99],
+...     }
+... )
+>>> df.group_by("group", maintain_order=True).agg(pl.col("value").agg_groups())
+shape: (2, 2)
+┌───────┬───────────┐
+│ group ┆ value     │
+│ ---   ┆ ---       │
+│ str   ┆ list[u32] │
+╞═══════╪═══════════╡
+│ one   ┆ [0, 1, 2] │
+│ two   ┆ [3, 4, 5] │
+└───────┴───────────┘
+
+New recommended approach:
+>>> (
+…     df.with_row_index()
+…     .group_by(“group”, maintain_order=True)
+…     .agg(pl.col(“index”))
+… )
+shape: (2, 2)
+┌───────┬───────────┐
+│ group ┆ index     │
+│ —   ┆ —       │
+│ str   ┆ list[u32] │
+╞═══════╪═══════════╡
+│ one   ┆ [0, 1, 2] │
+│ two   ┆ [3, 4, 5] │
+└───────┴───────────┘
+  3. polars.dataframe.group_by.RollingGroupBy (score=0.8045)
+     A rolling grouper.
+
+This has an `.agg` method which will allow you to run all polars expressions in a
+group by context.
+  4. polars.dataframe.group_by.DynamicGroupBy (score=0.8034)
+     A dynamic grouper.
+
+This has an `.agg` method which allows you to run all polars expressions in a
+group by context.
+  5. polars.DataFrame.group_by (score=0.7988)
+     DataFrame.group_by(
+
+*by: IntoExpr | Iterable[IntoExpr],
+
+maintain_order: bool = False,
+
+**named_by: IntoExpr,
+
+) → GroupBy
+
+Start a group by operation.
+
+Parameters:
+
+*by
+
+Column(s) to group by. Accepts expression input.
+     Example: Group by one column and call agg to compute the grouped sum of another
+column.
+
+>>> df = pl.DataFrame(
+...     {
+...         "a": ["a", "b", "a", "b", "c"],
+...         "b": [1, 2, 1, 3, 3],
+...         "c": [5, 4, 3, 2, 1],
+...     }
+... )
+>>> df.group_by("a").agg(pl.col("b").sum())
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ str ┆ i64 │
+╞═════╪═════╡
+│ a   ┆ 2   │
+│ b   ┆ 5   │
+│ c   ┆ 3   │
+└─────┴─────┘
+
+Set maintain_order=True to ensure the order of the groups is consistent with
+the input.
+
+>>> df.group_by("a", maintain_order=True).agg(pl.col("c"))
+shape: (3, 2)
+┌─────┬───────────┐
+│ a   ┆ c         │
+│ --- ┆ ---       │
+│ str ┆ list[i64] │
+╞═════╪═══════════╡
+│ a   ┆ [5, 3]    │
+│ b   ┆ [4, 2]    │
+│ c   ┆ [1]       │
+└─────┴───────────┘
+
+Group by multiple columns by passing a list of column names.
+
+>>> df.group_by(["a", "b"]).agg(pl.max("c"))
+shape: (4, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ a   ┆ 1   ┆ 5   │
+│ b   ┆ 2   ┆ 4   │
+│ b   ┆ 3   ┆ 2   │
+│ c   ┆ 3   ┆ 1   │
+└─────┴─────┴─────┘
+
+Or use positional arguments to group by multiple columns in the same way.
+Expressions are also accepted.
+
+>>> df.group_by("a", pl.col("b") // 2).agg(pl.col("c").mean())
+shape: (3, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ f64 │
+╞═════╪═════╪═════╡
+│ a   ┆ 0   ┆ 4.0 │
+│ b   ┆ 1   ┆ 3.0 │
+│ c   ┆ 1   ┆ 1.0 │
+└─────┴─────┴─────┘
+
+The GroupBy object returned by this method is iterable, returning the name
+and data of each group.
+
+>>> for name, data in df.group_by("a"):
+...     print(name)
+...     print(data)
+('a',)
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ a   ┆ 1   ┆ 5   │
+│ a   ┆ 1   ┆ 3   │
+└─────┴─────┴─────┘
+('b',)
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ b   ┆ 2   ┆ 4   │
+│ b   ┆ 3   ┆ 2   │
+└─────┴─────┴─────┘
+('c',)
+shape: (1, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ b   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ str ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ c   ┆ 3   ┆ 1   │
+└─────┴─────┴─────┘
+
+pandas.DataFrame  [mapping confirmed: polars.DataFrame, doc absent — supplementary only]
+  1. polars.DataFrame.map_rows (score=0.7490)
+     DataFrame.map_rows(
+
+function: Callable[[tuple[Any, ...]], Any],
+
+return_dtype: PolarsDataType | None = None,
+
+*,
+
+inference_size: int = 256,
+
+) → DataFrame
+
+Apply a custom/user-defined function (UDF) over the rows of the DataFrame.
+     Example: >>> df = pl.DataFrame({"foo": [1, 2, 3], "bar": [-1, 5, 8]})
+
+Return a DataFrame by mapping each row to a tuple:
+
+>>> df.map_rows(lambda t: (t[0] * 2, t[1] * 3))
+shape: (3, 2)
+┌──────────┬──────────┐
+│ column_0 ┆ column_1 │
+│ ---      ┆ ---      │
+│ i64      ┆ i64      │
+╞══════════╪══════════╡
+│ 2        ┆ -3       │
+│ 4        ┆ 15       │
+│ 6        ┆ 24       │
+└──────────┴──────────┘
+
+However, it is much better to implement this with a native expression:
+
+>>> df.select(
+...     pl.col("foo") * 2,
+...     pl.col("bar") * 3,
+... )
+
+Return a DataFrame with a single column by mapping each row to a scalar:
+
+>>> df.map_rows(lambda t: t[0] * 2 + t[1])
+shape: (3, 1)
+┌─────┐
+│ map │
+│ --- │
+│ i64 │
+╞═════╡
+│ 1   │
+│ 9   │
+│ 14  │
+└─────┘
+
+In this case it is better to use the following native expression:
+
+>>> df.select(pl.col("foo") * 2 + pl.col("bar"))
+
+pandas.DataFrame.index  [static mapping: no direct equivalent — candidates supplementary only]
+  1. polars.DataFrame.__getitem__ (score=0.7270)
+     DataFrame.__getitem__(
+
+key: SingleIndexSelector | SingleColSelector | MultiColSelector | MultiIndexSelector | tuple[SingleIndexSelector, SingleColSelector] | tuple[SingleIndexSelector, MultiColSelect…
+     Example: >>> df = pl.DataFrame(
+...     {"a": [1, 2, 3], "d": [4, 5, 6], "c": [1, 3, 2], "b": [7, 8, 9]}
+... )
+>>> df[0]
+shape: (1, 4)
+┌─────┬─────┬─────┬─────┐
+│ a   ┆ d   ┆ c   ┆ b   │
+│ --- ┆ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╪═════╡
+│ 1   ┆ 4   ┆ 1   ┆ 7   │
+└─────┴─────┴─────┴─────┘
+>>> df[0, "a"]
+1
+>>> df["a"]
+shape: (3,)
+Series: 'a' [i64]
+[
+1
+2
+3
+]
+>>> df[0:2]
+shape: (2, 4)
+┌─────┬─────┬─────┬─────┐
+│ a   ┆ d   ┆ c   ┆ b   │
+│ --- ┆ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╪═════╡
+│ 1   ┆ 4   ┆ 1   ┆ 7   │
+│ 2   ┆ 5   ┆ 3   ┆ 8   │
+└─────┴─────┴─────┴─────┘
+>>> df[0:2, "a"]
+shape: (2,)
+Series: 'a' [i64]
+[
+1
+2
+]
+>>> df[0:2, 0]
+shape: (2,)
+Series: 'a' [i64]
+[
+1
+2
+]
+>>> df[[0, 1], [0, 1, 2]]
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ d   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ 1   ┆ 4   ┆ 1   │
+│ 2   ┆ 5   ┆ 3   │
+└─────┴─────┴─────┘
+>>> df[0:2, ["a", "c"]]
+shape: (2, 2)
+┌─────┬─────┐
+│ a   ┆ c   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 1   │
+│ 2   ┆ 3   │
+└─────┴─────┘
+>>> df[:, 0:2]
+shape: (3, 2)
+┌─────┬─────┐
+│ a   ┆ d   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 4   │
+│ 2   ┆ 5   │
+│ 3   ┆ 6   │
+└─────┴─────┘
+>>> df[:, "a":"c"]
+shape: (3, 3)
+┌─────┬─────┬─────┐
+│ a   ┆ d   ┆ c   │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ i64 │
+╞═════╪═════╪═════╡
+│ 1   ┆ 4   ┆ 1   │
+│ 2   ┆ 5   ┆ 3   │
+│ 3   ┆ 6   ┆ 2   │
+└─────┴─────┴─────┘
+  2. polars.DataFrame.gather_every (score=0.7265)
+     DataFrame.gather_every(n: int, offset: int = 0) → DataFrame
+
+Take every nth row in the DataFrame and return as a new DataFrame.
+
+Parameters:
+
+n
+
+Gather every n-th row.
+
+offset
+
+Starting index.
+     Example: >>> s = pl.DataFrame({"a": [1, 2, 3, 4], "b": [5, 6, 7, 8]})
+>>> s.gather_every(2)
+shape: (2, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 5   │
+│ 3   ┆ 7   │
+└─────┴─────┘
+
+>>> s.gather_every(2, offset=1)
+shape: (2, 2)
+┌─────┬─────┐
+│ a   ┆ b   │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 2   ┆ 6   │
+│ 4   ┆ 8   │
+└─────┴─────┘
+  3. polars.DataFrame.show (score=0.7232)
+     DataFrame.show(
+
+limit: int | None = 5,
+
+*,
+
+ascii_tables: bool | None = None,
+
+decimal_separator: str | None = None,
+
+thousands_separator: str | bool | None = None,
+
+float_precision: int | None = Non…
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3, 4, 5],
+...         "bar": [6, 7, 8, 9, 10],
+...         "ham": ["a", "b", "c", "d", "e"],
+...     }
+... )
+>>> df.show(3)
+shape: (3, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+│ 2   ┆ 7   ┆ b   │
+│ 3   ┆ 8   ┆ c   │
+└─────┴─────┴─────┘
+
+Pass a negative value to get all rows except the last abs(n).
+
+>>> df.show(-3)
+shape: (2, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+│ 2   ┆ 7   ┆ b   │
+└─────┴─────┴─────┘
+  4. polars.DataFrame.hstack (score=0.7224)
+     DataFrame.hstack(
+
+columns: list[Series] | DataFrame,
+
+*,
+
+in_place: bool = False,
+
+) → DataFrame
+
+Return a new DataFrame grown horizontally by stacking multiple Series to it.
+
+Parameters:
+
+columns
+
+Series to stack.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [6, 7, 8],
+...         "ham": ["a", "b", "c"],
+...     }
+... )
+>>> x = pl.Series("apple", [10, 20, 30])
+>>> df.hstack([x])
+shape: (3, 4)
+┌─────┬─────┬─────┬───────┐
+│ foo ┆ bar ┆ ham ┆ apple │
+│ --- ┆ --- ┆ --- ┆ ---   │
+│ i64 ┆ i64 ┆ str ┆ i64   │
+╞═════╪═════╪═════╪═══════╡
+│ 1   ┆ 6   ┆ a   ┆ 10    │
+│ 2   ┆ 7   ┆ b   ┆ 20    │
+│ 3   ┆ 8   ┆ c   ┆ 30    │
+└─────┴─────┴─────┴───────┘
+  5. polars.struct (score=0.7148)
+     polars.struct(
+
+*exprs: IntoExpr | Iterable[IntoExpr],
+
+schema: SchemaDict | None = None,
+
+eager: bool = False,
+
+**named_exprs: IntoExpr,
+
+) → Expr | Series
+
+Collect columns into a struct column.
+
+Parameters:
+
+*exprs
+
+Column(s) to collect into a struct column, specified as positional arguments.
+Accepts expression input.
+     Example: Collect all columns of a dataframe into a struct by passing pl.all().
+
+>>> df = pl.DataFrame(
+...     {
+...         "int": [1, 2],
+...         "str": ["a", "b"],
+...         "bool": [True, None],
+...         "list": [[1, 2], [3]],
+...     }
+... )
+>>> df.select(pl.struct(pl.all()).alias("my_struct"))
+shape: (2, 1)
+┌─────────────────────┐
+│ my_struct           │
+│ ---                 │
+│ struct[4]           │
+╞═════════════════════╡
+│ {1,"a",true,[1, 2]} │
+│ {2,"b",null,[3]}    │
+└─────────────────────┘
+
+Collect selected columns into a struct by either passing a list of columns, or by
+specifying each column as a positional argument.
+
+>>> df.select(pl.struct("int", False).alias("my_struct"))
+shape: (2, 1)
+┌───────────┐
+│ my_struct │
+│ ---       │
+│ struct[2] │
+╞═══════════╡
+│ {1,false} │
+│ {2,false} │
+└───────────┘
+
+Use keyword arguments to easily name each struct field.
+
+>>> df.select(pl.struct(p="int", q="bool").alias("my_struct")).schema
+Schema({'my_struct': Struct({'p': Int64, 'q': Boolean})})
+
+pandas.DataFrame.max  [static mapping: no direct equivalent — candidates supplementary only]
+  1. polars.DataFrame.max_horizontal (score=0.7690)
+     DataFrame.max_horizontal() → Series
+
+Get the maximum value horizontally across columns.
+
+Returns:
+
+Series
+
+A Series named "max".
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [4.0, 5.0, 6.0],
+...     }
+... )
+>>> df.max_horizontal()
+shape: (3,)
+Series: 'max' [f64]
+[
+4.0
+5.0
+6.0
+]
+  2. polars.DataFrame.max (score=0.7260)
+     DataFrame.max() → DataFrame
+
+Aggregate the columns of this DataFrame to their maximum value.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [6, 7, 8],
+...         "ham": ["a", "b", "c"],
+...     }
+... )
+>>> df.max()
+shape: (1, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 3   ┆ 8   ┆ c   │
+└─────┴─────┴─────┘
+  3. polars.max_horizontal (score=0.7240)
+     polars.max_horizontal(*exprs: IntoExpr | Iterable[IntoExpr]) → Expr
+
+Get the maximum value horizontally across columns.
+
+Parameters:
+
+*exprs
+
+Column(s) to use in the aggregation. Accepts expression input.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "a": [1, 8, 3],
+...         "b": [4, 5, None],
+...         "c": ["x", "y", "z"],
+...     }
+... )
+>>> df.with_columns(max=pl.max_horizontal("a", "b"))
+shape: (3, 4)
+┌─────┬──────┬─────┬─────┐
+│ a   ┆ b    ┆ c   ┆ max │
+│ --- ┆ ---  ┆ --- ┆ --- │
+│ i64 ┆ i64  ┆ str ┆ i64 │
+╞═════╪══════╪═════╪═════╡
+│ 1   ┆ 4    ┆ x   ┆ 4   │
+│ 8   ┆ 5    ┆ y   ┆ 8   │
+│ 3   ┆ null ┆ z   ┆ 3   │
+└─────┴──────┴─────┴─────┘
+  4. polars.Expr.cum_max (score=0.6989)
+     Expr.cum_max(*, reverse: bool = False) → Expr
+
+Get an array with the cumulative max computed at every element.
+
+Parameters:
+
+reverse
+
+Reverse the operation.
+     Example: >>> df = pl.DataFrame({"a": [1, 3, 2]})
+>>> df.with_columns(
+...     pl.col("a").cum_max().alias("cum_max"),
+...     pl.col("a").cum_max(reverse=True).alias("cum_max_reverse"),
+... )
+shape: (3, 3)
+┌─────┬─────────┬─────────────────┐
+│ a   ┆ cum_max ┆ cum_max_reverse │
+│ --- ┆ ---     ┆ ---             │
+│ i64 ┆ i64     ┆ i64             │
+╞═════╪═════════╪═════════════════╡
+│ 1   ┆ 1       ┆ 3               │
+│ 3   ┆ 3       ┆ 3               │
+│ 2   ┆ 3       ┆ 2               │
+└─────┴─────────┴─────────────────┘
+
+Null values are excluded, but can also be filled by calling
+fill_null(strategy="forward").
+
+>>> df = pl.DataFrame({"values": [None, 10, None, 8, 9, None, 16, None]})
+>>> df.with_columns(
+...     pl.col("values").cum_max().alias("cum_max"),
+...     pl.col("values")
+...     .cum_max()
+...     .fill_null(strategy="forward")
+...     .alias("cum_max_all_filled"),
+... )
+shape: (8, 3)
+┌────────┬─────────┬────────────────────┐
+│ values ┆ cum_max ┆ cum_max_all_filled │
+│ ---    ┆ ---     ┆ ---                │
+│ i64    ┆ i64     ┆ i64                │
+╞════════╪═════════╪════════════════════╡
+│ null   ┆ null    ┆ null               │
+│ 10     ┆ 10      ┆ 10                 │
+│ null   ┆ null    ┆ 10                 │
+│ 8      ┆ 10      ┆ 10                 │
+│ 9      ┆ 10      ┆ 10                 │
+│ null   ┆ null    ┆ 10                 │
+│ 16     ┆ 16      ┆ 16                 │
+│ null   ┆ null    ┆ 16                 │
+└────────┴─────────┴────────────────────┘
+  5. polars.Series.rolling_max_by (score=0.6987)
+     Series.rolling_max_by(
+
+by: IntoExpr,
+
+window_size: timedelta | str_,
+
+*,
+
+min_samples: int = 1,
+
+closed: ClosedInterval = 'right',
+
+) → Self
+
+Compute a rolling max based on another series.
+
+Warning
+
+This functionality is considered unstable.
+     Example: Create a series with a row index value
+
+>>> from datetime import timedelta, datetime
+>>> start = datetime(2001, 1, 1)
+>>> stop = datetime(2001, 1, 2)
+>>> s = pl.Series("index", range(25))
+>>> s
+shape: (25,)
+Series: 'index' [i64]
+[
+0
+1
+2
+3
+4
+…
+20
+21
+22
+23
+24
+]
+
+Create another series to apply the window mask:
+
+>>> d = pl.Series("date", pl.datetime_range(start, stop, "1h", eager=True))
+>>> d
+shape: (25,)
+Series: 'date' [datetime[μs]]
+[
+2001-01-01 00:00:00
+2001-01-01 01:00:00
+2001-01-01 02:00:00
+2001-01-01 03:00:00
+2001-01-01 04:00:00
+…
+2001-01-01 20:00:00
+2001-01-01 21:00:00
+2001-01-01 22:00:00
+2001-01-01 23:00:00
+2001-01-02 00:00:00
+]
+
+Compute the rolling max with the temporal windows
+from the second series closed on the right:
+
+>>> s.rolling_max_by(d, "3h")
+shape: (25,)
+Series: 'index' [i64]
+[
+0
+1
+2
+3
+4
+…
+20
+21
+22
+23
+24
+]
+
+pandas.DataFrame.min  [static mapping: no direct equivalent — candidates supplementary only]
+  1. polars.DataFrame.min_horizontal (score=0.7633)
+     DataFrame.min_horizontal() → Series
+
+Get the minimum value horizontally across columns.
+
+Returns:
+
+Series
+
+A Series named "min".
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [4.0, 5.0, 6.0],
+...     }
+... )
+>>> df.min_horizontal()
+shape: (3,)
+Series: 'min' [f64]
+[
+1.0
+2.0
+3.0
+]
+  2. polars.DataFrame.min (score=0.7174)
+     DataFrame.min() → DataFrame
+
+Aggregate the columns of this DataFrame to their minimum value.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [6, 7, 8],
+...         "ham": ["a", "b", "c"],
+...     }
+... )
+>>> df.min()
+shape: (1, 3)
+┌─────┬─────┬─────┐
+│ foo ┆ bar ┆ ham │
+│ --- ┆ --- ┆ --- │
+│ i64 ┆ i64 ┆ str │
+╞═════╪═════╪═════╡
+│ 1   ┆ 6   ┆ a   │
+└─────┴─────┴─────┘
+  3. polars.min_horizontal (score=0.7093)
+     polars.min_horizontal(*exprs: IntoExpr | Iterable[IntoExpr]) → Expr
+
+Get the minimum value horizontally across columns.
+
+Parameters:
+
+*exprs
+
+Column(s) to use in the aggregation. Accepts expression input.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "a": [1, 8, 3],
+...         "b": [4, 5, None],
+...         "c": ["x", "y", "z"],
+...     }
+... )
+>>> df.with_columns(min=pl.min_horizontal("a", "b"))
+shape: (3, 4)
+┌─────┬──────┬─────┬─────┐
+│ a   ┆ b    ┆ c   ┆ min │
+│ --- ┆ ---  ┆ --- ┆ --- │
+│ i64 ┆ i64  ┆ str ┆ i64 │
+╞═════╪══════╪═════╪═════╡
+│ 1   ┆ 4    ┆ x   ┆ 1   │
+│ 8   ┆ 5    ┆ y   ┆ 5   │
+│ 3   ┆ null ┆ z   ┆ 3   │
+└─────┴──────┴─────┴─────┘
+  4. polars.Expr.min_by (score=0.6903)
+     Expr.min_by(by: IntoExpr) → Expr
+
+Get minimum value, ordered by another expression.
+
+If the by expression has multiple values equal to the minimum it is not
+defined which value will be chosen.
+
+Warning
+
+This functionality is considered unstable.
+     Example: >>> df = pl.DataFrame({"a": [-1.0, float("nan"), 1.0], "b": ["x", "y", "z"]})
+>>> df.select(pl.col("b").min_by("a"))
+shape: (1, 1)
+┌─────┐
+│ b   │
+│ --- │
+│ str │
+╞═════╡
+│ x   │
+└─────┘
+  5. polars.Expr.arg_min (score=0.6903)
+     Expr.arg_min() → Expr
+
+Get the index of the minimal value.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "a": [20, 10, 30],
+...     }
+... )
+>>> df.select(pl.col("a").arg_min())
+shape: (1, 1)
+┌─────┐
+│ a   │
+│ --- │
+│ u32 │
+╞═════╡
+│ 1   │
+└─────┘
+
+pandas.DataFrame.reset_index  [static mapping: no direct equivalent — candidates supplementary only]
+  1. polars.DataFrame.drop (score=0.7176)
+     DataFrame.drop(
+
+*columns: ColumnNameOrSelector | Iterable[ColumnNameOrSelector],
+
+strict: bool = True,
+
+) → DataFrame
+
+Remove columns from the dataframe.
+
+Parameters:
+
+*columns
+
+Names of the columns that should be removed from the dataframe.
+     Example: Drop a single column by passing the name of that column.
+
+>>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [6.0, 7.0, 8.0],
+...         "ham": ["a", "b", "c"],
+...     }
+... )
+>>> df.drop("ham")
+shape: (3, 2)
+┌─────┬─────┐
+│ foo ┆ bar │
+│ --- ┆ --- │
+│ i64 ┆ f64 │
+╞═════╪═════╡
+│ 1   ┆ 6.0 │
+│ 2   ┆ 7.0 │
+│ 3   ┆ 8.0 │
+└─────┴─────┘
+
+Drop multiple columns by passing a list of column names.
+
+>>> df.drop(["bar", "ham"])
+shape: (3, 1)
+┌─────┐
+│ foo │
+│ --- │
+│ i64 │
+╞═════╡
+│ 1   │
+│ 2   │
+│ 3   │
+└─────┘
+
+Drop multiple columns by passing a selector.
+
+>>> import polars.selectors as cs
+>>> df.drop(cs.numeric())
+shape: (3, 1)
+┌─────┐
+│ ham │
+│ --- │
+│ str │
+╞═════╡
+│ a   │
+│ b   │
+│ c   │
+└─────┘
+
+Use positional arguments to drop multiple columns.
+
+>>> df.drop("foo", "ham")
+shape: (3, 1)
+┌─────┐
+│ bar │
+│ --- │
+│ f64 │
+╞═════╡
+│ 6.0 │
+│ 7.0 │
+│ 8.0 │
+└─────┘
+  2. polars.DataFrame.replace_column (score=0.6880)
+     DataFrame.replace_column(index: int, column: Series) → DataFrame
+
+Replace a column at an index location.
+
+This operation is in place.
+
+Parameters:
+
+index
+
+Column index.
+
+column
+
+Series that will repla…
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "foo": [1, 2, 3],
+...         "bar": [6, 7, 8],
+...         "ham": ["a", "b", "c"],
+...     }
+... )
+>>> s = pl.Series("apple", [10, 20, 30])
+>>> df.replace_column(0, s)
+shape: (3, 3)
+┌───────┬─────┬─────┐
+│ apple ┆ bar ┆ ham │
+│ ---   ┆ --- ┆ --- │
+│ i64   ┆ i64 ┆ str │
+╞═══════╪═════╪═════╡
+│ 10    ┆ 6   ┆ a   │
+│ 20    ┆ 7   ┆ b   │
+│ 30    ┆ 8   ┆ c   │
+└───────┴─────┴─────┘
+  3. polars.DataFrame.rechunk (score=0.6776)
+     DataFrame.rechunk() → DataFrame
+
+Rechunk the data in this DataFrame to a contiguous allocation.
+
+This will make sure all subsequent operations have optimal and predictable
+performance.
+  4. polars.DataFrame.unpivot (score=0.6774)
+     DataFrame.unpivot(
+
+on: ColumnNameOrSelector | Sequence[ColumnNameOrSelector] | None = None,
+
+*,
+
+index: ColumnNameOrSelector | Sequence[ColumnNameOrSelector] | None = None,
+
+variable_name: str | None = None,
+
+value_name: str | None = None,
+
+) → DataFrame
+
+Unpivot a DataFrame from wide to long format.
+     Example: >>> df = pl.DataFrame(
+...     {
+...         "a": ["x", "y", "z"],
+...         "b": [1, 3, 5],
+...         "c": [2, 4, 6],
+...     }
+... )
+>>> import polars.selectors as cs
+>>> df.unpivot(cs.numeric(), index="a")
+shape: (6, 3)
+┌─────┬──────────┬───────┐
+│ a   ┆ variable ┆ value │
+│ --- ┆ ---      ┆ ---   │
+│ str ┆ str      ┆ i64   │
+╞═════╪══════════╪═══════╡
+│ x   ┆ b        ┆ 1     │
+│ y   ┆ b        ┆ 3     │
+│ z   ┆ b        ┆ 5     │
+│ x   ┆ c        ┆ 2     │
+│ y   ┆ c        ┆ 4     │
+│ z   ┆ c        ┆ 6     │
+└─────┴──────────┴───────┘
+  5. polars.DataFrame.melt (score=0.6750)
+     DataFrame.melt(
+
+id_vars: ColumnNameOrSelector | Sequence[ColumnNameOrSelector] | None = None,
+
+value_vars: ColumnNameOrSelector | Sequence[ColumnNameOrSelector] | None = None,
+
+variable_name: str | None = None,
+
+value_name: str | None = None,
+
+) → DataFrame
+
+Unpivot a DataFrame from wide to long format.
+
+pandas.DataFrame.round  [static mapping: no direct equivalent — candidates supplementary only]
+  1. polars.Expr.round (score=0.8657)
+     Expr.round(decimals: int = 0, mode: RoundMode = 'half_to_even') → Expr
+
+Round underlying floating point data by decimals digits.
+
+Parameters:
+
+decimals
+
+Number of decimals to round by.
+
+mode{‘half_to_even’, ‘half_away_from_zero’, ‘to_zero’}
+
+The rounding strategy used.
+     Example: >>> df = pl.DataFrame({"a": [0.33, 0.52, 1.02, 1.17]})
+>>> df.select(pl.col("a").round(1))
+shape: (4, 1)
+┌─────┐
+│ a   │
+│ --- │
+│ f64 │
+╞═════╡
+│ 0.3 │
+│ 0.5 │
+│ 1.0 │
+│ 1.2 │
+└─────┘
+
+>>> df = pl.DataFrame(
+...     {
+...         "f64": [-3.5, -2.5, -1.5, -0.5, 0.5, 1.5, 2.5, 3.5],
+...         "d": ["-3.5", "-2.5", "-1.5", "-0.5", "0.5", "1.5", "2.5", "3.5"],
+...     },
+...     schema_overrides={"d": pl.Decimal(scale=1)},
+... )
+>>> df.with_columns(
+...     pl.all().round(mode="half_away_from_zero").name.suffix("_away"),
+...     pl.all().round(mode="half_to_even").name.suffix("_to_even"),
+... )
+shape: (8, 6)
+┌──────┬───────────────┬──────────┬───────────────┬─────────────┬───────────────┐
+│ f64  ┆ d             ┆ f64_away ┆ d_away        ┆ f64_to_even ┆ d_to_even     │
+│ ---  ┆ ---           ┆ ---      ┆ ---           ┆ ---         ┆ ---           │
+│ f64  ┆ decimal[38,1] ┆ f64      ┆ decimal[38,1] ┆ f64         ┆ decimal[38,1] │
+╞══════╪═══════════════╪══════════╪═══════════════╪═════════════╪═══════════════╡
+│ -3.5 ┆ -3.5          ┆ -4.0     ┆ -4.0          ┆ -4.0        ┆ -4.0          │
+│ -2.5 ┆ -2.5          ┆ -3.0     ┆ -3.0          ┆ -2.0        ┆ -2.0          │
+│ -1.5 ┆ -1.5          ┆ -2.0     ┆ -2.0          ┆ -2.0        ┆ -2.0          │
+│ -0.5 ┆ -0.5          ┆ -1.0     ┆ -1.0          ┆ -0.0        ┆ 0.0           │
+│ 0.5  ┆ 0.5           ┆ 1.0      ┆ 1.0           ┆ 0.0         ┆ 0.0           │
+│ 1.5  ┆ 1.5           ┆ 2.0      ┆ 2.0           ┆ 2.0         ┆ 2.0           │
+│ 2.5  ┆ 2.5           ┆ 3.0      ┆ 3.0           ┆ 2.0         ┆ 2.0           │
+│ 3.5  ┆ 3.5           ┆ 4.0      ┆ 4.0           ┆ 4.0         ┆ 4.0           │
+└──────┴───────────────┴──────────┴───────────────┴─────────────┴───────────────┘
+  2. polars.Expr.round_sig_figs (score=0.8038)
+     Expr.round_sig_figs(digits: int) → Expr
+
+Round to a number of significant figures.
+
+Parameters:
+
+digits
+
+Number of significant figures to round to.
+
+See also
+
+ceil
+
+Round up to the nearest integer.
+
+floor
+
+Round down to the nearest integer.
+     Example: >>> df = pl.DataFrame({"a": [0.01234, 3.333, 1234.0]})
+>>> df.with_columns(pl.col("a").round_sig_figs(2).alias("round_sig_figs"))
+shape: (3, 2)
+┌─────────┬────────────────┐
+│ a       ┆ round_sig_figs │
+│ ---     ┆ ---            │
+│ f64     ┆ f64            │
+╞═════════╪════════════════╡
+│ 0.01234 ┆ 0.012          │
+│ 3.333   ┆ 3.3            │
+│ 1234.0  ┆ 1200.0         │
+└─────────┴────────────────┘
+  3. polars.Expr.ceil (score=0.7970)
+     Expr.ceil() → Expr
+
+Rounds up to the nearest integer value.
+
+Only works on floating point Series.
+
+See also
+
+floor
+
+Round down to the nearest integer.
+
+round
+
+Round to the nearest integer.
+     Example: >>> df = pl.DataFrame({"a": [0.3, 0.5, 1.0, 1.1]})
+>>> df.select(pl.col("a").ceil())
+shape: (4, 1)
+┌─────┐
+│ a   │
+│ --- │
+│ f64 │
+╞═════╡
+│ 1.0 │
+│ 1.0 │
+│ 1.0 │
+│ 2.0 │
+└─────┘
+  4. polars.Series.round (score=0.7818)
+     Series.round(decimals: int = 0, mode: RoundMode = 'half_to_even') → Series
+
+Round underlying floating point data by decimals digits.
+
+Parameters:
+
+decimals
+
+Number of decimals to round by.
+
+mode{‘half_to_even’, ‘half_away_from_zero’, ‘to_zero’}
+
+The rounding strategy used.
+     Example: >>> s = pl.Series("a", [1.12345, 2.56789, 3.901234])
+>>> s.round(2)
+shape: (3,)
+Series: 'a' [f64]
+[
+1.12
+2.57
+3.9
+]
+
+>>> s = pl.Series([-3.5, -2.5, -1.5, -0.5, 0.5, 1.5, 2.5, 3.5])
+>>> s.round(mode="half_to_even")
+shape: (8,)
+Series: '' [f64]
+[
+-4.0
+-2.0
+-2.0
+-0.0
+0.0
+2.0
+2.0
+4.0
+]
+  5. polars.Expr.truncate (score=0.7756)
+     Expr.truncate(decimals: int = 0) → Expr
+
+Truncate numeric data toward zero to decimals number of decimal places.
+
+Parameters:
+
+decimals
+
+Number of decimal places to truncate to.
+
+See also
+
+ceil
+
+Round up to the nearest integer.
+     Example: >>> df = pl.DataFrame({"n": [-9.9999, 0.12345, 1.0251, 8.8765]})
+>>> df.with_columns(
+...     t0=pl.col("n").truncate(0),
+...     t1=pl.col("n").truncate(1),
+...     t2=pl.col("n").truncate(2),
+...     t3=pl.col("n").truncate(3),
+...     t4=pl.col("n").truncate(4),
+... )
+shape: (4, 6)
+┌─────────┬──────┬──────┬───────┬────────┬─────────┐
+│ n       ┆ t0   ┆ t1   ┆ t2    ┆ t3     ┆ t4      │
+│ ---     ┆ ---  ┆ ---  ┆ ---   ┆ ---    ┆ ---     │
+│ f64     ┆ f64  ┆ f64  ┆ f64   ┆ f64    ┆ f64     │
+╞═════════╪══════╪══════╪═══════╪════════╪═════════╡
+│ -9.9999 ┆ -9.0 ┆ -9.9 ┆ -9.99 ┆ -9.999 ┆ -9.9999 │
+│ 0.12345 ┆ 0.0  ┆ 0.1  ┆ 0.12  ┆ 0.123  ┆ 0.1234  │
+│ 1.0251  ┆ 1.0  ┆ 1.0  ┆ 1.02  ┆ 1.025  ┆ 1.025   │
+│ 8.8765  ┆ 8.0  ┆ 8.8  ┆ 8.87  ┆ 8.876  ┆ 8.8765  │
+└─────────┴──────┴──────┴───────┴────────┴─────────┘
+
+pandas.Series  [mapping confirmed: polars.Series, doc absent — supplementary only]
+  1. polars.Series.sql (score=0.7187)
+     Series.sql(query: str_, *, table_name: str_ = 'self') → DataFrame
+
+Execute a SQL query against the Series.
+
+Added in version 1.37.0.
+
+Warning
+
+This functionality is considered unstable, although it is close to
+being considered stable.
+     Example: >>> from datetime import date
+>>> s = pl.Series(
+...     name="dt",
+...     values=[date(1999, 12, 31), date(2099, 2, 14), date(2026, 3, 5)],
+... )
+
+Query the Series using SQL:
+
+>>> s.sql('''
+...     SELECT
+...       EXTRACT('year',dt) AS y,
+...       EXTRACT('month',dt) AS m,
+...       EXTRACT('day',dt) AS d,
+...     FROM self
+...     WHERE dt > '2020-01-01'
+...     ORDER BY dt DESC
+... ''')
+shape: (2, 3)
+┌──────┬─────┬─────┐
+│ y    ┆ m   ┆ d   │
+│ ---  ┆ --- ┆ --- │
+│ i32  ┆ i8  ┆ i8  │
+╞══════╪═════╪═════╡
+│ 2099 ┆ 2   ┆ 14  │
+│ 2026 ┆ 3   ┆ 5   │
+└──────┴─────┴─────┘
+
+While you can refer to an unnamed Series column using the default empty
+string, it is not recommended:
+
+>>> s = pl.Series([1, 2, 3])
+>>> s.sql('SELECT "" AS x, "" * 2 AS "2x" FROM self')
+shape: (3, 2)
+┌─────┬─────┐
+│ x   ┆ 2x  │
+│ --- ┆ --- │
+│ i64 ┆ i64 │
+╞═════╪═════╡
+│ 1   ┆ 2   │
+│ 2   ┆ 4   │
+│ 3   ┆ 6   │
+└─────┴─────┘
+  2. polars.Series.to_numpy (score=0.7156)
+     Series.to_numpy(
+
+*,
+
+writable: bool = False,
+
+allow_copy: bool = True,
+
+use_pyarrow: bool | None = None,
+
+zero_copy_only: bool | None = None,
+
+) → ndarray[Any, Any]
+
+Convert this Series to a NumPy ndarray.
+
+This operation copies data only when necessary.
+     Example: Numeric data without nulls can be converted without copying data.
+The resulting array will not be writable.
+
+>>> s = pl.Series([1, 2, 3], dtype=pl.Int8)
+>>> arr = s.to_numpy()
+>>> arr
+array([1, 2, 3], dtype=int8)
+>>> arr.flags.writeable
+False
+
+Set writable=True to force data copy to make the array writable.
+
+>>> s.to_numpy(writable=True).flags.writeable
+True
+
+Integer Series containing nulls will be cast to a float type with nan
+representing a null value. This requires data to be copied.
+
+>>> s = pl.Series([1, 2, None], dtype=pl.UInt16)
+>>> s.to_numpy()
+array([ 1.,  2., nan], dtype=float32)
+
+Set allow_copy=False to raise an error if data would be copied.
+
+>>> s.to_numpy(allow_copy=False)
+Traceback (most recent call last):
+...
+RuntimeError: copy not allowed: cannot convert to a NumPy array without copying data
+
+Series of data type Array and Struct will result in an array with more than
+one dimension.
+
+>>> s = pl.Series([[1, 2, 3], [4, 5, 6]], dtype=pl.Array(pl.Int64, 3))
+>>> s.to_numpy()
+array([[1, 2, 3],
+[4, 5, 6]])
+
+### Missing Knowledge Warnings
+  pandas.DataFrame.explode: pandas doc not found

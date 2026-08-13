@@ -1,0 +1,15 @@
+{
+  "experiment": "exp2_v2",
+  "created_at_utc": "2026-08-10T20:57:41.675304+00:00",
+  "model": "gpt-5.4-mini",
+  "api": "responses",
+  "reasoning_effort": "low",
+  "max_output_tokens": 6000,
+  "top_k": 5,
+  "snippet_count": 238,
+  "prompt_template": "exp2/prompts/prompt_template.txt",
+  "polars_docs": "shared/knowledge/polars_docs_union.json",
+  "pandas_docs": "shared/knowledge/pandas_api_structured.json",
+  "mapping_metadata": "shared/knowledge/api_mapping.json",
+  "source_script": "exp2/code/run_exp2_v2.py"
+}

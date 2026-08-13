@@ -1,0 +1,61 @@
+snippet_id,parse_success,gold_api_count,detected_api_count,fn_count,match_status,gold_detected_pandas_apis
+vnc_cmatrix_uid_to_index,False,3,0,3,false-negative only,"pandas.DataFrame.loc
+pandas.Series.values
+pandas.isna"
+29097c0c_train_merge_concat,False,6,0,6,false-negative only,"pandas.DataFrame
+pandas.DataFrame.index
+pandas.DataFrame.rename
+pandas.DataFrame.set_index
+pandas.concat
+pandas.merge"
+ed3b46c0_base_pattern_pred_concat,False,6,0,6,false-negative only,"pandas.DataFrame
+pandas.DataFrame.set_index
+pandas.Series.index
+pandas.Series.rename
+pandas.concat
+pandas.merge"
+ed3b46c0_classification_pred_concat,False,6,0,6,false-negative only,"pandas.DataFrame
+pandas.DataFrame.set_index
+pandas.Series.index
+pandas.Series.to_numpy
+pandas.concat
+pandas.merge"
+a52cebfe_es_update_pivot_join,False,2,0,2,false-negative only,"pandas.DataFrame.merge
+pandas.Series.values"
+8017f91b_eval_hybrid_concat_sort,False,4,0,4,false-negative only,"pandas.DataFrame.drop_duplicates
+pandas.DataFrame.reset_index
+pandas.DataFrame.sort_values
+pandas.concat"
+8c71f3c7_hybrid_scorer_citation_index,False,2,0,2,false-negative only,"pandas.DataFrame.index
+pandas.Index"
+8c71f3c7_hybrid_scorer_language_index,False,2,0,2,false-negative only,"pandas.Index
+pandas.Series.index"
+8c71f3c7_attr_getter_unseen_iter,False,0,0,0,exact,
+8c71f3c7_input_converter_index,False,3,0,3,false-negative only,"pandas.DataFrame.index
+pandas.DataFrame.loc
+pandas.Index.item"
+8c71f3c7_s4_combine_load_concat_write,False,1,0,1,false-negative only,pandas.concat
+8c71f3c7_s8_combine_load_concat_write,False,0,0,0,exact,
+4bb33aa8_trx_stats_isin,False,3,0,3,false-negative only,"pandas.DataFrame.columns
+pandas.Series
+pandas.Series.isin"
+8bb7bc3a_expose_isin,False,0,0,0,exact,
+a39f4527_expose_trx_join_filter,False,2,0,2,false-negative only,"pandas.DataFrame.merge
+pandas.DataFrame.query"
+a39f4527_expose_trx_pivot,False,4,0,4,false-negative only,"pandas.DataFrame.columns
+pandas.DataFrame.pivot_table
+pandas.DataFrame.reset_index
+pandas.MultiIndex.to_flat_index"
+portfolio_stock_to_dict,False,0,0,0,exact,
+img2table_cells_intersection_area_migration,False,0,0,0,exact,
+efc0581f_data_merge_cross,False,9,0,9,false-negative only,"DataFrameGroupBy.agg
+pandas.DataFrame
+pandas.DataFrame.groupby
+pandas.DataFrame.max
+pandas.DataFrame.merge
+pandas.DataFrame.min
+pandas.DataFrame.reset_index
+pandas.DataFrame.sort_values
+pandas.Series.notnull"
+a52cebfe_measured_data_pivot_join,False,0,0,0,exact,
+8017f91b_input_loc_index_item,False,0,0,0,exact,

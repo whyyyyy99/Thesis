@@ -1,0 +1,105 @@
+{
+  "id": "resp_01cf44b9d88e7011006a7a3b0370f081a0b9baa23e0d5e270f",
+  "created_at": 1786395395.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_01cf44b9d88e7011006a7a3b03bc9c81a090b2bd5ff66ec47d",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_01cf44b9d88e7011006a7a3b0652e481a08493c183dc0b3ea3",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\nfrom itertools import product\n\ndef create_params(config: ModelConfig) -> pl.DataFrame | None:\n    param_dict = extract_param_dict(config)\n    if len(param_dict) == 0:\n        return None\n    crossby = list(param_dict.keys())\n    params = pl.DataFrame(\n        [param_set for param_set in product(*param_dict.values())],\n        schema=crossby,\n    ).with_row_index(\"param_id\")\n    return params.select([\"param_id\", *crossby])",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395398.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 2924,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 461,
+    "output_tokens_details": {
+      "reasoning_tokens": 348
+    },
+    "total_tokens": 3385
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

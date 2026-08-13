@@ -1,0 +1,2 @@
+row_embedding: EmbeddingVector = df.filter(pl.col(df.columns[0]) == document_id_1).item(0, df.columns[1] if len(df.columns) > 1 else 0)
+col_embedding: EmbeddingVector = df.filter(pl.col(df.columns[0]) == document_id_2).item(0, df.columns[1] if len(df.columns) > 1 else 0)

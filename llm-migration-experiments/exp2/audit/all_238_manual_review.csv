@@ -1,0 +1,239 @@
+ordinal,snippet_id,l1,l2,l3,test_review,primary_layer,primary_category,cascade,evidence,action
+1,05afd878_evaluate_coassembly_edges,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Polars item assignment raises TypeError; paired pandas and empty-input oracle calls succeed.,none
+2,05afd878_evaluate_combined,pass,pass,pass,valid,none,none,none,Standard and paired empty-input outputs match.,none
+3,05afd878_evaluate_nontarget,pass,pass,pass,valid,none,none,none,Standard and edge outputs match on paired fixtures.,none
+4,05afd878_evaluate_unbinned,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code calls removed DataFrame.groupby; pandas succeeds on standard and empty inputs.,none
+5,0ffdf231_noaa_ghcn_inventory,pass,pass,pass,valid,none,none,none,Both implementations parse the same local inventory fixture and edge case.,none
+6,0ffdf231_noaa_ghcn_stations,pass,pass,pass,valid,none,none,none,Both implementations parse the same local station fixture and edge case.,none
+7,142b5bcb_tools_relocate,pass,pass,pass,valid,none,none,none,Returned callables are executed on paired frames and branch behaviour matches.,none
+8,16645382_exp_stats_col_assign,pass,pass,pass,valid,none,none,none,The oracle mutation and generated result are both observed and match.,none
+9,16645382_exp_stats_rename,pass,pass,pass,valid,none,none,none,Returned frames match for standard and schema-bearing empty inputs.,none
+10,1e52b4e7_concat_to_frame,pass,pass,pass,valid,none,none,none,Paired dataset adapters expose equivalent values and rejection behaviour.,none
+11,1ec015da_to_rank,pass,fail,fail,valid,L2,schema mismatch,L3,Generated output drops the primary-key column represented by the pandas index; empty input repeats the defect.,none
+12,1f8af3a3_target_elusive_sample_pairs,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code explodes a String column and fails before output; paired oracle succeeds.,none
+13,1f8af3a3_target_elusive_sparse_edges,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,A list operation is applied to a String aggregation; standard and duplicate-edge oracle calls succeed.,none
+14,1f8af3a3_target_elusive_unbinned,pass,fail,fail,valid,L2,return-type mismatch,L3,Pandas returns a named indexed Series while generated code returns a value-only Series without the target contract.,none
+15,287a28d8_col_ends_with,pass,pass,pass,valid,none,none,none,Standard and case-sensitive selector behaviour matches.,none
+16,287a28d8_col_matches,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code passes pandas-style case/regex keywords to re.search.,none
+17,287a28d8_col_starts_with,pass,pass,pass,valid,none,none,none,Standard and edge selector behaviour matches.,none
+18,29097c0c_to_dataset_read_wrap,pass,pass,pass,valid,none,none,none,Returned functions are executed and saved frame plus metadata are observed.,none
+19,29097c0c_train_iloc_filter,pass,pass,pass,valid,none,none,none,Backend-aware dataset fixtures provide equivalent positional inputs.,none
+20,29097c0c_train_merge_concat,fail,fail,pass,valid,L1,shape or structural mismatch,L2,Generated current-fold frame has three columns but existing base frames have four; empty-base edge case passes.,none
+21,325e7c2b_dates_pol_interval,pass,pass,pass,valid,none,none,none,Duration and scalar branches match; redundant generated-only check is absent.,none
+22,3c49cad1_bench_interp_cols,pass,pass,pass,valid,none,none,none,All extracted lists match for standard and empty requests.,none
+23,3c49cad1_bench_interp_filter,pass,pass,pass,valid,none,none,none,Paired standard and no-match filters agree.,none
+24,3c49cad1_bench_interp_time_regular,pass,pass,pass,valid,none,none,none,"Normal, null, and all-null behaviours are paired and match.",none
+25,3c49cad1_bench_interp_time_rmse,pass,pass,pass,valid,none,none,none,Returned helpers are invoked on paired Series and match.,none
+26,3c49cad1_bench_precip_pct,pass,pass,pass,valid,none,none,none,Standard and oracle-derived empty-input results match.,none
+27,3c49cad1_bench_precip_regular,pass,pass,pass,valid,none,none,none,Standard and exclude-first branch outputs match.,none
+28,3c49cad1_geosphere_all,pass,pass,pass,valid,none,none,none,Standard and schema-bearing empty CSV outputs match.,none
+29,3c49cad1_geosphere_collect,pass,fail,fail,valid,L2,index or datetime contract mismatch,L3,Generated date remains String while pandas returns datetime on both standard and missing-value inputs.,none
+30,3c49cad1_mosmix_access_dataframe,fail,fail,fail,repaired,L1,import or unresolved-reference error,L2/L3,Consuming the generator exposes an invalid polars.DatetimeIndex import.,L1 now consumes the first yielded value on both sides.
+31,3c49cad1_mosmix_access_datetime,pass,pass,fail,valid,L3,empty-input handling,none,Standard datetime values match; empty input creates a Null Series on which generated .str fails.,none
+32,3c49cad1_radar_index_radolan,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,str.ends_with receives a tuple unsupported by Polars; paired pandas calls succeed.,none
+33,3c49cad1_radar_index_sweeps,pass,pass,pass,valid,none,none,none,Standard and mixed-filename selection outputs match.,none
+34,3c49cad1_radar_sites_cols,pass,pass,pass,valid,none,none,none,Column extraction and edge behaviour match.,none
+35,3c49cad1_radar_sites_dicts,pass,pass,pass,valid,none,none,none,Returned dictionary construction matches on paired fixtures.,none
+36,3c49cad1_timeseries_extract,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code calls with_columns on the outer parameter object instead of mutating its values frame.,none
+37,3c49cad1_timeseries_gain,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code uses unsupported Polars item assignment; captured score/state oracle succeeds.,none
+38,4bb33aa8_trx_stats_isin,pass,pass,pass,valid,none,none,none,Values and paired exception contract match.,none
+39,6f1c2684_datasets_read_csv,pass,pass,pass,valid,none,none,none,Standard and schema-valid empty CSV results match.,none
+40,73a39d90_experiment_df_construct,pass,pass,pass,valid,none,none,none,Constructed frames match on paired inputs.,none
+41,73a39d90_metrics_bootstrap_filter,pass,pass,pass,valid,none,none,none,Bootstrap filter output and edge behaviour match.,none
+42,73a39d90_metrics_groupby_agg,pass,pass,pass,valid,none,none,none,Grouped aggregate values and schema match.,none
+43,73a39d90_metrics_groupby_partition,pass,pass,pass,valid,none,none,none,Partitioned grouped results match.,none
+44,73a39d90_run_concat_write,pass,pass,pass,valid,none,none,none,Returned frames and isolated written CSV artefacts match.,none
+45,73a39d90_run_dataframe_write,pass,pass,pass,valid,none,none,none,Returned frame and isolated persisted output match.,none
+46,774f17e7_mane_mappings_filter_symbol,pass,pass,pass,valid,none,none,none,Complete normalized record lists match.,none
+47,774f17e7_mane_mappings_genomic_filter,pass,pass,pass,valid,none,none,none,Standard genomic filtering and edge behaviour match.,none
+48,774f17e7_mane_mappings_isin,pass,pass,pass,valid,none,none,none,Every field of every normalized result record matches.,none
+49,774f17e7_mane_mappings_load,pass,pass,pass,valid,none,none,none,Loaded mappings and edge behaviour match.,none
+50,774f17e7_mane_transcript_filter_row,pass,pass,pass,valid,none,none,none,Standard row selection and paired missing-row exception contract match.,none
+51,774f17e7_mane_transcript_parse_ac,pass,pass,pass,valid,none,none,none,Returned accession parsing and edge behaviour match.,none
+52,774f17e7_uta_database_construct,pass,pass,pass,valid,none,none,none,Constructed database state and edge behaviour match.,none
+53,7e55b00b_sample_empty_df,pass,pass,pass,valid,none,none,none,Standard and empty-frame contracts match.,none
+54,8017f91b_embedder_frame,pass,pass,pass,valid,none,none,none,Frame construction and index representation match.,none
+55,8017f91b_eval_hybrid_concat_sort,pass,fail,fail,valid,L2,schema mismatch,L3,Pandas reset_index exposes an index column that generated output omits; duplicate edge repeats it.,none
+56,8017f91b_eval_hybrid_load,pass,pass,pass,valid,none,none,none,Loaded frames and edge behaviour match.,none
+57,8017f91b_hybrid_score_concat,pass,pass,pass,valid,none,none,none,Concatenated score outputs match.,none
+58,8017f91b_hybrid_score_frame,pass,pass,pass,valid,none,none,none,Frame output and tested edge contract match without baseline-only fixture concretisation.,none
+59,8017f91b_input_loc_col,pass,pass,pass,valid,none,none,none,Column selection and missing-input behaviour match.,none
+60,8017f91b_input_loc_index_item,pass,fail,pass,valid,L2,missing one or more steps,none,Generated code computes item() but does not return it; standard result is None instead of 101.,none
+61,8017f91b_io_parquet,pass,pass,pass,valid,none,none,none,Isolated parquet IO output and edge behaviour match.,none
+62,8017f91b_model_data_lang_loc_filter,skip,skip,skip,evaluation-invalid,none,none,none,Fragment consists of disconnected expression statements with no defensible observable contract.,none
+63,8017f91b_model_data_loc_filter,skip,skip,skip,evaluation-invalid,none,none,none,Fragment lacks enclosing tuple/return context and has no defensible oracle.,none
+64,8017f91b_pairwise_cosine_loc,pass,pass,pass,valid,none,none,none,Paired cosine lookup outputs and edge behaviour match.,none
+65,8017f91b_pairwise_loc_filter,fail,fail,pass,valid,L1,incorrect column reference,L2,Generated code filters on absent index instead of document_id; missing-id edge rejects on both sides.,none
+66,8017f91b_precompute_cross_join,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated code reads input_df.index from a Polars DataFrame.,none
+67,8017f91b_precompute_id_cross_frame,skip,skip,skip,evaluation-invalid,none,none,none,Ellipsis body removes the loop's observable operation and no contract can be reconstructed.,none
+68,83c12695_collect_filter,pass,pass,pass,valid,none,none,none,Filter result and edge behaviour match.,none
+69,83c12695_collect_pivot,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated expression calls nonexistent Expr.map_groups; paired oracle returns a set.,none
+70,8bb7bc3a_expose_isin,fail,fail,fail,valid,L1,incomplete runnable code,L2/L3,Generated text ends in an incomplete continuation and is represented by a SyntaxError wrapper.,none
+71,8c71f3c7_attr_getter_unseen_frame,fail,fail,pass,valid,L1,type or runtime error,L2,Mixed nested numeric values cannot be constructed under inferred Polars dtype; empty edge passes.,none
+72,8c71f3c7_attr_getter_unseen_iter,skip,skip,skip,evaluation-invalid,none,none,none,Loop body is pass and local assignments have no observable output.,none
+73,8c71f3c7_citation_models_fillna,pass,pass,pass,valid,none,none,none,Mutation and fill behaviour match.,none
+74,8c71f3c7_citation_models_rank,pass,pass,pass,valid,none,none,none,Ranking output and edge behaviour match.,none
+75,8c71f3c7_document_info_tolist,pass,pass,pass,valid,none,none,none,List conversion output matches.,none
+76,8c71f3c7_embedder_frame,pass,pass,pass,valid,none,none,none,Frame construction and index representation match.,none
+77,8c71f3c7_hybrid_score_concat,pass,pass,pass,valid,none,none,none,Concatenated score outputs match.,none
+78,8c71f3c7_hybrid_scorer_citation_index,pass,fail,pass,valid,L2,index or datetime contract mismatch,none,"Pandas preserves candidate IDs [101,205,309]; generated code substitutes row positions [0,1,2].",none
+79,8c71f3c7_hybrid_scorer_language_index,pass,fail,pass,valid,L2,index or datetime contract mismatch,none,"Pandas preserves candidate IDs [101,205,309]; generated code substitutes row positions [0,1,2].",none
+80,8c71f3c7_input_converter_index,pass,fail,pass,valid,L2,missing one or more steps,none,Generated code computes the selected item but returns None.,none
+81,8c71f3c7_input_converter_loc,pass,pass,pass,valid,none,none,none,Lookup value and missing-URL behaviour match.,none
+82,8c71f3c7_model_choice_load,pass,pass,pass,valid,none,none,none,Model-choice load result and edge behaviour match.,none
+83,8c71f3c7_pairwise_loc_colname,pass,fail,fail,valid,L2,return-type mismatch,L3,Standard pandas selections are scalars while generated selections are one-element lists; generated empty selection also fails to reject missing IDs.,none
+84,8c71f3c7_pairwise_loc_item,pass,pass,pass,valid,none,none,none,Scalar lookup and missing-ID behaviour match.,none
+85,8c71f3c7_precompute_df_construct,pass,pass,pass,valid,none,none,none,Constructed precompute frame and edge behaviour match.,none
+86,8c71f3c7_s4_combine_load_concat_write,pass,pass,pass,valid,none,none,none,Combined output and isolated written artefact match.,none
+87,8c71f3c7_s8_combine_load_concat_write,pass,pass,pass,valid,none,none,none,Combined output and isolated written artefact match.,none
+88,92e35040_query_appraised,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,A list aggregation operation is applied to String data and fails during group_by resolution.,none
+89,92e35040_query_binned_unbinned,pass,fail,pass,valid,L2,incorrect aggregation/filter/join logic,none,Generated .clear() removes all standard rows; paired empty case happens to match.,none
+90,92e35040_query_write_csv,pass,pass,pass,valid,none,none,none,Returned and persisted CSV results match.,none
+91,99aff9e0_rename_columns_empty_df,pass,fail,fail,valid,L2,missing one or more steps,L3,Generated code creates an empty schema but omits all suffix renaming and unsupported-input validation.,none
+92,a39f4527_expose_trx_join_filter,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated filter compares temporal values with date-column name strings instead of column expressions.,none
+93,a39f4527_expose_trx_left_join_fill,pass,pass,pass,valid,none,none,none,Join state and null filling match.,none
+94,a39f4527_expose_trx_pivot,fail,fail,fail,valid,L1,invalid target API usage,L2/L3,Generated pivot passes unsupported fill_value and later returns None.,none
+95,a39f4527_expose_trx_unique,pass,fail,fail,valid,L2,return-type mismatch,L3,Mutated self.data matches but pandas returns column-name list while generated code returns DataFrame.,none
+96,a52cebfe_common_get_observations,pass,pass,pass,valid,none,none,none,Observation extraction and edge behaviour match.,none
+97,a52cebfe_common_summary_filter,pass,pass,pass,valid,none,none,none,Summary filtering and edge behaviour match.,none
+98,a52cebfe_es_update_pivot_join,pass,pass,pass,valid,none,none,none,Pivot/join output and edge behaviour match.,none
+99,a52cebfe_es_update_scaling_factors,pass,pass,pass,evaluation-valid-but-excluded,none,none,none,Available paired tests pass; pre-existing dataset-level exclusion flag is retained.,none
+100,a52cebfe_measured_data_pivot_join,fail,fail,fail,evaluation-valid-but-excluded,L1,type or runtime error,L2/L3,Generated String Series receives integer realization labels and rejects mixed values; exclusion flag is retained.,none
+101,a52cebfe_rft_concat_write,pass,pass,pass,valid,none,none,none,Returned frames and write-side effects match on standard and edge fixtures.,none
+102,a52cebfe_rft_obs_join,fail,fail,pass,valid,L1,invalid target API usage,L2 downstream,Generated code passes an integer realization label to Polars get_column which requires a string column name.,none
+103,a841955a_summarise_select,pass,pass,pass,valid,none,none,none,Selected summaries agree for standard and edge inputs.,none
+104,a841955a_summarise_unmapped,pass,pass,pass,valid,none,none,none,Unmapped-summary behaviour and schema agree.,none
+105,acryo_loader_corr_max_with_columns_migration,pass,pass,pass,valid,none,none,none,Feature update state agrees on populated and empty cases.,none
+106,acryo_loader_get_features_migration,pass,pass,pass,valid,none,none,none,Returned feature dictionaries agree across tested branches.,none
+107,acryo_loader_scores_with_columns_migration,pass,pass,pass,valid,none,none,none,Observable molecule feature mutation agrees.,none
+108,acryo_loader_update_features_migration,pass,pass,pass,valid,none,none,none,Feature-column updates agree for standard and alternate values.,none
+109,acryo_molecules_concat_migration,pass,pass,pass,valid,none,none,none,Concatenated molecule state and no-feature branch agree.,none
+110,acryo_molecules_from_csv_migration,pass,pass,pass,valid,none,none,none,CSV-derived positions rotations and feature columns agree.,none
+111,acryo_molecules_rotation_copy_migration,pass,pass,pass,valid,none,none,none,Explicit equivalent feature frames remove the harness-only sentinel and copied molecule state agrees.,repaired fixture
+112,acryo_molecules_subset_migration,pass,pass,pass,valid,none,none,none,Subset positions rotations and feature state agree.,none
+113,acryo_molecules_to_csv_migration,pass,pass,pass,valid,none,none,none,Written CSV content agrees including edge branches.,none
+114,acryo_molecules_to_dataframe_migration,pass,pass,pass,valid,none,none,none,Observable molecule DataFrame output agrees.,none
+115,acryo_molecules_translation_copy_migration,pass,pass,pass,valid,none,none,none,Explicit equivalent feature frames remove the harness-only sentinel and translated molecule state agrees.,repaired fixture
+116,adjacency_create_matrix_loop,pass,fail,pass,valid,L2,missing one or more steps,none,Generated code rebinds local Polars frames instead of preserving caller-visible fp and network mutations.,none
+117,adjacency_read_file_to_polars,pass,fail,fail,valid,L2,index or datetime contract mismatch,L3 same defect,After correcting the gpd fixture both sides execute but generated code drops the id index instead of preserving it explicitly.,repaired fixture
+118,azure_ocr_concat_lazy,pass,pass,pass,valid,none,none,none,Concatenated OCR output agrees.,none
+119,azure_ocr_from_dicts,pass,pass,pass,valid,none,none,none,Dictionary-to-frame output agrees.,none
+120,b36214f9_preprocess_attrs_registry,skip,skip,skip,evaluation-invalid,none,none,none,The isolated fragment returns only the lookup closure while the hidden preprocessing closure creates the required registry state.,none
+121,b36214f9_preprocess_columns_tolist,pass,pass,pass,valid,none,none,none,Column-list preprocessing behaviour agrees.,none
+122,b36214f9_preprocess_shape_rename,pass,pass,pass,valid,none,none,none,Shape logging and renamed output contract agree.,none
+123,b36214f9_session_dropna_unique,pass,pass,pass,valid,none,none,none,Drop-null and uniqueness behaviour agree.,none
+124,b36214f9_session_read_csv,pass,pass,pass,valid,none,none,none,CSV session loading behaviour agrees.,none
+125,bbe5d7e5_create_data_frame,pass,pass,pass,valid,none,none,none,Constructed frame values and schema agree.,none
+126,bbe5d7e5_datasets_read_csv,pass,pass,pass,valid,none,none,none,Dataset CSV loading output agrees.,none
+127,cb25a1c5_wsv_pegel,pass,pass,pass,valid,none,none,none,Water-level frame transformation agrees.,none
+128,d90ed416_ibis_filter,pass,pass,pass,valid,none,none,none,Ibis filter expression behaviour agrees.,none
+129,d90ed416_ibis_isin,pass,pass,pass,valid,none,none,none,Ibis membership expression behaviour agrees.,none
+130,d90ed416_ibis_join,pass,pass,pass,valid,none,none,none,Ibis join expression behaviour agrees.,none
+131,db5fc12b_expose_date_str,pass,pass,pass,valid,none,none,none,Date-string exposure agrees.,none
+132,db5fc12b_expose_rename,pass,pass,pass,valid,none,none,none,Renamed output columns agree.,none
+133,dcff23d0_filter_concat_all,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,Generated code requests horizontal concatenation of Polars Series although Series supports vertical concatenation only.,none
+134,e3227f4f_split_empty_df,pass,pass,pass,valid,none,none,none,Split behaviour agrees for standard and empty frames.,none
+135,e8fa7691_design_matrix_model,pass,fail,fail,valid,L2,index or datetime contract mismatch,L3 same defect,Generated code treats the preserved pandas index as a data column and replaces index labels with positional headers.,none
+136,ed3b46c0_base_pattern_iloc,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,Generated code replaces positional iloc selection with bracket indexing which selects columns rather than rows.,none
+137,ed3b46c0_base_pattern_pred_concat,fail,fail,fail,valid,L1,incomplete runnable code,L2/L3 downstream,Generated code retains Ellipsis in rename calls and assumes an index column that was not constructed.,none
+138,ed3b46c0_classification_iloc,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,Generated code replaces positional iloc selection with bracket indexing which selects columns rather than rows.,none
+139,ed3b46c0_classification_pred_concat,fail,fail,fail,valid,L1,incomplete runnable code,L2/L3 downstream,Generated code uses base_df before defining it and therefore cannot execute.,none
+140,efc0581f_azure_concat_lazy,pass,pass,pass,valid,none,none,none,Lazy concatenation output agrees.,none
+141,efc0581f_azure_from_dicts,pass,pass,pass,valid,none,none,none,Dictionary conversion output agrees.,none
+142,efc0581f_data_assign_bbox,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,Generated code constructs Polars Series from scalar integers instead of sequences or literals.,repaired L3 fixture
+143,efc0581f_data_filter_page,pass,pass,pass,valid,none,none,none,Page-filtered OCR output agrees.,none
+144,efc0581f_data_groupby_agg_text,fail,fail,pass,valid,L1,invalid target API usage,L2 downstream,Generated code calls Python strip on a Polars Series returned by the string concatenation expression.,none
+145,efc0581f_data_merge_cross,skip,skip,skip,evaluation-invalid,none,none,none,The extracted pandas source is syntactically truncated and no executable differential oracle can be constructed.,none
+146,efc0581f_dedup_nested_cross_join,pass,pass,pass,valid,none,none,none,Nested cross-join deduplication agrees.,none
+147,efc0581f_dedup_redundant_filter,pass,pass,pass,valid,none,none,none,Redundant-filter behaviour agrees.,none
+148,efc0581f_dedup_vertical_sort_cumcount,pass,pass,pass,valid,none,none,none,Vertical sort and cumulative-count output agrees.,none
+149,efc0581f_ident_explode_cells,pass,pass,fail,valid,L3,dtype-sensitive behaviour,none,A malformed one-element nested delimiter is converted to an empty frame by pandas but raises an out-of-bounds Polars ComputeError.,none
+150,efc0581f_ident_from_dicts_cross,fail,fail,pass,valid,L1,invalid target API usage,L2 downstream,Executing the returned closure triggers a Polars panic when List(Object) is used for nested delimiter pairs.,repaired exception capture and L1 execution
+151,efc0581f_ident_with_columns_conditions,pass,pass,pass,valid,none,none,none,Conditional column construction agrees on standard and edge fixtures.,none
+152,efc0581f_lines_filter_words,pass,pass,pass,valid,none,none,none,Filtered line-word output agrees.,none
+153,efc0581f_lines_from_dicts_lazy,pass,pass,pass,valid,none,none,none,Lazy frame construction from dictionaries agrees.,none
+154,efc0581f_lines_groupby_filter,pass,pass,pass,valid,none,none,none,Grouped line filtering agrees.,none
+155,efc0581f_pdf_concat_lazy,pass,pass,pass,valid,none,none,none,PDF lazy concatenation agrees.,none
+156,efc0581f_pdf_from_dicts,pass,pass,pass,valid,none,none,none,PDF dictionary conversion agrees.,none
+157,efc0581f_tesseract_concat_lazy,pass,pass,pass,valid,none,none,none,Tesseract lazy concatenation agrees.,none
+158,efc0581f_tesseract_from_dicts,pass,pass,pass,valid,none,none,none,Tesseract dictionary conversion agrees.,none
+159,efc0581f_tesseract_nan_none,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,The source mutates a dictionary but generated code calls DataFrame.with_columns on that dictionary receiver.,none
+160,efc0581f_textract_concat_lazy,pass,pass,pass,valid,none,none,none,Textract lazy concatenation agrees.,none
+161,efc0581f_textract_from_dicts,pass,pass,pass,valid,none,none,none,Textract dictionary conversion agrees.,none
+162,efc0581f_vision_concat_lazy,pass,pass,pass,valid,none,none,none,Vision lazy concatenation agrees.,none
+163,efc0581f_vision_from_dicts,pass,pass,pass,valid,none,none,none,Vision dictionary conversion agrees.,none
+164,f11c29ae_dataset_df_clone,pass,pass,pass,valid,none,none,none,Cloned dataset frame state agrees.,none
+165,f11c29ae_dataset_loc_select,pass,pass,pass,valid,none,none,none,Label-based selection contract agrees.,none
+166,f11c29ae_dataset_save_load,pass,pass,pass,valid,none,none,none,Saved and reloaded dataset state agrees.,none
+167,f11c29ae_dataset_to_pandas,pass,pass,pass,valid,none,none,none,Pandas conversion boundary agrees.,none
+168,img2table_aws_textract_concat_lazy_migration,pass,pass,pass,valid,none,none,none,AWS Textract lazy concatenation agrees.,none
+169,img2table_aws_textract_list_dfs_migration,pass,pass,pass,valid,none,none,none,AWS Textract frame-list construction agrees.,none
+170,img2table_azure_concat_lazy_migration,pass,pass,pass,valid,none,none,none,Azure lazy concatenation agrees.,none
+171,img2table_azure_list_dfs_migration,pass,pass,pass,valid,none,none,none,Azure frame-list construction agrees.,none
+172,img2table_cells_adjacent_redundant_migration,pass,pass,pass,valid,none,none,none,Adjacent-cell redundancy calculation agrees.,none
+173,img2table_cells_clone_rename_migration,pass,pass,pass,valid,none,none,none,Cloned and renamed cell frame agrees.,none
+174,img2table_cells_contained_migration,pass,pass,pass,valid,none,none,none,Contained-cell selection agrees.,none
+175,img2table_cells_cross_join_filter_migration,pass,pass,pass,valid,none,none,none,Cross-join filtering agrees.,none
+176,img2table_cells_intersection_area_migration,pass,pass,pass,valid,none,none,none,Intersection-area values agree.,none
+177,img2table_cells_overlap_diff_migration,pass,pass,pass,valid,none,none,none,Overlap-difference values agree.,none
+178,img2table_cells_redundant_removal_migration,pass,pass,pass,valid,none,none,none,Redundant-cell removal agrees.,none
+179,img2table_cells_vertical_deduplication_migration,pass,pass,pass,valid,none,none,none,Vertical deduplication agrees.,none
+180,img2table_cells_width_height_area_migration,pass,pass,pass,valid,none,none,none,Width height and area calculations agree.,none
+181,img2table_google_vision_concat_lazy_migration,pass,pass,pass,valid,none,none,none,Google Vision lazy concatenation agrees.,none
+182,img2table_google_vision_list_dfs_migration,pass,pass,pass,valid,none,none,none,Google Vision frame-list construction agrees.,none
+183,img2table_lines_cross_join_migration,pass,pass,pass,valid,none,none,none,Line cross-join output agrees.,none
+184,img2table_lines_df_lines_creation_migration,pass,pass,pass,valid,none,none,none,Line-frame construction agrees.,none
+185,img2table_lines_filter_words_migration,pass,pass,pass,valid,none,none,none,Line-word filtering agrees.,none
+186,img2table_lines_groupby_sum_migration,pass,pass,pass,valid,none,none,none,Grouped line sums agree.,none
+187,img2table_lines_intersection_assignment_migration,pass,pass,pass,valid,none,none,none,Assigned line-intersection columns agree.,none
+188,img2table_lines_intersection_formula_migration,pass,fail,fail,valid,L2,return-type mismatch,L3 same defect,The pandas reference returns concrete Series values while generated code returns an unresolved Polars Expr.,none
+189,img2table_lines_intersection_lines_filter_migration,pass,pass,pass,valid,none,none,none,Intersection-line filtering agrees.,none
+190,img2table_pdf_concat_lazy_migration,pass,fail,fail,valid,L2,return-type mismatch,L3 same defect,Generated code constructs OCRDataframe but omits the return and yields None.,none
+191,img2table_pdf_list_dfs_migration,pass,pass,pass,valid,none,none,none,PDF frame-list construction agrees.,none
+192,marimo_chdb_cursor_rows,fail,fail,pass,valid,L1,invalid target API usage,L2 downstream,Polars DataFrame construction omits row orientation and interprets cursor rows as columns causing mixed-type construction failure.,none
+193,medmodels_classic_distance_covariates_select_migration,pass,pass,pass,valid,none,none,none,Covariate selection agrees.,none
+194,medmodels_classic_distance_match_migration,pass,fail,fail,valid,L2,invalid target API usage,L3 same defect,Polars DataFrame construction omits row orientation so matched row values are assigned to the wrong columns.,none
+195,medmodels_medrecord_process_edges_dataframe_migration,pass,pass,pass,valid,none,none,none,Processed edge frame agrees.,none
+196,medmodels_medrecord_process_nodes_dataframe_migration,pass,pass,pass,valid,none,none,none,Processed node frame agrees.,none
+197,medmodels_propensity_score_prop_score_migration,pass,fail,fail,valid,L2,wrong logical direction,L3 same defect,Generated code returns the cleaned control_set instead of the matched_control result returned by the source.,none
+198,medmodels_propensity_score_signature_migration,skip,skip,skip,evaluation-invalid,none,none,none,The extracted unit contains only a function signature and pass body so no behavioural oracle exists.,none
+199,mexca_data_delete_filename_time_col_migration,pass,pass,pass,valid,none,none,none,Filename and time-column deletion agrees.,none
+200,mexca_data_merge_audio_text_features_migration,pass,pass,pass,valid,none,none,none,Merged audio-text feature output agrees.,none
+201,mexca_data_merge_features_migration,pass,pass,pass,valid,none,none,none,Equivalent dummy component DataFrames restore the omitted dfs context symmetrically for pandas and Polars; all three layers pass.,replaced reference-only reconstruction with symmetric dummy context
+202,mexca_data_merge_video_annotation_migration,pass,pass,pass,valid,none,none,none,Video annotation merge behaviour agrees.,none
+203,mexca_data_merge_voice_features_migration,pass,pass,pass,valid,none,none,none,Voice feature merge behaviour agrees.,none
+204,mpds_get_dataframe,pass,pass,pass,valid,none,none,none,Returned MPDS DataFrame agrees.,none
+205,pheval_gene_identifier_map,pass,pass,pass,valid,none,none,none,Gene identifier mapping agrees.,none
+206,pheval_gene_updater_find_identifier,pass,pass,pass,valid,none,none,none,Identifier lookup behaviour agrees.,none
+207,pheval_gene_updater_find_symbol,pass,pass,pass,valid,none,none,none,Symbol lookup behaviour agrees.,none
+208,pheval_parse_hgnc_data,pass,pass,fail,valid,L3,dtype-sensitive behaviour,none,Polars infers a numeric TSV column before casting and loses the leading zeros that pandas dtype=str preserves.,none
+209,portfolio_momentum_roc,pass,pass,pass,valid,none,none,none,ROC indicator state agrees for tested inputs.,none
+210,portfolio_momentum_rsi,pass,pass,pass,valid,none,none,none,RSI indicator state agrees for tested inputs.,none
+211,portfolio_momentum_stoch_osc,pass,fail,pass,valid,L2,incorrect aggregation/filter/join logic,none,Against the real ta indicator the generated rolling-window and fill behaviour produces different stochastic oscillator values.,replaced constant stub with ta implementation
+212,portfolio_momentum_stoch_rsi,pass,pass,pass,valid,none,none,none,Using the real ta indicator confirms standard and empty-input outputs agree.,replaced constant stub with ta implementation
+213,portfolio_stock_from_pandas,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,Generated code assumes include_index creates a column named index but the source history has a named Datetime index.,none
+214,portfolio_stock_to_dict,pass,pass,pass,valid,none,none,none,Stock-to-dictionary output agrees.,none
+215,quant_backtester_calculate_returns_migration,fail,fail,fail,valid,L1,invalid target API usage,L2/L3 downstream,A single with_columns call references cumulative_returns while that column is being created in the same expression context.,none
+216,quant_backtester_performance_metrics_migration,pass,pass,pass,valid,none,none,none,Performance metric outputs agree.,none
+217,quant_trading_strategy_backtester_data_load_yfinance_data_two_tickers_migration,pass,fail,fail,valid,L2,index or datetime contract mismatch,L3 same defect,Generated output replaces the source index contract with a Date column and therefore exposes a different schema.,none
+218,readnext_hybrid_score_compare_scores_migration,pass,pass,pass,valid,none,none,none,Hybrid-score comparison agrees.,none
+219,readnext_hybrid_score_to_frame_migration,pass,pass,pass,valid,none,none,none,Hybrid-score frame construction agrees.,none
+220,scoring_compare_methylation_pattern_migration,pass,pass,pass,valid,none,none,none,Methylation-pattern comparison agrees.,none
+221,scoring_compare_methylation_pattern_multiprocessed_migration,pass,pass,pass,valid,none,none,none,Multiprocessed comparison output agrees.,none
+222,scoring_define_mean_methylation_thresholds_migration,pass,pass,pass,valid,none,none,none,Mean threshold construction agrees.,none
+223,scoring_process_bin_contig_merge_migration,pass,pass,pass,valid,none,none,none,Bin-contig merge behaviour agrees.,none
+224,src_onemod_utils_parameters_create_params_migration,pass,pass,pass,valid,none,none,none,Parameter creation output agrees.,none
+225,src_onemod_utils_parameters_get_params_migration,pass,pass,pass,valid,none,none,none,Parameter retrieval output agrees.,none
+226,tesseract_ocr_concat_lazy,pass,pass,pass,valid,none,none,none,Tesseract OCR lazy concatenation agrees.,none
+227,tesseract_ocr_from_dicts,pass,pass,pass,valid,none,none,none,Tesseract OCR dictionary conversion agrees.,none
+228,ultralytics_benchmarks_config,pass,pass,pass,valid,none,none,none,Benchmark configuration output agrees.,none
+229,ultralytics_benchmarks_dataframe,pass,pass,pass,valid,none,none,none,Benchmark DataFrame output agrees.,none
+230,ultralytics_benchmarks_metrics,pass,pass,pass,valid,none,none,none,Benchmark metric output agrees.,none
+231,ultralytics_trainer_read_csv,pass,pass,pass,valid,none,none,none,Trainer CSV input behaviour agrees.,none
+232,ultralytics_wb_custom_table,pass,pass,pass,valid,none,none,none,Weights and Biases custom table output agrees.,none
+233,visivo_sqlalchemy_read_sql,pass,pass,pass,valid,none,none,none,SQLAlchemy query result agrees.,none
+234,vnc_cmatrix_loc_filter_item,pass,pass,pass,valid,none,none,none,Connectivity-matrix filtered item lookup agrees.,none
+235,vnc_cmatrix_lookup_init,pass,pass,pass,valid,none,none,none,Lookup initialisation state agrees.,none
+236,vnc_cmatrix_reindex,pass,pass,fail,valid,L3,dtype-sensitive behaviour,none,A valid lookup containing NaN row indices causes strict Int64 Polars Series construction to fail while pandas reindexes it.,none
+237,vnc_cmatrix_sort_tolist,pass,pass,pass,valid,none,none,none,Sorted list conversion agrees.,none
+238,vnc_cmatrix_uid_to_index,pass,pass,pass,valid,none,none,none,UID-to-index mapping agrees.,none

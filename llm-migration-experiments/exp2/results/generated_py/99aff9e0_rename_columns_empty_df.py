@@ -1,0 +1,1 @@
+df = pl.DataFrame(schema={name: pl.Null for name in df.columns})

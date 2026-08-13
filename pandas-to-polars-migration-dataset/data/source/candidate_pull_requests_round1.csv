@@ -1,0 +1,140 @@
+repo,pr_title,pr_url,author,comments,created_at,updated_at,hit_pandas,hit_polars,pp_valid
+vega/altair,"feat: make pandas and NumPy optional dependencies, don't require PyArrow for plotting with Polars/Modin/cuDF",https://github.com/vega/altair/pull/3452,MarcoGorelli,25,2024-06-30T15:48:18Z,2024-07-17T09:23:50Z,,,
+precice/precice,Fix profiling tests checking for pandas instead of polars,https://github.com/precice/precice/pull/1773,fsimonis,8,2023-08-14T10:34:09Z,2023-08-16T13:49:58Z,False,False,False
+ClickHouse/ClickBench,"Add benchmark on Pandas DataFrame for Pandas, Polars, DuckDB, chDB",https://github.com/ClickHouse/ClickBench/pull/222,auxten,7,2024-09-09T09:18:22Z,2024-11-25T13:03:42Z,,,
+scikit-learn/scikit-learn,CI Use conda-forge for min-dependencies build and add polars and pandas,https://github.com/scikit-learn/scikit-learn/pull/29502,lesteve,7,2024-07-16T13:40:30Z,2024-07-30T10:09:57Z,False,False,False
+narwhals-dev/narwhals,feat: add `DataFrame.pivot` for pandas like and Polars backend,https://github.com/narwhals-dev/narwhals/pull/546,FBruzzesi,6,2024-07-17T15:24:29Z,2024-11-13T10:24:40Z,False,False,False
+pola-rs/polars,feat: Support executing polars SQL against `pandas` and `pyarrow` objects,https://github.com/pola-rs/polars/pull/16746,alexander-beedie,6,2024-06-05T14:24:02Z,2024-06-06T06:54:09Z,False,False,False
+huggingface/dataset-viewer,[docs] Pandas to Polars,https://github.com/huggingface/dataset-viewer/pull/978,stevhliu,6,2023-03-22T23:53:58Z,2023-03-29T08:00:02Z,False,False,False
+sonder-art/fdd_o24,"Tareas Docker, python, env, pandas, polars, fastapi",https://github.com/sonder-art/fdd_o24/pull/59,EduardoGC21,5,2024-10-13T22:08:08Z,2024-11-27T19:06:48Z,False,False,False
+Quansight/Quansight-website,[BLOG] The Polars vs pandas difference nobody is talking about,https://github.com/Quansight/Quansight-website/pull/843,MarcoGorelli,4,2024-04-26T09:50:54Z,2024-11-11T16:25:58Z,,,
+seperman/deepdiff,feature: optional pandas and polars support,https://github.com/seperman/deepdiff/pull/467,TyberiusPrime,4,2024-06-28T16:12:05Z,2024-08-27T22:31:16Z,,,
+pyjanitor-devs/pyjanitor,create polars equivalent of pandas_flavor,https://github.com/pyjanitor-devs/pyjanitor/pull/1374,samukweku,4,2024-06-14T12:00:04Z,2024-06-20T23:03:59Z,,,
+scikit-learn/scikit-learn,DOC replace pandas with Polars in examples/gaussian_process/plot_gpr_co2.py,https://github.com/scikit-learn/scikit-learn/pull/28804,raisadz,4,2024-04-10T13:47:01Z,2024-05-17T08:56:04Z,False,False,False
+hongbo-miao/hongbomiao.com,perf(can): migrate from pandas to polars,https://github.com/hongbo-miao/hongbomiao.com/pull/22082,hongbo-miao,3,2024-12-28T13:44:19Z,2024-12-30T13:12:47Z,False,False,False
+apache/hamilton,"Feat/polars with columns , async with_columns pandas",https://github.com/apache/hamilton/pull/1234,jernejfrank,3,2024-11-18T09:53:19Z,2024-11-28T01:02:29Z,,,
+TA-Lib/ta-lib-python,Propagate Pandas/Polars import errors when the module exists but failed to be imported,https://github.com/TA-Lib/ta-lib-python/pull/676,fumoboy007,3,2024-09-16T21:28:10Z,2024-09-16T22:44:58Z,,,
+posit-dev/positron,Data Explorer: More gracefully handle summary statistics for all-null arrays for pandas and polars,https://github.com/posit-dev/positron/pull/4329,wesm,3,2024-08-13T00:05:35Z,2024-08-14T14:16:44Z,False,False,False
+posit-dev/positron,"This PR adds a Data Explorer smoke test that loads a 100 column x 100 row data frame from a Parquet file and verifies that three rows in the file (the first, the middle, and the last) render correctly in Pandas, Polars, and R.",https://github.com/posit-dev/positron/pull/3947,softwarenerd,3,2024-07-09T22:18:12Z,2024-07-17T16:58:42Z,False,False,False
+pola-rs/polars,feat(python): don't require pyarrow for converting pandas to Polars if all columns have simple numpy-backed datatypes,https://github.com/pola-rs/polars/pull/15933,MarcoGorelli,3,2024-04-27T14:00:34Z,2024-04-29T13:45:14Z,False,False,False
+scikit-learn/scikit-learn,ENH Checks pandas and polars directly,https://github.com/scikit-learn/scikit-learn/pull/28195,thomasjpfan,3,2024-01-20T15:59:53Z,2024-01-22T07:31:14Z,False,False,False
+Kanaries/pygwalker,[Feat]: Support Polars DataFrame and make Pandas and Polars optional,https://github.com/Kanaries/pygwalker/pull/57,0warning0error,3,2023-03-02T15:45:05Z,2023-03-03T17:40:39Z,False,False,False
+hongbo-miao/hongbomiao.com,perf(duckdb): migrate from pandas to polars,https://github.com/hongbo-miao/hongbomiao.com/pull/22075,hongbo-miao,2,2024-12-28T09:10:00Z,2024-12-30T13:12:53Z,False,False,False
+hongbo-miao/hongbomiao.com,perf(streamlit): migrate from pandas to polars,https://github.com/hongbo-miao/hongbomiao.com/pull/22076,hongbo-miao,2,2024-12-28T09:32:52Z,2024-12-30T13:12:52Z,False,False,False
+hongbo-miao/hongbomiao.com,perf(protobuf): migrate from pandas to polars,https://github.com/hongbo-miao/hongbomiao.com/pull/22080,hongbo-miao,2,2024-12-28T10:42:54Z,2024-12-30T13:12:49Z,False,False,False
+hongbo-miao/hongbomiao.com,perf(tdms): migrate from pandas to polars,https://github.com/hongbo-miao/hongbomiao.com/pull/22081,hongbo-miao,2,2024-12-28T11:02:33Z,2024-12-30T13:12:48Z,False,False,False
+snakemake/snakemake,"fix: ensure version agnostic robust pickling of pandas, polars and numpy data structures passed as params to Python scripts or notebooks",https://github.com/snakemake/snakemake/pull/3175,johanneskoester,2,2024-10-30T11:20:16Z,2024-11-01T11:52:44Z,,,
+marimo-team/marimo,"Additional tests for content hashing in tables (pandas, polars)",https://github.com/marimo-team/marimo/pull/2562,dmadisetti,2,2024-10-09T12:16:43Z,2024-10-09T13:23:54Z,False,False,False
+JackPlowman/development-ideas,Replace Polars with Pandas in Tech Stack,https://github.com/JackPlowman/development-ideas/pull/34,JackPlowman,2,2024-10-04T07:27:28Z,2024-10-04T07:29:51Z,,,
+ImperialCollegeLondon/pycsvy,"Add numpy, polars and pandas as extra dependencies",https://github.com/ImperialCollegeLondon/pycsvy/pull/97,dalonsoa,2,2024-10-01T14:41:49Z,2024-10-01T15:02:08Z,,,
+posit-dev/positron,"Data Explorer: Request multiple column profiles at once, flesh out histogram and frequency table parameters, add simple implementations for pandas and polars",https://github.com/posit-dev/positron/pull/4189,wesm,2,2024-07-30T22:43:17Z,2024-08-01T15:49:18Z,False,False,False
+apache/arrow-adbc,docs: add recipes for using ADBC with Pandas and Polars,https://github.com/apache/arrow-adbc/pull/1940,lidavidm,2,2024-06-25T07:32:02Z,2024-06-25T13:09:30Z,,,
+apache/datafusion-python,Remove sql-on-pandas/polars/cudf examples,https://github.com/apache/datafusion-python/pull/602,andygrove,2,2024-03-03T00:03:34Z,2024-03-04T16:55:28Z,False,False,False
+data-apis/dataframe-api-compat,Add pandas and polars as dependencies in pyproject.toml,https://github.com/data-apis/dataframe-api-compat/pull/10,mroeschke,2,2023-08-09T18:26:05Z,2023-08-09T20:21:46Z,False,False,False
+apache/datafusion-python,Add experimental support for executing SQL with Polars and Pandas,https://github.com/apache/datafusion-python/pull/190,andygrove,2,2023-02-18T15:53:17Z,2023-02-20T17:03:26Z,False,False,False
+ibis-project/ibis,"feat(pandas/dask/polars): implement ops.Pi, ops.E",https://github.com/ibis-project/ibis/pull/5540,krzysztof-kwitt,2,2023-02-14T00:05:14Z,2023-02-14T13:14:44Z,False,False,False
+BioContainers/multi-package-containers,"package for polars,pyarrow and pandas",https://github.com/BioContainers/multi-package-containers/pull/2510,nhhaidee,2,2023-02-10T16:00:22Z,2023-02-11T09:11:29Z,False,False,False
+marimo-team/marimo,chore: use polars instead of pandas in examples,https://github.com/marimo-team/marimo/pull/3289,akshayka,1,2024-12-24T17:40:04Z,2024-12-29T18:41:24Z,False,False,False
+marimo-team/marimo,feat(formatters): Add consistent Series formatting for pandas and polars,https://github.com/marimo-team/marimo/pull/3232,ghost,1,2024-12-19T11:52:01Z,2024-12-19T14:12:53Z,False,False,False
+xtreamsrl/python-for-data-science-treviglio,fix: replace pandas with polars in final project,https://github.com/xtreamsrl/python-for-data-science-treviglio/pull/7,donlelef,1,2024-11-20T08:11:05Z,2024-11-20T08:11:52Z,,,
+nflint-git/ps_2_ex2_smoking_is_bad,Created Modules. Change Pandas to Polars. Added Visualization,https://github.com/nflint-git/ps_2_ex2_smoking_is_bad/pull/3,edwinyeungcam,1,2024-11-07T01:27:06Z,2024-11-07T17:00:26Z,,,
+snakemake/snakemake-wrappers,"fix: fixed datavzrd environment pinning to include numpy, pandas and polars",https://github.com/snakemake/snakemake-wrappers/pull/3426,johanneskoester,1,2024-11-05T08:24:00Z,2024-11-05T08:33:56Z,,,
+tomaskreuzing/D100_1.3_pandas_to_polars_cookbook,Refactored chapter 8 from Pandas to Polars,https://github.com/tomaskreuzing/D100_1.3_pandas_to_polars_cookbook/pull/1,cjo51,1,2024-10-24T19:06:00Z,2024-10-24T19:28:38Z,False,False,False
+skrub-data/skrub,add functions to patch the _repr_html_ of pandas & polars dataframes,https://github.com/skrub-data/skrub/pull/1108,jeromedockes,1,2024-10-08T08:04:48Z,2024-10-17T07:10:30Z,False,False,False
+gwkokab/gwkokab,friendship ended with polars 🐻‍❄️ now pandas 🐼 is my friend,https://github.com/gwkokab/gwkokab/pull/235,Qazalbash,1,2024-09-12T11:08:04Z,2024-09-12T18:47:42Z,,,
+marimo-team/marimo,chore: remove to_pandas in polars example,https://github.com/marimo-team/marimo/pull/2236,akshayka,1,2024-09-05T16:40:16Z,2024-09-05T16:59:40Z,False,False,False
+earthobservations/wetterdienst,Replace pandas read_fwf calls by polars substitutes,https://github.com/earthobservations/wetterdienst/pull/1054,gutzbenj,1,2023-10-08T22:28:44Z,2024-08-30T07:01:35Z,False,False,False
+durandtibo/flamme,Replace `pandas` to `polars` in `ingestor`,https://github.com/durandtibo/flamme/pull/497,durandtibo,1,2024-07-06T16:57:36Z,2024-07-09T16:35:28Z,,,
+limebit/medmodels,"feat: Pandas to polars, change of variable names and adding +1 neighbors.",https://github.com/limebit/medmodels/pull/106,MarIniOnz,1,2024-06-17T12:02:18Z,2024-06-24T14:12:10Z,False,False,False
+statisticsnorway/dapla-toolbelt-pseudo,Fix converting from Pandas -> Polars,https://github.com/statisticsnorway/dapla-toolbelt-pseudo/pull/396,mallport,1,2024-05-22T08:33:51Z,2024-05-22T08:59:47Z,,,
+apache/opendal,docs(bindings/python): ipynb examples for polars and pandas,https://github.com/apache/opendal/pull/4368,reswqa,1,2024-03-15T07:24:16Z,2024-03-15T11:00:24Z,False,False,False
+Nixtla/neuralforecast,[FIX] Polars `.columns` produces list rather than Pandas Index,https://github.com/Nixtla/neuralforecast/pull/862,akmalsoliev,1,2024-01-17T10:55:32Z,2024-01-17T16:49:10Z,False,False,False
+Aalto-Salsa-Society/salsa-raffle,chore: replace `pandas` with `polars`,https://github.com/Aalto-Salsa-Society/salsa-raffle/pull/1,mennohofste,1,2023-11-07T00:20:01Z,2024-01-10T10:25:00Z,False,False,False
+joweich/chat-miner,Sunset pandas in favor of polars,https://github.com/joweich/chat-miner/pull/128,joweich,1,2023-12-22T22:34:32Z,2023-12-23T01:41:41Z,False,False,False
+durandtibo/coola,Make polars allclose ops consistent with pandas,https://github.com/durandtibo/coola/pull/336,durandtibo,1,2023-12-22T15:31:03Z,2023-12-22T15:40:45Z,False,False,False
+mexca/mexca,Replace pandas with polars for faster merging,https://github.com/mexca/mexca/pull/100,maltelueken,1,2023-10-18T11:40:11Z,2023-10-18T15:14:02Z,False,False,False
+vincentarelbundock/pycountrycode,Pandas & polars optionalisation,https://github.com/vincentarelbundock/pycountrycode/pull/7,LamAdr,1,2023-10-12T14:49:49Z,2023-10-15T21:36:49Z,False,False,False
+GenomicMedLab/cool-seq-tool,build: replace pandas with polars (#178),https://github.com/GenomicMedLab/cool-seq-tool/pull/205,korikuzma,1,2023-10-11T00:05:57Z,2023-10-13T21:17:58Z,False,False,False
+luminousmen/data-toolset,Adding Polars instead of pandas,https://github.com/luminousmen/data-toolset/pull/11,luminousmen,1,2023-10-07T05:21:43Z,2023-10-13T16:43:08Z,False,False,False
+rotationalio/rotational.io,Added polars vs pandas blog post,https://github.com/rotationalio/rotational.io/pull/223,pdamodaran,1,2023-08-21T14:28:00Z,2023-08-22T13:35:01Z,False,False,False
+precice/precice,Replace pandas with polars in precice-events,https://github.com/precice/precice/pull/1761,fsimonis,1,2023-08-03T09:07:22Z,2023-08-03T11:06:11Z,False,False,False
+joel-beck/readnext,Migrate from Pandas to Polars,https://github.com/joel-beck/readnext/pull/107,joel-beck,1,2023-06-27T11:22:19Z,2023-06-28T23:35:33Z,False,False,False
+afids/afids-utils,Switch from pandas to polars,https://github.com/afids/afids-utils/pull/4,kaitj,1,2023-06-20T15:10:46Z,2023-06-20T18:26:02Z,False,False,False
+pbs-data-solutions/prelude-parser,Improve type and column name handling with pandas and polars,https://github.com/pbs-data-solutions/prelude-parser/pull/48,sanders41,1,2023-05-31T01:32:36Z,2023-05-31T01:41:07Z,False,False,False
+eivindtostesen/hierarchical_peak_finding,Improve pandas and polars,https://github.com/eivindtostesen/hierarchical_peak_finding/pull/7,eivindtostesen,1,2023-04-20T11:58:22Z,2023-05-22T14:02:34Z,False,False,False
+rNLKJA/Twitter-Data-Analysis-with-HPC,⭐ UPGRADE: MIGRATE FROM PANDAS TO POLARS,https://github.com/rNLKJA/Twitter-Data-Analysis-with-HPC/pull/5,rNLKJA,1,2023-04-01T16:16:59Z,2023-04-01T17:16:27Z,False,False,False
+bfeif/personal-website,Polars vs Pandas post,https://github.com/bfeif/personal-website/pull/2,bfeif,1,2023-03-28T07:25:34Z,2023-03-28T07:27:52Z,False,False,False
+ddotta/awesome-polars,Fix broken link (typo) and add a polars vs pandas tutorial/comparison,https://github.com/ddotta/awesome-polars/pull/36,FlorianWilhelm,1,2023-03-21T10:30:28Z,2023-03-21T15:45:55Z,False,False,False
+nextstrain/flu_frequencies,Use Polars instead of pandas,https://github.com/nextstrain/flu_frequencies/pull/2,rneher,1,2023-02-20T06:31:18Z,2023-02-20T15:02:52Z,False,False,False
+ihmeuw-msca/OneMod,Rework: Changing polars to pandas,https://github.com/ihmeuw-msca/OneMod/pull/121,blsmxiu47,0,2024-12-21T09:39:58Z,2024-12-23T21:50:08Z,,,
+IBM/Hestia-GOOD,🏎️ Optim: Substitutting pandas for polars (#82),https://github.com/IBM/Hestia-GOOD/pull/83,RaulFD-creator,0,2024-12-17T14:19:29Z,2024-12-18T10:49:49Z,,,
+parashardhapola/scarf,Updated consume()  in CrDirReader [Polars -> Pandas],https://github.com/parashardhapola/scarf/pull/134,Gautam8387,0,2024-11-06T20:27:10Z,2024-12-17T08:37:32Z,False,False,False
+sonder-art/fdd_o24,Polars + Pandas,https://github.com/sonder-art/fdd_o24/pull/96,barbaperezf,0,2024-12-06T19:34:54Z,2024-12-10T17:55:28Z,False,False,False
+ddotta/awesome-polars,Add blog post about translations from Pandas to Polars,https://github.com/ddotta/awesome-polars/pull/405,ddotta,0,2024-11-27T11:01:46Z,2024-11-27T11:02:07Z,False,False,False
+emdgroup/foundry-dev-tools,fix: saving dataset via optional pandas / polars,https://github.com/emdgroup/foundry-dev-tools/pull/83,Scienfitz,0,2024-11-08T19:40:17Z,2024-11-11T12:49:59Z,,,
+ddotta/awesome-polars,Add blog post about performance benchmarks between Pandas and Polars,https://github.com/ddotta/awesome-polars/pull/399,ddotta,0,2024-11-08T07:39:47Z,2024-11-08T07:40:06Z,False,False,False
+parashardhapola/scarf,CrDirReader Update [Polars -> Pandas],https://github.com/parashardhapola/scarf/pull/130,Gautam8387,0,2024-10-22T20:13:53Z,2024-11-06T18:55:12Z,False,False,False
+ashwin153/autofeat,chore: support for pandas.Series => polars.Series conversion,https://github.com/ashwin153/autofeat/pull/291,ashwin153,0,2024-10-14T02:01:48Z,2024-10-14T02:04:37Z,False,False,False
+ashwin153/autofeat,feat: support for pandas => polars and numpy => polars conversions,https://github.com/ashwin153/autofeat/pull/285,ashwin153,0,2024-10-13T14:47:44Z,2024-10-13T14:48:59Z,False,False,False
+the-alchemists-formerly-5/scratch_repository,Convert from pandas to polars,https://github.com/the-alchemists-formerly-5/scratch_repository/pull/5,ghiret,0,2024-10-12T21:02:18Z,2024-10-12T21:14:52Z,,,
+WaqarQureshii/Waqar-Qureshi-Portfolio,0.001.010   pandas to polars migration,https://github.com/WaqarQureshii/Waqar-Qureshi-Portfolio/pull/22,WaqarQureshii,0,2024-10-01T20:28:32Z,2024-10-01T20:28:43Z,,,
+UNC-Libraries-data/juul_document_analysis,from Pandas to Polars,https://github.com/UNC-Libraries-data/juul_document_analysis/pull/1,TrippWhaley,0,2024-09-26T20:28:52Z,2024-10-01T14:25:34Z,,,
+SeiichiroYoshioka/HEP-Challenge,pandas to polars,https://github.com/SeiichiroYoshioka/HEP-Challenge/pull/3,SeiichiroYoshioka,0,2024-09-23T11:20:04Z,2024-09-23T23:59:50Z,,,
+Luckvc/corretor_de_rota,Feat/Internalize ceps database and swap from Pandas to Polars,https://github.com/Luckvc/corretor_de_rota/pull/1,Luckvc,0,2024-08-22T14:22:19Z,2024-08-22T14:24:16Z,,,
+DHI/mikeio,"Create dataset from {pandas,polars} dataframe",https://github.com/DHI/mikeio/pull/712,ecomodeller,0,2024-08-06T08:37:23Z,2024-08-07T06:35:43Z,,,
+JoseParrenoGarcia/Streamlit-caching-pandas-polars-benchmarks,polars to pandas transformations,https://github.com/JoseParrenoGarcia/Streamlit-caching-pandas-polars-benchmarks/pull/5,JoseParrenoGarcia,0,2024-07-31T14:40:56Z,2024-08-01T06:06:30Z,,,
+posit-dev/positron,Data Explorer: Add schema cache for small schemas to facilitate checking for inplace updates with pandas and polars,https://github.com/posit-dev/positron/pull/4184,wesm,0,2024-07-30T17:07:53Z,2024-07-30T17:45:17Z,False,False,False
+IsaacCheng9/quant-trading-strategy-backtester,Benchmark the performance improvement from pandas to Polars,https://github.com/IsaacCheng9/quant-trading-strategy-backtester/pull/32,IsaacCheng9,0,2024-07-30T00:39:12Z,2024-07-30T00:39:28Z,False,False,False
+IsaacCheng9/quant-trading-strategy-backtester,"Switch from pandas to Polars to improve performance, add Buy and Hold strategy",https://github.com/IsaacCheng9/quant-trading-strategy-backtester/pull/22,IsaacCheng9,0,2024-07-29T00:20:56Z,2024-07-29T00:47:15Z,False,False,False
+posit-dev/positron,"Data Explorer: Add formatting option to truncate large strings, default to 1000 characters, implement for pandas/polars",https://github.com/posit-dev/positron/pull/4121,wesm,0,2024-07-23T00:03:26Z,2024-07-23T19:15:25Z,False,False,False
+ddotta/awesome-polars,Add blog post - new benchmark between Polars and Pandas,https://github.com/ddotta/awesome-polars/pull/320,ddotta,0,2024-06-21T07:02:14Z,2024-06-21T07:02:32Z,False,False,False
+skrub-data/skrub,Remove pandas and polars specific code,https://github.com/skrub-data/skrub/pull/936,TheooJ,0,2024-06-10T20:43:01Z,2024-06-11T07:53:12Z,False,False,False
+ddotta/awesome-polars,Add new video comparison between Pandas and Polars,https://github.com/ddotta/awesome-polars/pull/310,ddotta,0,2024-06-11T07:40:04Z,2024-06-11T07:40:20Z,False,False,False
+limebit/medmodels,refactor: Rework Pandas DataFrame Operations to use same interface as Polars,https://github.com/limebit/medmodels/pull/105,JabobKrauskopf,0,2024-06-10T10:47:33Z,2024-06-10T13:00:24Z,False,False,False
+posit-dev/positron,"Data Explorer: Add data explorer support for pandas.Series, do not open data explorer for polars for now",https://github.com/posit-dev/positron/pull/3370,wesm,0,2024-06-03T22:22:35Z,2024-06-03T23:09:24Z,False,False,False
+Lukas-Les/pycon24,Add talk about pandas and polars comparison,https://github.com/Lukas-Les/pycon24/pull/3,gintautasmar,0,2024-05-30T14:16:24Z,2024-05-30T14:16:34Z,,,
+1smay3/smay_equities,MAYC-3 change dataframe framework from pandas to polars,https://github.com/1smay3/smay_equities/pull/1,1smay3,0,2024-05-26T20:03:24Z,2024-05-28T20:23:27Z,,,
+disruptive-technologies/python-client,To pandas polars,https://github.com/disruptive-technologies/python-client/pull/137,jhgjeraker,0,2024-05-15T09:16:23Z,2024-05-15T09:32:48Z,,,
+nhsengland/mm-healthfair,Refactor from pandas to polars,https://github.com/nhsengland/mm-healthfair/pull/5,sophmrtn,0,2024-05-03T16:24:55Z,2024-05-07T13:03:12Z,,,
+noahtigner/homelab,API: migrate from Polars to Pandas,https://github.com/noahtigner/homelab/pull/118,noahtigner,0,2024-04-28T21:12:08Z,2024-04-28T21:12:16Z,,,
+godaai/df-eval,"Modify the TPC-H as suggested and general test files of duckdb, pandas, polars, and cuDF",https://github.com/godaai/df-eval/pull/5,mia1460,0,2024-04-21T01:26:03Z,2024-04-21T02:59:34Z,,,
+singlestore-labs/singlestoredb-python,"Add result types: numpy, pandas, polars, arrow",https://github.com/singlestore-labs/singlestoredb-python/pull/25,kesmit13,0,2024-04-17T19:09:09Z,2024-04-17T20:52:40Z,,,
+ddotta/awesome-polars,Add blog post about comparing joins in Polars vs Pandas,https://github.com/ddotta/awesome-polars/pull/280,ddotta,0,2024-04-09T07:30:07Z,2024-04-09T07:30:24Z,False,False,False
+ibis-project/ibis,"feat(pandas, polars, dask, datafusion): enable create local backends with empty url",https://github.com/ibis-project/ibis/pull/8860,jitingxu1,0,2024-04-02T15:14:39Z,2024-04-02T17:47:06Z,False,False,False
+narwhals-dev/narwhals,Modify pandas-like merge to have the same behaviour as in Polars,https://github.com/narwhals-dev/narwhals/pull/30,raisadz,0,2024-03-28T14:31:15Z,2024-03-28T14:50:54Z,False,False,False
+GlareDB/glaredb.github.io,Tal/rearch/pandas polars tutorial,https://github.com/GlareDB/glaredb.github.io/pull/245,talagluck,0,2024-03-22T12:43:12Z,2024-03-27T10:11:28Z,,,
+gadomski/pyisd,"Make pandas optional, add polars",https://github.com/gadomski/pyisd/pull/47,gadomski,0,2024-03-14T15:42:43Z,2024-03-14T15:44:32Z,,,
+itsbigspark/pymetagen,"latest version of pandas, pyarrow and polars",https://github.com/itsbigspark/pymetagen/pull/20,mapsa,0,2024-03-06T16:18:19Z,2024-03-14T13:54:27Z,,,
+isaacharrisholt/youtube,Polars vs pandas,https://github.com/isaacharrisholt/youtube/pull/10,isaacharrisholt,0,2024-03-02T11:12:27Z,2024-03-10T11:40:30Z,False,False,False
+mattheaphy/actxpspy,Replace Pandas with Polars,https://github.com/mattheaphy/actxpspy/pull/7,mattheaphy,0,2024-03-02T21:44:26Z,2024-03-03T00:29:00Z,,,
+SebastianDall/binnary,Pandas to polars,https://github.com/SebastianDall/binnary/pull/23,SebastianDall,0,2024-02-27T07:46:49Z,2024-02-27T07:47:03Z,,,
+millionguu/Backtest-Engine-in-progress,replace pandas with polars,https://github.com/millionguu/Backtest-Engine-in-progress/pull/8,yvanst,0,2024-02-22T15:39:33Z,2024-02-23T08:05:55Z,,,
+ddotta/awesome-polars,Add cheatsheet for Pandas to Polars,https://github.com/ddotta/awesome-polars/pull/226,ddotta,0,2024-01-26T10:02:01Z,2024-01-26T10:02:16Z,False,False,False
+wukan1986/expr_codegen,更新polars与pandas模板,https://github.com/wukan1986/expr_codegen/pull/16,wukan1986,0,2023-12-25T02:26:40Z,2023-12-25T02:28:38Z,False,False,False
+diegosoc/datathon2023,Pandas to polars,https://github.com/diegosoc/datathon2023/pull/11,dcastf01,0,2023-11-18T19:13:48Z,2023-11-19T10:51:57Z,False,False,False
+dycw/dotfiles-zzz,"More polars, pandas imports",https://github.com/dycw/dotfiles-zzz/pull/442,dycw,0,2023-10-29T08:31:50Z,2023-10-29T08:32:58Z,False,False,False
+JustinKurland/pytimetk,Update pandas_helpers.py glimpse polars,https://github.com/JustinKurland/pytimetk/pull/52,JustinKurland,0,2023-10-25T00:03:51Z,2023-10-25T00:06:17Z,False,False,False
+business-science/pytimetk,[fix](augment leads): grouped dataframe returns the same result when using polars or pandas,https://github.com/business-science/pytimetk/pull/140,samuelmacedo83,0,2023-10-20T12:48:09Z,2023-10-20T16:15:52Z,False,False,False
+business-science/pytimetk,[fix]: Use `polars.group_by` when the input is `pandas.groupby`,https://github.com/business-science/pytimetk/pull/123,samuelmacedo83,0,2023-10-17T20:37:40Z,2023-10-17T20:46:52Z,False,False,False
+mi3nts/environmentalSocialHealth,"removed bugs on icd code counting, now comparing pandas and polars re…",https://github.com/mi3nts/environmentalSocialHealth/pull/1,ashenfernando1,0,2023-10-11T18:56:58Z,2023-10-11T18:57:08Z,False,False,False
+cortinico/thebakery,Add Episode 68 - pandas & polars by @MarcoGorelli,https://github.com/cortinico/thebakery/pull/151,cortinico,0,2023-10-10T16:33:09Z,2023-10-10T16:36:15Z,False,False,False
+yasstake/rbot,Use polars instead of pandas,https://github.com/yasstake/rbot/pull/95,yasstake,0,2023-08-08T09:42:07Z,2023-10-10T06:00:31Z,False,False,False
+skrub-data/skrub,FEAT Add `aggregate` and `join` functions for Pandas and Polars,https://github.com/skrub-data/skrub/pull/733,Vincent-Maladiere,0,2023-09-05T12:39:17Z,2023-09-22T13:29:38Z,False,False,False
+the-deep-nlp/core-server,refactored the model monitoring scripts; used polars instead of pandas;,https://github.com/the-deep-nlp/core-server/pull/29,ranjan-stha,0,2023-07-18T08:35:18Z,2023-07-26T09:25:53Z,False,False,False
+SadSabrina/aiedu_final,Added EDA and polars vs pandas files,https://github.com/SadSabrina/aiedu_final/pull/1,SadSabrina,0,2023-07-16T14:51:52Z,2023-07-22T10:51:45Z,False,False,False
+sodascience/metasyn,Change pandas to polars,https://github.com/sodascience/metasyn/pull/113,qubixes,0,2023-07-04T14:07:54Z,2023-07-17T12:02:59Z,False,False,False
+jofas/cv,"pandas, DataFrames.jl => polars",https://github.com/jofas/cv/pull/24,jofas,0,2023-06-26T07:02:32Z,2023-06-26T07:02:42Z,False,False,False
+ddotta/awesome-polars,Add comparison video Polars vs Pandas by Data Science Garage,https://github.com/ddotta/awesome-polars/pull/72,ddotta,0,2023-04-27T06:33:26Z,2023-04-27T06:33:56Z,False,False,False
+iamtatsuki05/NLP_100,pandas -> polars,https://github.com/iamtatsuki05/NLP_100/pull/10,iamtatsuki05,0,2023-04-21T07:24:33Z,2023-04-21T07:29:33Z,False,False,False
+dinhanhx/python-to-rust,"Add Pandas for Python, Polars for Rust",https://github.com/dinhanhx/python-to-rust/pull/4,dinhanhx,0,2023-04-16T09:16:11Z,2023-04-16T09:16:32Z,False,False,False
+ddotta/awesome-polars,7 Easy Steps To Switch From Pandas to Lightning Fast Polars,https://github.com/ddotta/awesome-polars/pull/47,ddotta,0,2023-04-04T08:57:10Z,2023-04-04T08:57:49Z,False,False,False
+ddotta/awesome-polars,Add blog post - Replacing Pandas with Polars - by danielbeach,https://github.com/ddotta/awesome-polars/pull/41,ddotta,0,2023-03-29T11:28:52Z,2023-03-29T11:29:09Z,False,False,False
+mineralogy-rocks/mr-api,Feature/min 231 replace pandas with polars,https://github.com/mineralogy-rocks/mr-api/pull/284,liubomyrgavryliv,0,2023-03-21T16:00:57Z,2023-03-21T16:01:03Z,False,False,False
+apache/datafusion-python,"feature: Create dataframe from pandas, polars, dictionary, list or pyarrow Table",https://github.com/apache/datafusion-python/pull/242,simicd,0,2023-02-26T13:30:55Z,2023-03-14T14:55:04Z,False,False,False
+AroneyS/binchicken,Switch from pandas to polars,https://github.com/AroneyS/binchicken/pull/12,AroneyS,0,2023-02-24T05:56:11Z,2023-03-13T03:31:24Z,False,False,False
+ddotta/awesome-polars,Add blogpost : Pandas vs Polars - A comparison on File I/O,https://github.com/ddotta/awesome-polars/pull/7,ddotta,0,2023-02-22T13:40:35Z,2023-02-22T13:43:19Z,False,False,False
+MTES-MCT/trackdechets-public-stats,Updates all code to use polars instead of pandas,https://github.com/MTES-MCT/trackdechets-public-stats/pull/53,Lawiss,0,2023-02-15T17:37:18Z,2023-02-16T10:43:51Z,,,
+genxnetwork/grape,[GRAPE-145] Replace pandas with polars in postprocess ersa,https://github.com/genxnetwork/grape/pull/95,Jahysama,0,2023-02-14T15:46:40Z,2023-02-15T10:56:22Z,False,False,False
+hanjinliu/acryo,Migrate from pandas to polars,https://github.com/hanjinliu/acryo/pull/8,hanjinliu,0,2023-01-29T13:16:10Z,2023-01-29T13:16:24Z,False,False,False
+xavctn/img2table,Switch pandas for polars in computations,https://github.com/xavctn/img2table/pull/14,xavctn,0,2023-01-28T22:49:40Z,2023-01-28T22:50:01Z,False,False,False
+TeoZosa/cookiecutter-cruft-poetry-tox-pre-commit-ci-cd,✨ Replace pandas with Polars,https://github.com/TeoZosa/cookiecutter-cruft-poetry-tox-pre-commit-ci-cd/pull/946,TeoZosa,0,2023-01-16T13:13:12Z,2023-01-16T13:20:19Z,False,False,False

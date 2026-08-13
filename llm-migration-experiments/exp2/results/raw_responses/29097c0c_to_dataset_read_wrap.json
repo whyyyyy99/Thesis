@@ -1,0 +1,105 @@
+{
+  "id": "resp_07d9bc916976940c006a7a37a31d7c819c906f01ce58bab66d",
+  "created_at": 1786394531.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_07d9bc916976940c006a7a37a3840c819c95448705b640f137",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_07d9bc916976940c006a7a37aa2df0819cadccb9f08d6fea5a",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\ndef make_lenta() -> None:\n    pathlinker = path_linker(\"lenta\")\n    df = pl.read_csv(pathlinker.origin)\n    df = onehot_encoding(df, [\"gender\"])\n    df = df.fill_null(0)\n    df = df.with_columns(\n        pl.when(pl.col(\"group\") == \"test\")\n        .then(1)\n        .when(pl.col(\"group\") == \"control\")\n        .then(0)\n        .otherwise(None)\n        .alias(\"group\")\n    )\n    y_columns = [\"response_att\"]\n    w_columns = [\"group\"]\n    x_columns = [column for column in df.columns if column not in y_columns + w_columns]\n    ds = Dataset(df, x_columns, y_columns, w_columns)\n    ds.save(pathlinker.base)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394539.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 9238,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1001,
+    "output_tokens_details": {
+      "reasoning_tokens": 823
+    },
+    "total_tokens": 10239
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

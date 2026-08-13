@@ -1,0 +1,1 @@
+intersecting_lines = df_inter.filter((pl.col("intersection") / pl.col("length")) > 0.5).select("line_id").to_series(0).to_list()

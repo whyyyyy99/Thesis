@@ -1,0 +1,105 @@
+{
+  "id": "resp_089c28c1d9912f54006a7a3a3122dc81a0baac56ba642ecfd7",
+  "created_at": 1786395185.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_089c28c1d9912f54006a7a3a317a4c81a0bdbe0c1d461aef7b",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_089c28c1d9912f54006a7a3a325ca481a093419b4e0ee0581c",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\n\nclass Dataset:\n    def __init__(\n        self,\n        df: pl.DataFrame,\n        x_columns: list[str],\n        y_columns: list[str],\n        w_columns: list[str],\n    ) -> None:\n        self.x_columns = x_columns\n        self.y_columns = y_columns\n        self.w_columns = w_columns\n        self.__df = df.clone()\n        self._validate(self.__df.columns, self.x_columns, self.y_columns, self.w_columns)\n\n    @property\n    def X(self) -> pl.DataFrame:\n        return self.__df.select(self.x_columns).clone()\n\n    @property\n    def y(self) -> pl.DataFrame:\n        return self.__df.select(self.y_columns).clone()\n\n    @property\n    def w(self) -> pl.DataFrame:\n        return self.__df.select(self.w_columns).clone()\n\n    def to_pandas(self) -> pl.DataFrame:\n        return self.__df.clone()",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786395187.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 7748,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 314,
+    "output_tokens_details": {
+      "reasoning_tokens": 108
+    },
+    "total_tokens": 8062
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

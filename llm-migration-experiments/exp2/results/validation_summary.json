@@ -1,0 +1,44 @@
+{
+  "validated_at_utc": "2026-08-10T20:59:00Z",
+  "expected_snippets": 238,
+  "result_records": 238,
+  "unique_snippet_ids": 238,
+  "prompt_files": 238,
+  "raw_response_files": 238,
+  "generated_python_files": 238,
+  "response_statuses": {
+    "completed": 238
+  },
+  "requested_model": "gpt-5.4-mini",
+  "actual_model": "gpt-5.4-mini-2026-03-17",
+  "api": "responses",
+  "reasoning_effort": "low",
+  "max_output_tokens": 6000,
+  "responses_with_reasoning_tokens": 238,
+  "response_errors": 0,
+  "incomplete_responses": 0,
+  "empty_generated_outputs": 0,
+  "llm_error_markers": 0,
+  "token_usage": {
+    "input_tokens": 1299883,
+    "cached_input_tokens": 87296,
+    "output_tokens": 91365,
+    "reasoning_tokens": 65872,
+    "total_tokens": 1391248,
+    "minimum_reasoning_tokens_per_response": 22,
+    "maximum_reasoning_tokens_per_response": 1345
+  },
+  "retrieval_input_comparison": {
+    "reference_directory": "experiments/results/exp2_v2",
+    "canonical_sha256": "5452da87487903b950cdfe0ce8a9ef1937212c140f86df1f141f046342ff4a8d",
+    "identical_fields": [
+      "snippet_id",
+      "pandas_code",
+      "detected_apis",
+      "missing_pandas_docs",
+      "api_results",
+      "prompt_context"
+    ],
+    "comparison_result": "identical"
+  }
+}

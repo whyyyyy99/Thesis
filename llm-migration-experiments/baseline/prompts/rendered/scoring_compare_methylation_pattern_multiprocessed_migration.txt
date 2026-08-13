@@ -1,0 +1,50 @@
+This is a library migration task, not a general rewrite task.
+Replace pandas-based operations with the closest correct polars equivalents.
+
+Requirements:
+1. Preserve the original functionality and data-processing intent as much as possible.
+2. Only make changes that are necessary for the pandas-to-polars migration.
+3. Do not refactor, optimize, reformat, or modify unrelated code.
+4. Do not rename functions, classes, or variables unless necessary.
+5. Preserve the original structure as much as possible while completing the migration correctly.
+6. Preserve output columns, schema, and overall data behavior whenever possible.
+7. Preserve filtering, aggregation, join, and ordering behavior when relevant.
+8. Handle pandas index-related logic carefully. Do not silently remove behavior that depends on index semantics.
+9. Use valid polars syntax, imports, and APIs. Do not invent nonexistent polars functionality.
+10. When a direct one-to-one replacement is not possible, use the closest correct polars equivalent while preserving behavior as much as possible.
+
+Return only the full migrated code.
+Do not include explanations.
+Do not use Markdown fences.
+
+Code:
+import pandas as pd
+
+def compare_methylation_pattern_multiprocessed(motifs_scored_in_bins, bin_consensus, choices, args, num_processes=1):
+    logger = logging.getLogger(__name__)
+    logger.info("Starting comparison of methylation patterns")
+    
+    motifs_scored_in_contigs = motifs_scored_in_bins[motifs_scored_in_bins["n_motifs"] >= args.n_motif_contig_cutoff]
+    motifs_scored_in_contigs = motifs_scored_in_contigs[["bin_contig", "motif_mod", "mean"]]
+    motifs_scored_in_contigs.rename(columns={"bin_contig": "bin_compare"}, inplace=True)
+
+    comparison_score = pd.DataFrame()
+    contigs_w_no_methylation = []
+
+    with Pool(processes=num_processes) as pool:
+        results = pool.starmap(
+            process_bin_contig,
+            [
+                (bin_contig, bin_consensus, motifs_scored_in_contigs, choices)
+                for bin_contig in motifs_scored_in_contigs["bin_compare"].unique()
+            ]
+        )
+
+    for result, no_methylation in results:
+        if result is not None:
+            comparison_score = pd.concat([comparison_score, result])
+        if no_methylation is not None:
+            contigs_w_no_methylation.append(no_methylation)
+
+    return comparison_score, contigs_w_no_methylation
+

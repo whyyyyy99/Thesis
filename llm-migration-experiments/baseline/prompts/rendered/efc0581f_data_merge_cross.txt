@@ -1,0 +1,54 @@
+This is a library migration task, not a general rewrite task.
+Replace pandas-based operations with the closest correct polars equivalents.
+
+Requirements:
+1. Preserve the original functionality and data-processing intent as much as possible.
+2. Only make changes that are necessary for the pandas-to-polars migration.
+3. Do not refactor, optimize, reformat, or modify unrelated code.
+4. Do not rename functions, classes, or variables unless necessary.
+5. Preserve the original structure as much as possible while completing the migration correctly.
+6. Preserve output columns, schema, and overall data behavior whenever possible.
+7. Preserve filtering, aggregation, join, and ordering behavior when relevant.
+8. Handle pandas index-related logic carefully. Do not silently remove behavior that depends on index semantics.
+9. Use valid polars syntax, imports, and APIs. Do not invent nonexistent polars functionality.
+10. When a direct one-to-one replacement is not possible, use the closest correct polars equivalent while preserving behavior as much as possible.
+
+Return only the full migrated code.
+Do not include explanations.
+Do not use Markdown fences.
+
+Code:
+import pandas as pd
+import numpy as np
+
+        df_words = self.df[(self.df["class"] == "ocrx_word")]
+        if page_number:
+            df_words = df_words[df_words["page"] == page_number]
+        df_words = df_words[df_words["value"].notnull() & (df_words["confidence"] >= min_confidence)]
+
+        list_cells = [{"row": id_row, "col": id_col,
+                       "x1_w": cell.x1, "x2_w": cell.x2,
+                       "y1_w": cell.y1, "y2_w": cell.y2}
+                      for id_row, row in enumerate(table.items)
+                      for id_col, cell in enumerate(row.items)]
+        df_cells = pd.DataFrame(list_cells)
+
+        df_word_cells = df_words.merge(df_cells, how="cross")
+
+        df_word_cells["x_left"] = df_word_cells[["x1", "x1_w"]].max(axis=1)
+        df_word_cells["y_top"] = df_word_cells[["y1", "y1_w"]].max(axis=1)
+        df_word_cells["x_right"] = df_word_cells[["x2", "x2_w"]].min(axis=1)
+        df_word_cells["y_bottom"] = df_word_cells[["y2", "y2_w"]].min(axis=1)
+
+        df_word_cells = df_word_cells[df_word_cells["x_right"] > df_word_cells["x_left"]]
+        df_word_cells = df_word_cells[df_word_cells["y_bottom"] > df_word_cells["y_top"]]
+
+        df_text_parent = (df_word_cells
+                          .groupby(['row', 'col', 'parent'])
+                          .agg(value=("value", lambda x: ' '.join(x)))
+                          .sort_values(by=["row", "col", "y1", "x1"])
+                          .groupby(["row", "col"])
+                          .agg(text=("value", lambda x: "
+".join(x) or None))
+                          .reset_index())
+

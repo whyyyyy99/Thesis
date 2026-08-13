@@ -1,0 +1,10 @@
+scope,snippets,gold_assignments,detected_assignments,tp,fp,fn,precision,recall,f1,exact_match_snippets,exact_match_rate
+all APIs (micro),238,562,546,457,89,105,0.836996,0.813167,0.82491,155,0.651261
+parse-success snippets (micro),217,509,546,457,89,52,0.836996,0.897839,0.866351,148,0.682028
+parse-failed snippets (micro),21,53,0,0,0,53,0.0,0.0,0.0,7,0.333333
+DataFrame,,329,340,285,55,44,0.838235,0.866261,0.852018,,
+DataFrameGroupBy,,10,10,9,1,1,0.9,0.9,0.9,,
+Index/MultiIndex,,13,4,2,2,11,0.5,0.153846,0.235294,,
+Series,,131,119,93,26,38,0.781513,0.709924,0.744,,
+SeriesGroupBy,,6,6,6,0,0,1.0,1.0,1.0,,
+top-level pandas,,73,67,62,5,11,0.925373,0.849315,0.885714,,

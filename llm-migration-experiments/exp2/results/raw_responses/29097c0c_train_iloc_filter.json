@@ -1,0 +1,105 @@
+{
+  "id": "resp_08faba66d50cb16f006a7a37ae3730819fa9ae869485100bbd",
+  "created_at": 1786394542.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_08faba66d50cb16f006a7a37aef358819faed3817071be16bb",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_08faba66d50cb16f006a7a37b8fd44819f88eb548d7ad9c749",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\nbase_dfs = []\nskf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)\nfor epoch, (train_index, test_index) in enumerate(skf.split(ds.X, ds.y)):\n    _train_ds = cds.Dataset(\n        df=pl.from_pandas(ds.to_pandas().reset_index())[train_index, :].to_pandas().set_index(\"index\"),\n        x_columns=ds.x_columns,\n        y_columns=ds.y_columns,\n        w_columns=ds.w_columns,\n    )\n    test_df = pl.from_pandas(ds.to_pandas().reset_index())[test_index, :]\n    test_ds = cds.Dataset(\n        df=test_df.to_pandas().set_index(\"index\"),\n        x_columns=ds.x_columns,\n        y_columns=ds.y_columns,\n        w_columns=ds.w_columns,\n    )\n    _pred_df = pl.DataFrame(\n        {\"index\": test_df[\"index\"], \"pred\": pred.reshape(-1)}\n    )\n    _base_df = (\n        pl.from_pandas(\n            test_ds.y.rename(columns={test_ds.y_columns[0]: \"y\"}).reset_index()\n        )\n        .join(\n            pl.from_pandas(\n                test_ds.w.rename(columns={test_ds.w_columns[0]: \"w\"}).reset_index()\n            ),\n            on=\"index\",\n            how=\"inner\",\n        )\n        .join(_pred_df, on=\"index\", how=\"inner\")\n        .drop(\"index\")\n    )\n    base_dfs.append(_base_df)\nbase_df = pl.concat(base_dfs)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394554.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 21402,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 1472,
+    "output_tokens_details": {
+      "reasoning_tokens": 1135
+    },
+    "total_tokens": 22874
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}

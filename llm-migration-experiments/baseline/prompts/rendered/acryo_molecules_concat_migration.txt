@@ -1,0 +1,41 @@
+This is a library migration task, not a general rewrite task.
+Replace pandas-based operations with the closest correct polars equivalents.
+
+Requirements:
+1. Preserve the original functionality and data-processing intent as much as possible.
+2. Only make changes that are necessary for the pandas-to-polars migration.
+3. Do not refactor, optimize, reformat, or modify unrelated code.
+4. Do not rename functions, classes, or variables unless necessary.
+5. Preserve the original structure as much as possible while completing the migration correctly.
+6. Preserve output columns, schema, and overall data behavior whenever possible.
+7. Preserve filtering, aggregation, join, and ordering behavior when relevant.
+8. Handle pandas index-related logic carefully. Do not silently remove behavior that depends on index semantics.
+9. Use valid polars syntax, imports, and APIs. Do not invent nonexistent polars functionality.
+10. When a direct one-to-one replacement is not possible, use the closest correct polars equivalent while preserving behavior as much as possible.
+
+Return only the full migrated code.
+Do not include explanations.
+Do not use Markdown fences.
+
+Code:
+@classmethod
+def concat(cls, moles: Iterable[Molecules], concat_features: bool = True) -> Self:
+    """Concatenate Molecules objects."""
+    pos: list[np.ndarray] = []
+    quat: list[np.ndarray] = []
+    features: list[pd.DataFrame] = []
+    for mol in moles:
+        pos.append(mol.pos)
+        quat.append(mol.quaternion())
+        features.append(mol.features)
+
+    all_pos = np.concatenate(pos, axis=0)
+    all_quat = np.concatenate(quat, axis=0)
+    if concat_features:
+        import pandas as pd
+
+        all_features = pd.concat(features, axis=0)
+    else:
+        all_features = None
+
+    return cls(all_pos, Rotation(all_quat), features=all_features)

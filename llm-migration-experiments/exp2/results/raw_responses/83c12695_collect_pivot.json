@@ -1,0 +1,105 @@
+{
+  "id": "resp_0a20860deeb8e946006a7a3886210881a2888f69178384c06e",
+  "created_at": 1786394758.0,
+  "error": null,
+  "incomplete_details": null,
+  "instructions": null,
+  "metadata": {},
+  "model": "gpt-5.4-mini-2026-03-17",
+  "object": "response",
+  "output": [
+    {
+      "id": "rs_0a20860deeb8e946006a7a38868e1481a29602237df3597162",
+      "summary": [],
+      "type": "reasoning",
+      "content": [],
+      "status": null
+    },
+    {
+      "id": "msg_0a20860deeb8e946006a7a38890d9881a2b11be3db193e7fb7",
+      "content": [
+        {
+          "annotations": [],
+          "text": "import polars as pl\n\nappraise_binned = appraise_binned.with_columns(\n    pl.col(\"found_in\").str.split(\",\")\n).explode(\"found_in\").with_columns(\n    pl.col(\"found_in\").str.replace_all(r\"_protein$\", \"\")\n)\n\ntrimmed_binned = (\n    appraise_binned.group_by([\"gene\", \"found_in\"])\n    .agg(pl.col(\"coverage\").sum())\n    .pivot(index=\"gene\", on=\"found_in\", values=\"coverage\")\n    .melt(id_vars=\"gene\")\n    .fill_null(0)\n    .group_by(\"variable\")\n    .agg(pl.col(\"value\").map_groups(lambda ss: trimmed_mean(ss[0]), return_dtype=pl.Float64).alias(\"value\"))\n    .rename({\"variable\": \"found_in\"})\n)\n\nreference_bins = set(\n    trimmed_binned.filter(pl.col(\"value\") > 0).get_column(\"found_in\").to_list()\n)",
+          "type": "output_text",
+          "logprobs": []
+        }
+      ],
+      "role": "assistant",
+      "status": "completed",
+      "type": "message",
+      "phase": "final_answer"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "temperature": 1.0,
+  "tool_choice": "auto",
+  "tools": [],
+  "top_p": 0.98,
+  "background": false,
+  "completed_at": 1786394761.0,
+  "conversation": null,
+  "max_output_tokens": 6000,
+  "max_tool_calls": null,
+  "moderation": null,
+  "previous_response_id": null,
+  "prompt": null,
+  "prompt_cache_key": null,
+  "prompt_cache_options": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "current_turn",
+    "effort": "low",
+    "generate_summary": null,
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "status": "completed",
+  "text": {
+    "format": {
+      "type": "text"
+    },
+    "verbosity": "medium"
+  },
+  "top_logprobs": 0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 20778,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 521,
+    "output_tokens_details": {
+      "reasoning_tokens": 322
+    },
+    "total_tokens": 21299
+  },
+  "user": null,
+  "billing": {
+    "payer": "developer"
+  },
+  "frequency_penalty": 0.0,
+  "presence_penalty": 0.0,
+  "store": true,
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  }
+}
