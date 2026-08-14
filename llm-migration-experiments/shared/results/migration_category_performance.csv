@@ -1,0 +1,12 @@
+migration_category,n,baseline_passes,baseline_pass_rate,exp1_passes,exp1_pass_rate,exp1_difference_pp,exp2_passes,exp2_pass_rate,exp2_difference_pp,exp3_passes,exp3_pass_rate,exp3_difference_pp
+Core dataframe transformations,134,106,79.1,110,82.1,3.0,107,79.9,0.7,102,76.1,-3.0
+Index and row semantics,82,47,57.3,49,59.8,2.4,48,58.5,1.2,46,56.1,-1.2
+Aggregation and combination,58,40,69.0,42,72.4,3.4,40,69.0,0.0,39,67.2,-1.7
+IO boundaries,37,25,67.6,29,78.4,10.8,33,89.2,21.6,29,78.4,10.8
+"Types, schemas, and temporal operations",31,20,64.5,18,58.1,-6.5,21,67.7,3.2,24,77.4,12.9
+UDF and custom-logic rewrites,31,18,58.1,19,61.3,3.2,19,61.3,3.2,20,64.5,6.5
+Lazy execution and evaluation strategy,28,23,82.1,24,85.7,3.6,23,82.1,0.0,23,82.1,0.0
+Missing and null semantics,23,17,73.9,15,65.2,-8.7,17,73.9,0.0,15,65.2,-8.7
+Import and setup only,19,17,89.5,16,84.2,-5.3,17,89.5,0.0,17,89.5,0.0
+Reshaping,11,4,36.4,3,27.3,-9.1,3,27.3,-9.1,4,36.4,0.0
+Other/manual,1,1,100.0,1,100.0,0.0,1,100.0,0.0,1,100.0,0.0

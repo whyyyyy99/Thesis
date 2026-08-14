@@ -29,3 +29,9 @@ Exp2 additionally stores the raw Responses API object. The public copy retains r
 Each `results/taxonomy_classification_final.csv` contains only primary failures; end-to-end passes are not included. `primary_layer` records the earliest independently failing layer, and `primary_category` or `final_primary_category` records the final domain-specific category. Later-layer failures caused by the primary failure remain diagnostic evidence and are not additional primary rows.
 
 The canonical cross-condition file is `shared/results/all_conditions_taxonomy_classification_final.csv`. It standardises the final category column as `primary_category` and contains 238 primary failures: 61 Baseline, 59 Exp1, 57 Exp2, and 61 Exp3.
+
+`shared/results/migration_category_performance.csv` reports category sizes,
+condition-specific end-to-end pass counts and rates, and percentage-point
+differences from the Baseline. It joins the multi-label category assignments in
+the final migration dataset with the 231 evaluation-valid outcomes in the
+combined test-results file.
