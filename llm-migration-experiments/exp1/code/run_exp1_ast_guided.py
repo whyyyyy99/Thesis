@@ -35,7 +35,7 @@ sys.path.insert(0, str(RELEASE_ROOT / "shared" / "code"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from ast_api_locator import build_maps_from_json
-from ast_migration import (
+from exact_mapping_pipeline import (
     build_coverage_report,
     load_mapping,
     process_snippet,

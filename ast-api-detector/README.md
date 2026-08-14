@@ -8,6 +8,7 @@ This directory contains the AST detector, input snapshot, manually annotated gol
 - `data/input/snippets.csv`: the 238 pandas snippets evaluated by the detector.
 - `data/registry/pandas_source_api_registry.json`: source-side pandas API names used to construct receiver-specific normalisation maps. It contains no target APIs or migration guidance.
 - `data/gold/ast_gold_labels.csv`: manually annotated pandas API sets.
+- `audit/ast_detection_gold_review.xlsx`: 238-row review workbook containing source snippets, AST detections, manually annotated gold APIs, per-snippet metrics, and aggregate results.
 - `results/ast_detections.jsonl`: AST fields extracted from the previously stored experiment output. This file was not regenerated for this release.
 - `results/ast_gold_comparison.csv`: stored snippet-level comparison with the gold labels.
 - `results/ast_gold_summary.csv`: stored aggregate and receiver-family metrics.

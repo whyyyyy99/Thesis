@@ -9,7 +9,7 @@
 
 ## Exp1
 
-- Generation code: `run_exp1_ast_guided.py`, `ast_migration.py`, and the prompt template.
+- Generation code: `run_exp1_ast_guided.py`, `exact_mapping_pipeline.py`, and the prompt template.
 - Static knowledge source: `exp1/knowledge/api_mapping.json`.
 - Generation records: 238 final snippet records selected from the stored historical JSON using the final dataset identifiers; no generation was rerun.
 - Generated Python: 238 stored files.
