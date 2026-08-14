@@ -29,7 +29,7 @@
 - Static knowledge source: `exp3/knowledge/api_mapping.json`, an identical copy of the mapping used by Exp1.
 - Retrieval/generation records and generated Python: 238 stored entries.
 - Final tests: `exp3_test_results_v3.csv`.
-- Manual audit: `exp3/audit/exp3_manual_review_238.csv` covers all 238 snippets.
+- Historical audit: `exp3/audit/historical_exp3_manual_review_238.csv` covers an earlier evaluation pass and is not a source for the final statistics.
 
 ## Shared Evaluation
 

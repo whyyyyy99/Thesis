@@ -1,11 +1,11 @@
-# Exp3 Manual Audit
+# Historical Exp3 Manual Audit
 
-`exp3_manual_review_238.csv` contains the consolidated manual review of all
-238 Exp3 condition--snippet observations. The review checks notebook and
-generated-code alignment, fixture and oracle validity, raw layer outcomes,
-primary failure assignment, cascade status, evaluation-induced issues, and the
-supporting evidence used for the final decision.
+`historical_exp3_manual_review_238.csv` consolidates eight manual-review batches
+from an earlier Exp3 evaluation pass. It covers all 238 snippets, but it does
+not correspond to the final Exp3 classifications: 45 primary outcomes differ
+from the current result table. It is retained only as historical audit
+material and must not be used to reproduce the thesis statistics.
 
-The authoritative evaluated outcomes are stored in
+The authoritative final outcomes are stored in
 `../results/test_results_v3.csv`. Final primary-failure taxonomy assignments
 are stored in `../results/taxonomy_classification_final.csv`.
