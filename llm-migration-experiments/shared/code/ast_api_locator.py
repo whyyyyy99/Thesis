@@ -6,13 +6,13 @@ handling import aliases, data flow tracking, call chains, Series-level
 calls, accessor patterns (.str / .dt / .cat), and window chains
 (.rolling / .resample / .expanding / .ewm).
 
-Maps are built dynamically from a knowledge base JSON (recommended).
+Maps are built dynamically from a source-API registry JSON (recommended).
 A minimal hardcoded fallback is used when no JSON is provided.
 
 Usage:
     from ast_api_locator import build_maps_from_json, extract_pandas_api_details
 
-    maps = build_maps_from_json("path/to/api_mapping.json")
+    maps = build_maps_from_json("path/to/pandas_source_api_registry.json")
     details = extract_pandas_api_details(code, maps=maps)
     apis = details["normalized_apis"]
 """
@@ -108,7 +108,7 @@ def _parse_api_entry(
 
 def build_maps_from_json(json_path: str) -> "APIMaps":
     """
-    Build APIMaps from api_mapping.json, then merge with fallback maps.
+    Build APIMaps from a source-API registry, then merge with fallback maps.
 
     JSON-derived values override fallback for the same method name.
     Exact source_api strings from the JSON are preserved.

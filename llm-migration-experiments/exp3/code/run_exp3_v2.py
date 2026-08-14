@@ -62,7 +62,7 @@ PREV_RESULTS           = RELEASE_ROOT / "exp3" / "results"
 OUTPUT_DIR             = RELEASE_ROOT / "exp3" / "results" / "reproduced"
 POLARS_DOCS            = RELEASE_ROOT / "shared" / "knowledge" / "polars_docs_union.json"
 PANDAS_DOCS_STRUCTURED = RELEASE_ROOT / "shared" / "knowledge" / "pandas_api_structured.json"
-MAPPING_JSON           = RELEASE_ROOT / "shared" / "knowledge" / "api_mapping.json"
+MAPPING_JSON           = RELEASE_ROOT / "exp3" / "knowledge" / "api_mapping.json"
 PROMPT_TEMPLATE        = RELEASE_ROOT / "exp3" / "prompts" / "prompt_template.txt"
 GOLD_LABELS            = RELEASE_ROOT / "shared" / "input" / "gold_labels_review.csv"
 

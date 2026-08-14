@@ -11,7 +11,9 @@ from ast_api_locator import build_maps_from_json, extract_pandas_api_details
 class DetectorTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.maps = build_maps_from_json(str(ROOT / "data/mapping/api_mapping.json"))
+        cls.maps = build_maps_from_json(
+            str(ROOT / "data/registry/pandas_source_api_registry.json")
+        )
 
     def detect(self, code):
         return extract_pandas_api_details(code, maps=self.maps)
@@ -30,7 +32,7 @@ class DetectorTests(unittest.TestCase):
         self.assertEqual(result["normalized_apis"], [])
 
     def test_parse_failure(self):
-        result = self.detect("    df.dropna()")
+        result = self.detect("df.dropna(")
         self.assertFalse(result["parse_success"])
 
 

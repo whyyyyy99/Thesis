@@ -2,7 +2,7 @@
 
 ## Detection
 
-The detector parses each snippet with Python's standard `ast` module. It collects pandas import aliases, tracks DataFrame, Series, and GroupBy variables, recursively infers receiver families, and normalises recognised calls against receiver-specific maps derived from `api_mapping.json`.
+The detector parses each snippet with Python's standard `ast` module. It collects pandas import aliases, tracks DataFrame, Series, and GroupBy variables, recursively infers receiver families, and normalises recognised calls against receiver-specific maps derived from a source-only pandas API registry. The registry was derived from the `source_api` field of the mapping table but contains no target API or migration guidance.
 
 The supported receiver families are top-level pandas functions, DataFrame methods, Series methods, DataFrameGroupBy methods, SeriesGroupBy methods, and Index or MultiIndex methods. The detector also records accessor and window-operation keywords and methods whose receiver can be followed but whose canonical API cannot be resolved.
 

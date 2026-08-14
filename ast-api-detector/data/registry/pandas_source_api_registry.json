@@ -1,0 +1,2297 @@
+[
+  {
+    "source_api": "pandas.read_pickle"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_pickle"
+  },
+  {
+    "source_api": "pandas.read_table"
+  },
+  {
+    "source_api": "pandas.read_csv"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_csv"
+  },
+  {
+    "source_api": "pandas.read_fwf"
+  },
+  {
+    "source_api": "pandas.read_clipboard"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_clipboard"
+  },
+  {
+    "source_api": "pandas.read_excel"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_excel"
+  },
+  {
+    "source_api": "pandas.ExcelFile"
+  },
+  {
+    "source_api": "pandas.ExcelFile.book"
+  },
+  {
+    "source_api": "pandas.ExcelFile.sheet_names"
+  },
+  {
+    "source_api": "pandas.ExcelFile.parse"
+  },
+  {
+    "source_api": "pandas.io.formats.style.Styler.to_excel"
+  },
+  {
+    "source_api": "pandas.read_html"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_html"
+  },
+  {
+    "source_api": "pandas.ExcelWriter"
+  },
+  {
+    "source_api": "pandas.read_json"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_json"
+  },
+  {
+    "source_api": "pandas.io.json.build_table_schema"
+  },
+  {
+    "source_api": "pandas.read_xml"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_xml"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_latex"
+  },
+  {
+    "source_api": "pandas.io.formats.style.Styler.to_latex"
+  },
+  {
+    "source_api": "pandas.read_hdf"
+  },
+  {
+    "source_api": "pandas.HDFStore.put"
+  },
+  {
+    "source_api": "pandas.HDFStore.append"
+  },
+  {
+    "source_api": "pandas.HDFStore.get"
+  },
+  {
+    "source_api": "pandas.HDFStore.select"
+  },
+  {
+    "source_api": "pandas.HDFStore.info"
+  },
+  {
+    "source_api": "pandas.HDFStore.keys"
+  },
+  {
+    "source_api": "pandas.HDFStore.groups"
+  },
+  {
+    "source_api": "pandas.HDFStore.walk"
+  },
+  {
+    "source_api": "pandas.read_feather"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_feather"
+  },
+  {
+    "source_api": "pandas.read_parquet"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_parquet"
+  },
+  {
+    "source_api": "pandas.read_iceberg"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_iceberg"
+  },
+  {
+    "source_api": "pandas.read_orc"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_orc"
+  },
+  {
+    "source_api": "pandas.read_sas"
+  },
+  {
+    "source_api": "pandas.read_spss"
+  },
+  {
+    "source_api": "pandas.read_sql_table"
+  },
+  {
+    "source_api": "pandas.read_sql_query"
+  },
+  {
+    "source_api": "pandas.read_sql"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_sql"
+  },
+  {
+    "source_api": "pandas.read_stata"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_stata"
+  },
+  {
+    "source_api": "pandas.io.stata.StataReader.data_label"
+  },
+  {
+    "source_api": "pandas.io.stata.StataReader.value_labels"
+  },
+  {
+    "source_api": "pandas.io.stata.StataReader.variable_labels"
+  },
+  {
+    "source_api": "pandas.io.stata.StataWriter.write_file"
+  },
+  {
+    "source_api": "pandas.melt"
+  },
+  {
+    "source_api": "pandas.pivot"
+  },
+  {
+    "source_api": "pandas.pivot_table"
+  },
+  {
+    "source_api": "pandas.crosstab"
+  },
+  {
+    "source_api": "pandas.cut"
+  },
+  {
+    "source_api": "pandas.qcut"
+  },
+  {
+    "source_api": "pandas.merge"
+  },
+  {
+    "source_api": "pandas.merge_ordered"
+  },
+  {
+    "source_api": "pandas.merge_asof"
+  },
+  {
+    "source_api": "pandas.concat"
+  },
+  {
+    "source_api": "pandas.get_dummies"
+  },
+  {
+    "source_api": "pandas.from_dummies"
+  },
+  {
+    "source_api": "pandas.factorize"
+  },
+  {
+    "source_api": "pandas.unique"
+  },
+  {
+    "source_api": "pandas.lreshape"
+  },
+  {
+    "source_api": "pandas.wide_to_long"
+  },
+  {
+    "source_api": "pandas.isna"
+  },
+  {
+    "source_api": "pandas.isnull"
+  },
+  {
+    "source_api": "pandas.notna"
+  },
+  {
+    "source_api": "pandas.notnull"
+  },
+  {
+    "source_api": "pandas.to_numeric"
+  },
+  {
+    "source_api": "pandas.to_datetime"
+  },
+  {
+    "source_api": "pandas.to_timedelta"
+  },
+  {
+    "source_api": "pandas.date_range"
+  },
+  {
+    "source_api": "pandas.bdate_range"
+  },
+  {
+    "source_api": "pandas.period_range"
+  },
+  {
+    "source_api": "pandas.timedelta_range"
+  },
+  {
+    "source_api": "pandas.infer_freq"
+  },
+  {
+    "source_api": "pandas.interval_range"
+  },
+  {
+    "source_api": "pandas.col"
+  },
+  {
+    "source_api": "pandas.eval"
+  },
+  {
+    "source_api": "pandas.tseries.api.guess_datetime_format"
+  },
+  {
+    "source_api": "Series"
+  },
+  {
+    "source_api": "pandas.Series"
+  },
+  {
+    "source_api": "pandas.Series.index"
+  },
+  {
+    "source_api": "pandas.Series.array"
+  },
+  {
+    "source_api": "pandas.Series.values"
+  },
+  {
+    "source_api": "pandas.Series.dtype"
+  },
+  {
+    "source_api": "pandas.Series.info"
+  },
+  {
+    "source_api": "pandas.Series.shape"
+  },
+  {
+    "source_api": "pandas.Series.nbytes"
+  },
+  {
+    "source_api": "pandas.Series.ndim"
+  },
+  {
+    "source_api": "pandas.Series.size"
+  },
+  {
+    "source_api": "pandas.Series.T"
+  },
+  {
+    "source_api": "pandas.Series.memory_usage"
+  },
+  {
+    "source_api": "pandas.Series.hasnans"
+  },
+  {
+    "source_api": "pandas.Series.empty"
+  },
+  {
+    "source_api": "pandas.Series.dtypes"
+  },
+  {
+    "source_api": "pandas.Series.name"
+  },
+  {
+    "source_api": "pandas.Series.flags"
+  },
+  {
+    "source_api": "pandas.Series.set_flags"
+  },
+  {
+    "source_api": "pandas.Series.astype"
+  },
+  {
+    "source_api": "pandas.Series.convert_dtypes"
+  },
+  {
+    "source_api": "pandas.Series.infer_objects"
+  },
+  {
+    "source_api": "pandas.Series.copy"
+  },
+  {
+    "source_api": "pandas.Series.to_numpy"
+  },
+  {
+    "source_api": "pandas.Series.to_period"
+  },
+  {
+    "source_api": "pandas.Series.to_timestamp"
+  },
+  {
+    "source_api": "pandas.Series.to_list"
+  },
+  {
+    "source_api": "pandas.Series.__array__"
+  },
+  {
+    "source_api": "pandas.Series.get"
+  },
+  {
+    "source_api": "pandas.Series.at"
+  },
+  {
+    "source_api": "pandas.Series.iat"
+  },
+  {
+    "source_api": "pandas.Series.loc"
+  },
+  {
+    "source_api": "pandas.Series.iloc"
+  },
+  {
+    "source_api": "pandas.Series.__iter__"
+  },
+  {
+    "source_api": "pandas.Series.items"
+  },
+  {
+    "source_api": "pandas.Series.keys"
+  },
+  {
+    "source_api": "pandas.Series.pop"
+  },
+  {
+    "source_api": "pandas.Series.item"
+  },
+  {
+    "source_api": "pandas.Series.xs"
+  },
+  {
+    "source_api": "pandas.Series.add"
+  },
+  {
+    "source_api": "pandas.Series.sub"
+  },
+  {
+    "source_api": "pandas.Series.mul"
+  },
+  {
+    "source_api": "pandas.Series.div"
+  },
+  {
+    "source_api": "pandas.Series.truediv"
+  },
+  {
+    "source_api": "pandas.Series.floordiv"
+  },
+  {
+    "source_api": "pandas.Series.mod"
+  },
+  {
+    "source_api": "pandas.Series.pow"
+  },
+  {
+    "source_api": "pandas.Series.radd"
+  },
+  {
+    "source_api": "pandas.Series.rsub"
+  },
+  {
+    "source_api": "pandas.Series.rmul"
+  },
+  {
+    "source_api": "pandas.Series.rdiv"
+  },
+  {
+    "source_api": "pandas.Series.rtruediv"
+  },
+  {
+    "source_api": "pandas.Series.rfloordiv"
+  },
+  {
+    "source_api": "pandas.Series.rmod"
+  },
+  {
+    "source_api": "pandas.Series.rpow"
+  },
+  {
+    "source_api": "pandas.Series.combine"
+  },
+  {
+    "source_api": "pandas.Series.combine_first"
+  },
+  {
+    "source_api": "pandas.Series.round"
+  },
+  {
+    "source_api": "pandas.Series.lt"
+  },
+  {
+    "source_api": "pandas.Series.gt"
+  },
+  {
+    "source_api": "pandas.Series.le"
+  },
+  {
+    "source_api": "pandas.Series.ge"
+  },
+  {
+    "source_api": "pandas.Series.ne"
+  },
+  {
+    "source_api": "pandas.Series.eq"
+  },
+  {
+    "source_api": "pandas.Series.product"
+  },
+  {
+    "source_api": "pandas.Series.dot"
+  },
+  {
+    "source_api": "pandas.Series.abs"
+  },
+  {
+    "source_api": "pandas.Series.all"
+  },
+  {
+    "source_api": "pandas.Series.any"
+  },
+  {
+    "source_api": "pandas.Series.autocorr"
+  },
+  {
+    "source_api": "pandas.Series.between"
+  },
+  {
+    "source_api": "pandas.Series.clip"
+  },
+  {
+    "source_api": "pandas.Series.corr"
+  },
+  {
+    "source_api": "pandas.Series.count"
+  },
+  {
+    "source_api": "pandas.Series.cov"
+  },
+  {
+    "source_api": "pandas.Series.cummax"
+  },
+  {
+    "source_api": "pandas.Series.cummin"
+  },
+  {
+    "source_api": "pandas.Series.cumprod"
+  },
+  {
+    "source_api": "pandas.Series.cumsum"
+  },
+  {
+    "source_api": "pandas.Series.describe"
+  },
+  {
+    "source_api": "pandas.Series.diff"
+  },
+  {
+    "source_api": "pandas.Series.factorize"
+  },
+  {
+    "source_api": "pandas.Series.kurt"
+  },
+  {
+    "source_api": "pandas.Series.max"
+  },
+  {
+    "source_api": "pandas.Series.mean"
+  },
+  {
+    "source_api": "pandas.Series.median"
+  },
+  {
+    "source_api": "pandas.Series.min"
+  },
+  {
+    "source_api": "pandas.Series.mode"
+  },
+  {
+    "source_api": "pandas.Series.nlargest"
+  },
+  {
+    "source_api": "pandas.Series.nsmallest"
+  },
+  {
+    "source_api": "pandas.Series.pct_change"
+  },
+  {
+    "source_api": "pandas.Series.prod"
+  },
+  {
+    "source_api": "pandas.Series.quantile"
+  },
+  {
+    "source_api": "pandas.Series.rank"
+  },
+  {
+    "source_api": "pandas.Series.sem"
+  },
+  {
+    "source_api": "pandas.Series.skew"
+  },
+  {
+    "source_api": "pandas.Series.std"
+  },
+  {
+    "source_api": "pandas.Series.sum"
+  },
+  {
+    "source_api": "pandas.Series.var"
+  },
+  {
+    "source_api": "pandas.Series.kurtosis"
+  },
+  {
+    "source_api": "pandas.Series.unique"
+  },
+  {
+    "source_api": "pandas.Series.nunique"
+  },
+  {
+    "source_api": "pandas.Series.is_unique"
+  },
+  {
+    "source_api": "pandas.Series.is_monotonic_increasing"
+  },
+  {
+    "source_api": "pandas.Series.is_monotonic_decreasing"
+  },
+  {
+    "source_api": "pandas.Series.value_counts"
+  },
+  {
+    "source_api": "pandas.Series.align"
+  },
+  {
+    "source_api": "pandas.Series.case_when"
+  },
+  {
+    "source_api": "pandas.Series.drop"
+  },
+  {
+    "source_api": "pandas.Series.droplevel"
+  },
+  {
+    "source_api": "pandas.Series.drop_duplicates"
+  },
+  {
+    "source_api": "pandas.Series.duplicated"
+  },
+  {
+    "source_api": "pandas.Series.equals"
+  },
+  {
+    "source_api": "pandas.Series.head"
+  },
+  {
+    "source_api": "pandas.Series.idxmax"
+  },
+  {
+    "source_api": "pandas.Series.idxmin"
+  },
+  {
+    "source_api": "pandas.Series.isin"
+  },
+  {
+    "source_api": "pandas.Series.reindex"
+  },
+  {
+    "source_api": "pandas.Series.reindex_like"
+  },
+  {
+    "source_api": "pandas.Series.rename"
+  },
+  {
+    "source_api": "pandas.Series.rename_axis"
+  },
+  {
+    "source_api": "pandas.Series.reset_index"
+  },
+  {
+    "source_api": "pandas.Series.sample"
+  },
+  {
+    "source_api": "pandas.Series.set_axis"
+  },
+  {
+    "source_api": "pandas.Series.take"
+  },
+  {
+    "source_api": "pandas.Series.tail"
+  },
+  {
+    "source_api": "pandas.Series.truncate"
+  },
+  {
+    "source_api": "pandas.Series.where"
+  },
+  {
+    "source_api": "pandas.Series.mask"
+  },
+  {
+    "source_api": "pandas.Series.add_prefix"
+  },
+  {
+    "source_api": "pandas.Series.add_suffix"
+  },
+  {
+    "source_api": "pandas.Series.filter"
+  },
+  {
+    "source_api": "pandas.Series.bfill"
+  },
+  {
+    "source_api": "pandas.Series.dropna"
+  },
+  {
+    "source_api": "pandas.Series.ffill"
+  },
+  {
+    "source_api": "pandas.Series.fillna"
+  },
+  {
+    "source_api": "pandas.Series.interpolate"
+  },
+  {
+    "source_api": "pandas.Series.isna"
+  },
+  {
+    "source_api": "pandas.Series.isnull"
+  },
+  {
+    "source_api": "pandas.Series.notna"
+  },
+  {
+    "source_api": "pandas.Series.notnull"
+  },
+  {
+    "source_api": "pandas.Series.replace"
+  },
+  {
+    "source_api": "pandas.Series.argsort"
+  },
+  {
+    "source_api": "pandas.Series.argmin"
+  },
+  {
+    "source_api": "pandas.Series.argmax"
+  },
+  {
+    "source_api": "pandas.Series.reorder_levels"
+  },
+  {
+    "source_api": "pandas.Series.sort_values"
+  },
+  {
+    "source_api": "pandas.Series.sort_index"
+  },
+  {
+    "source_api": "pandas.Series.repeat"
+  },
+  {
+    "source_api": "pandas.Series.to_list()"
+  },
+  {
+    "source_api": "pandas.Series.to_dict()"
+  },
+  {
+    "source_api": "pandas.Series.squeeze"
+  },
+  {
+    "source_api": "pandas.Series.compare"
+  },
+  {
+    "source_api": "pandas.Series.update"
+  },
+  {
+    "source_api": "pandas.Series.asfreq"
+  },
+  {
+    "source_api": "pandas.Series.asof"
+  },
+  {
+    "source_api": "pandas.Series.shift"
+  },
+  {
+    "source_api": "pandas.Series.first_valid_index"
+  },
+  {
+    "source_api": "pandas.Series.last_valid_index"
+  },
+  {
+    "source_api": "pandas.Series.resample"
+  },
+  {
+    "source_api": "pandas.Series.tz_convert"
+  },
+  {
+    "source_api": "pandas.Series.tz_localize"
+  },
+  {
+    "source_api": "pandas.Series.to_frame()"
+  },
+  {
+    "source_api": "pandas.Series.at_time"
+  },
+  {
+    "source_api": "Dataframe"
+  },
+  {
+    "source_api": "pandas.DataFrame"
+  },
+  {
+    "source_api": "pandas.DataFrame.index"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_dict() / orient=\"dict\""
+  },
+  {
+    "source_api": "pandas.DataFrame.columns"
+  },
+  {
+    "source_api": "pandas.DataFrame.dtypes"
+  },
+  {
+    "source_api": "pandas.DataFrame.info"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_dict"
+  },
+  {
+    "source_api": "pandas.DataFrame.from_dict"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_xarray()"
+  },
+  {
+    "source_api": "pandas.DataFrame.transpose()"
+  },
+  {
+    "source_api": "pandas.DataFrame.select_dtypes"
+  },
+  {
+    "source_api": "pandas.DataFrame.values"
+  },
+  {
+    "source_api": "pandas.DataFrame.axes"
+  },
+  {
+    "source_api": "pandas.DataFrame.ndim"
+  },
+  {
+    "source_api": "pandas.DataFrame.size"
+  },
+  {
+    "source_api": "pandas.DataFrame.shape"
+  },
+  {
+    "source_api": "pandas.DataFrame.memory_usage"
+  },
+  {
+    "source_api": "pandas.DataFrame.empty"
+  },
+  {
+    "source_api": "pandas.DataFrame.set_flags"
+  },
+  {
+    "source_api": "pandas.DataFrame.__add__"
+  },
+  {
+    "source_api": "pandas.DataFrame.add"
+  },
+  {
+    "source_api": "pandas.DataFrame.sub"
+  },
+  {
+    "source_api": "pandas.DataFrame.mul"
+  },
+  {
+    "source_api": "pandas.DataFrame.div"
+  },
+  {
+    "source_api": "pandas.DataFrame.truediv"
+  },
+  {
+    "source_api": "pandas.DataFrame.floordiv"
+  },
+  {
+    "source_api": "pandas.DataFrame.mod"
+  },
+  {
+    "source_api": "pandas.DataFrame.pow"
+  },
+  {
+    "source_api": "pandas.DataFrame.dot"
+  },
+  {
+    "source_api": "pandas.DataFrame.radd"
+  },
+  {
+    "source_api": "pandas.DataFrame.rsub"
+  },
+  {
+    "source_api": "pandas.DataFrame.rmul"
+  },
+  {
+    "source_api": "pandas.DataFrame.rdiv"
+  },
+  {
+    "source_api": "pandas.DataFrame.rtruediv"
+  },
+  {
+    "source_api": "pandas.DataFrame.rfloordiv"
+  },
+  {
+    "source_api": "pandas.DataFrame.rmod"
+  },
+  {
+    "source_api": "pandas.DataFrame.rpow"
+  },
+  {
+    "source_api": "pandas.DataFrame.lt"
+  },
+  {
+    "source_api": "pandas.DataFrame.gt"
+  },
+  {
+    "source_api": "pandas.DataFrame.le"
+  },
+  {
+    "source_api": "pandas.DataFrame.ge"
+  },
+  {
+    "source_api": "pandas.DataFrame.ne"
+  },
+  {
+    "source_api": "pandas.DataFrame.eq"
+  },
+  {
+    "source_api": "pandas.DataFrame.combine"
+  },
+  {
+    "source_api": "pandas.DataFrame.combine_first"
+  },
+  {
+    "source_api": "pandas.DataFrame.apply"
+  },
+  {
+    "source_api": "pandas.DataFrame.map"
+  },
+  {
+    "source_api": "pandas.DataFrame.pipe"
+  },
+  {
+    "source_api": "pandas.DataFrame.agg"
+  },
+  {
+    "source_api": "pandas.DataFrame.aggregate"
+  },
+  {
+    "source_api": "pandas.DataFrame.transform"
+  },
+  {
+    "source_api": "pandas.DataFrame.groupby"
+  },
+  {
+    "source_api": "pandas.DataFrame.rolling"
+  },
+  {
+    "source_api": "pandas.DataFrame.expanding"
+  },
+  {
+    "source_api": "pandas.DataFrame.ewm"
+  },
+  {
+    "source_api": "pandas.DataFrame.abs"
+  },
+  {
+    "source_api": "pandas.DataFrame.all"
+  },
+  {
+    "source_api": "pandas.DataFrame.any"
+  },
+  {
+    "source_api": "pandas.DataFrame.clip"
+  },
+  {
+    "source_api": "pandas.DataFrame.corr"
+  },
+  {
+    "source_api": "pandas.DataFrame.corrwith"
+  },
+  {
+    "source_api": "pandas.DataFrame.count"
+  },
+  {
+    "source_api": "pandas.DataFrame.cov"
+  },
+  {
+    "source_api": "pandas.DataFrame.cummax"
+  },
+  {
+    "source_api": "pandas.DataFrame.cummin"
+  },
+  {
+    "source_api": "pandas.DataFrame.cumprod"
+  },
+  {
+    "source_api": "pandas.DataFrame.cumsum"
+  },
+  {
+    "source_api": "pandas.DataFrame.describe"
+  },
+  {
+    "source_api": "pandas.DataFrame.diff"
+  },
+  {
+    "source_api": "pandas.DataFrame.eval"
+  },
+  {
+    "source_api": "pandas.DataFrame.kurt"
+  },
+  {
+    "source_api": "pandas.DataFrame.kurtosis"
+  },
+  {
+    "source_api": "pandas.DataFrame.max"
+  },
+  {
+    "source_api": "pandas.DataFrame.mean"
+  },
+  {
+    "source_api": "pandas.DataFrame.median"
+  },
+  {
+    "source_api": "pandas.DataFrame.min"
+  },
+  {
+    "source_api": "pandas.DataFrame.mode"
+  },
+  {
+    "source_api": "pandas.DataFrame.pct_change"
+  },
+  {
+    "source_api": "pandas.DataFrame.prod"
+  },
+  {
+    "source_api": "pandas.DataFrame.product"
+  },
+  {
+    "source_api": "pandas.DataFrame.quantile"
+  },
+  {
+    "source_api": "pandas.DataFrame.rank"
+  },
+  {
+    "source_api": "pandas.DataFrame.round"
+  },
+  {
+    "source_api": "pandas.DataFrame.sem"
+  },
+  {
+    "source_api": "pandas.DataFrame.skew"
+  },
+  {
+    "source_api": "pandas.DataFrame.sum"
+  },
+  {
+    "source_api": "pandas.DataFrame.std"
+  },
+  {
+    "source_api": "pandas.DataFrame.var"
+  },
+  {
+    "source_api": "pandas.DataFrame.nunique"
+  },
+  {
+    "source_api": "pandas.DataFrame.value_counts"
+  },
+  {
+    "source_api": "pandas.DataFrame.add_prefix"
+  },
+  {
+    "source_api": "pandas.DataFrame.add_suffix"
+  },
+  {
+    "source_api": "pandas.DataFrame.align"
+  },
+  {
+    "source_api": "pandas.DataFrame.at_time"
+  },
+  {
+    "source_api": "pandas.DataFrame.between_time"
+  },
+  {
+    "source_api": "pandas.DataFrame.drop"
+  },
+  {
+    "source_api": "pandas.DataFrame.drop_duplicates"
+  },
+  {
+    "source_api": "pandas.DataFrame.duplicated"
+  },
+  {
+    "source_api": "pandas.DataFrame.equals"
+  },
+  {
+    "source_api": "pandas.DataFrame.filter"
+  },
+  {
+    "source_api": "pandas.DataFrame.idxmax"
+  },
+  {
+    "source_api": "pandas.DataFrame.idxmin"
+  },
+  {
+    "source_api": "pandas.DataFrame.reindex"
+  },
+  {
+    "source_api": "pandas.DataFrame.reindex_like"
+  },
+  {
+    "source_api": "pandas.DataFrame.rename"
+  },
+  {
+    "source_api": "pandas.DataFrame.rename_axis"
+  },
+  {
+    "source_api": "pandas.DataFrame.reset_index"
+  },
+  {
+    "source_api": "pandas.DataFrame.sample"
+  },
+  {
+    "source_api": "pandas.DataFrame.set_axis"
+  },
+  {
+    "source_api": "pandas.DataFrame.set_index"
+  },
+  {
+    "source_api": "pandas.DataFrame.take"
+  },
+  {
+    "source_api": "pandas.DataFrame.truncate"
+  },
+  {
+    "source_api": "pandas.DataFrame.bfill"
+  },
+  {
+    "source_api": "pandas.DataFrame.dropna"
+  },
+  {
+    "source_api": "pandas.DataFrame.ffill"
+  },
+  {
+    "source_api": "pandas.DataFrame.fillna"
+  },
+  {
+    "source_api": "pandas.DataFrame.interpolate"
+  },
+  {
+    "source_api": "pandas.DataFrame.isna"
+  },
+  {
+    "source_api": "pandas.DataFrame.isnull"
+  },
+  {
+    "source_api": "pandas.DataFrame.notna"
+  },
+  {
+    "source_api": "pandas.DataFrame.notnull"
+  },
+  {
+    "source_api": "pandas.DataFrame.replace"
+  },
+  {
+    "source_api": "pandas.Flags"
+  },
+  {
+    "source_api": "Index objects"
+  },
+  {
+    "source_api": "pandas.Index"
+  },
+  {
+    "source_api": "pandas.Index.values"
+  },
+  {
+    "source_api": "pandas.Index.is_monotonic_increasing"
+  },
+  {
+    "source_api": "pandas.Index.is_monotonic_decreasing"
+  },
+  {
+    "source_api": "pandas.Index.is_unique"
+  },
+  {
+    "source_api": "pandas.Index.has_duplicates"
+  },
+  {
+    "source_api": "pandas.Index.hasnans"
+  },
+  {
+    "source_api": "pandas.Index.dtype"
+  },
+  {
+    "source_api": "pandas.Index.inferred_type"
+  },
+  {
+    "source_api": "pandas.Index.shape"
+  },
+  {
+    "source_api": "pandas.Index.name"
+  },
+  {
+    "source_api": "pandas.Index.names"
+  },
+  {
+    "source_api": "pandas.Index.nbytes"
+  },
+  {
+    "source_api": "pandas.Index.ndim"
+  },
+  {
+    "source_api": "pandas.Index.size"
+  },
+  {
+    "source_api": "pandas.Index.empty"
+  },
+  {
+    "source_api": "pandas.Index.memory_usage"
+  },
+  {
+    "source_api": "pandas.Index.array"
+  },
+  {
+    "source_api": "pandas.Index.all"
+  },
+  {
+    "source_api": "pandas.Index.any"
+  },
+  {
+    "source_api": "pandas.Index.argmin"
+  },
+  {
+    "source_api": "pandas.Index.argmax"
+  },
+  {
+    "source_api": "pandas.Index.copy"
+  },
+  {
+    "source_api": "pandas.Index.delete"
+  },
+  {
+    "source_api": "pandas.Index.drop"
+  },
+  {
+    "source_api": "pandas.Index.drop_duplicates"
+  },
+  {
+    "source_api": "pandas.Index.duplicated"
+  },
+  {
+    "source_api": "pandas.Index.equals"
+  },
+  {
+    "source_api": "pandas.Index.factorize"
+  },
+  {
+    "source_api": "pandas.Index.identical"
+  },
+  {
+    "source_api": "pandas.Index.insert"
+  },
+  {
+    "source_api": "pandas.Index.is_"
+  },
+  {
+    "source_api": "pandas.Index.min"
+  },
+  {
+    "source_api": "pandas.Index.max"
+  },
+  {
+    "source_api": "pandas.Index.reindex"
+  },
+  {
+    "source_api": "pandas.Index.rename"
+  },
+  {
+    "source_api": "pandas.Index.repeat"
+  },
+  {
+    "source_api": "pandas.Index.where"
+  },
+  {
+    "source_api": "pandas.Index.take"
+  },
+  {
+    "source_api": "pandas.Index.putmask"
+  },
+  {
+    "source_api": "pandas.Index.unique"
+  },
+  {
+    "source_api": "pandas.Index.nunique"
+  },
+  {
+    "source_api": "pandas.Index.value_counts"
+  },
+  {
+    "source_api": "pandas.Index.set_names"
+  },
+  {
+    "source_api": "pandas.Index.droplevel"
+  },
+  {
+    "source_api": "pandas.Index.fillna"
+  },
+  {
+    "source_api": "pandas.Index.dropna"
+  },
+  {
+    "source_api": "pandas.Index.isna"
+  },
+  {
+    "source_api": "pandas.Index.notna"
+  },
+  {
+    "source_api": "pandas.Index.astype"
+  },
+  {
+    "source_api": "pandas.Index.infer_objects"
+  },
+  {
+    "source_api": "pandas.Index.item"
+  },
+  {
+    "source_api": "pandas.Index.map"
+  },
+  {
+    "source_api": "pandas.Index.ravel"
+  },
+  {
+    "source_api": "pandas.Index.to_list"
+  },
+  {
+    "source_api": "pandas.Index.to_series"
+  },
+  {
+    "source_api": "pandas.Index.to_frame"
+  },
+  {
+    "source_api": "pandas.Index.to_numpy"
+  },
+  {
+    "source_api": "pandas.Index.view"
+  },
+  {
+    "source_api": "pandas.Index.argsort"
+  },
+  {
+    "source_api": "pandas.Index.searchsorted"
+  },
+  {
+    "source_api": "pandas.Index.sort_values"
+  },
+  {
+    "source_api": "pandas.Index.shift"
+  },
+  {
+    "source_api": "pandas.Index.append"
+  },
+  {
+    "source_api": "pandas.Index.join"
+  },
+  {
+    "source_api": "pandas.Index.intersection"
+  },
+  {
+    "source_api": "pandas.Index.union"
+  },
+  {
+    "source_api": "pandas.Index.difference"
+  },
+  {
+    "source_api": "pandas.Index.symmetric_difference"
+  },
+  {
+    "source_api": "pandas.Index.asof"
+  },
+  {
+    "source_api": "pandas.Index.asof_locs"
+  },
+  {
+    "source_api": "pandas.Index.get_indexer"
+  },
+  {
+    "source_api": "pandas.Index.get_indexer_for"
+  },
+  {
+    "source_api": "pandas.Index.get_indexer_non_unique"
+  },
+  {
+    "source_api": "pandas.Index.get_level_values"
+  },
+  {
+    "source_api": "pandas.Index.get_loc"
+  },
+  {
+    "source_api": "pandas.Index.get_slice_bound"
+  },
+  {
+    "source_api": "pandas.Index.isin"
+  },
+  {
+    "source_api": "pandas.Index.slice_indexer"
+  },
+  {
+    "source_api": "pandas.Index.slice_locs"
+  },
+  {
+    "source_api": "pandas.RangeIndex"
+  },
+  {
+    "source_api": "pandas.RangeIndex.start"
+  },
+  {
+    "source_api": "pandas.RangeIndex.stop"
+  },
+  {
+    "source_api": "pandas.RangeIndex.step"
+  },
+  {
+    "source_api": "pandas.RangeIndex.from_range"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.append"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.codes"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.ordered"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.rename_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.reorder_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.add_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.remove_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.remove_unused_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.set_categories"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.as_ordered"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.as_unordered"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.map"
+  },
+  {
+    "source_api": "pandas.CategoricalIndex.equals"
+  },
+  {
+    "source_api": "pandas.IntervalIndex"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.from_arrays"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.from_tuples"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.from_breaks"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.left"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.right"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.mid"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.closed"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.length"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.values"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.is_empty"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.is_non_overlapping_monotonic"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.is_overlapping"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.get_loc"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.get_indexer"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.set_closed"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.contains"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.overlaps"
+  },
+  {
+    "source_api": "pandas.IntervalIndex.to_tuples"
+  },
+  {
+    "source_api": "pandas.IndexSlice"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.normalize"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.strftime"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.snap"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.tz_convert"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.tz_localize"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.round"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.floor"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.ceil"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.month_name"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.day_name"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.as_unit"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.to_period"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.to_pydatetime"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.to_series"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.to_frame"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.to_julian_date"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.mean"
+  },
+  {
+    "source_api": "pandas.DatetimeIndex.std"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.days"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.seconds"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.microseconds"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.nanoseconds"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.components"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.inferred_freq"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.as_unit"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.to_pytimedelta"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.to_series"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.round"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.floor"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.ceil"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.to_frame"
+  },
+  {
+    "source_api": "pandas.TimedeltaIndex.mean"
+  },
+  {
+    "source_api": "pandas.PeriodIndex"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.day"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.dayofweek"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.day_of_week"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.dayofyear"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.day_of_year"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.days_in_month"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.daysinmonth"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.end_time"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.freq"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.freqstr"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.hour"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.is_leap_year"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.minute"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.month"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.quarter"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.qyear"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.second"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.start_time"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.week"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.weekday"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.weekofyear"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.year"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.asfreq"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.strftime"
+  },
+  {
+    "source_api": "pandas.PeriodIndex.to_timestamp"
+  },
+  {
+    "source_api": "Group by"
+  },
+  {
+    "source_api": "DataFrameGroupBy.__iter__ / SeriesGroupBy.__iter__"
+  },
+  {
+    "source_api": "DataFrameGroupBy.groups / SeriesGroupBy.groups"
+  },
+  {
+    "source_api": "DataFrameGroupBy.indices / SeriesGroupBy.indices"
+  },
+  {
+    "source_api": "DataFrameGroupBy.get_group / SeriesGroupBy.get_group"
+  },
+  {
+    "source_api": "pandas.Grouper"
+  },
+  {
+    "source_api": "pandas.NamedAgg"
+  },
+  {
+    "source_api": "SeriesGroupBy.apply"
+  },
+  {
+    "source_api": "DataFrameGroupBy.apply"
+  },
+  {
+    "source_api": "SeriesGroupBy.agg / SeriesGroupBy.aggregate"
+  },
+  {
+    "source_api": "DataFrameGroupBy.agg / DataFrameGroupBy.aggregate"
+  },
+  {
+    "source_api": "SeriesGroupBy.transform"
+  },
+  {
+    "source_api": "DataFrameGroupBy.transform"
+  },
+  {
+    "source_api": "SeriesGroupBy.pipe / DataFrameGroupBy.pipe"
+  },
+  {
+    "source_api": "DataFrameGroupBy.filter / SeriesGroupBy.filter"
+  },
+  {
+    "source_api": "DataFrameGroupBy.all"
+  },
+  {
+    "source_api": "DataFrameGroupBy.any"
+  },
+  {
+    "source_api": "DataFrameGroupBy.bfill"
+  },
+  {
+    "source_api": "DataFrameGroupBy.corr"
+  },
+  {
+    "source_api": "DataFrameGroupBy.corrwith"
+  },
+  {
+    "source_api": "DataFrameGroupBy.count"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cov"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cumcount"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cummax"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cummin"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cumprod"
+  },
+  {
+    "source_api": "DataFrameGroupBy.cumsum"
+  },
+  {
+    "source_api": "DataFrameGroupBy.describe"
+  },
+  {
+    "source_api": "DataFrameGroupBy.diff"
+  },
+  {
+    "source_api": "DataFrameGroupBy.ewm"
+  },
+  {
+    "source_api": "DataFrameGroupBy.expanding"
+  },
+  {
+    "source_api": "DataFrameGroupBy.ffill"
+  },
+  {
+    "source_api": "DataFrameGroupBy.first"
+  },
+  {
+    "source_api": "DataFrameGroupBy.head"
+  },
+  {
+    "source_api": "DataFrameGroupBy.idxmax"
+  },
+  {
+    "source_api": "DataFrameGroupBy.idxmin"
+  },
+  {
+    "source_api": "DataFrameGroupBy.last"
+  },
+  {
+    "source_api": "DataFrameGroupBy.max"
+  },
+  {
+    "source_api": "DataFrameGroupBy.mean"
+  },
+  {
+    "source_api": "DataFrameGroupBy.median"
+  },
+  {
+    "source_api": "DataFrameGroupBy.min"
+  },
+  {
+    "source_api": "DataFrameGroupBy.ngroup"
+  },
+  {
+    "source_api": "DataFrameGroupBy.nth"
+  },
+  {
+    "source_api": "DataFrameGroupBy.nunique"
+  },
+  {
+    "source_api": "DataFrameGroupBy.ohlc"
+  },
+  {
+    "source_api": "DataFrameGroupBy.pct_change"
+  },
+  {
+    "source_api": "DataFrameGroupBy.prod"
+  },
+  {
+    "source_api": "DataFrameGroupBy.quantile"
+  },
+  {
+    "source_api": "DataFrameGroupBy.rank"
+  },
+  {
+    "source_api": "DataFrameGroupBy.resample"
+  },
+  {
+    "source_api": "DataFrameGroupBy.rolling"
+  },
+  {
+    "source_api": "DataFrameGroupBy.sample"
+  },
+  {
+    "source_api": "DataFrameGroupBy.sem"
+  },
+  {
+    "source_api": "DataFrameGroupBy.shift"
+  },
+  {
+    "source_api": "DataFrameGroupBy.size"
+  },
+  {
+    "source_api": "DataFrameGroupBy.skew"
+  },
+  {
+    "source_api": "DataFrameGroupBy.kurt"
+  },
+  {
+    "source_api": "DataFrameGroupBy.std"
+  },
+  {
+    "source_api": "DataFrameGroupBy.sum"
+  },
+  {
+    "source_api": "DataFrameGroupBy.var"
+  },
+  {
+    "source_api": "DataFrameGroupBy.tail"
+  },
+  {
+    "source_api": "DataFrameGroupBy.take"
+  },
+  {
+    "source_api": "DataFrameGroupBy.value_counts"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.all"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.any"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.bfill"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.corr"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.count"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cov"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cumcount"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cummax"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cummin"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cumprod"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.cumsum"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.describe"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.diff"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.ewm"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.expanding"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.ffill"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.first"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.head"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.last"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.idxmax"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.idxmin"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.is_monotonic_increasing"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.is_monotonic_decreasing"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.max"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.mean"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.median"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.min"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.ngroup"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.nlargest"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.nsmallest"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.nth"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.nunique"
+  },
+  {
+    "source_api": "pandas.SeriesGroupBy.unique"
+  },
+  {
+    "source_api": "Missing values"
+  },
+  {
+    "source_api": "pandas.NA"
+  },
+  {
+    "source_api": "pandas.NaT"
+  },
+  {
+    "source_api": "pandas arrays, scalars, and data types"
+  },
+  {
+    "source_api": "pandas.Timestamp(...)"
+  },
+  {
+    "source_api": "pandas.arrays.DatetimeArray"
+  },
+  {
+    "source_api": "Timestamp.year"
+  },
+  {
+    "source_api": "Timestamp.month"
+  },
+  {
+    "source_api": "Timestamp.day"
+  },
+  {
+    "source_api": "Timestamp.hour"
+  },
+  {
+    "source_api": "Timestamp.minute"
+  },
+  {
+    "source_api": "Timestamp.second"
+  },
+  {
+    "source_api": "Timestamp.quarter"
+  },
+  {
+    "source_api": "Timestamp.days_in_month / daysinmonth"
+  },
+  {
+    "source_api": "Timestamp.is_month_start"
+  },
+  {
+    "source_api": "Timestamp.is_month_end"
+  },
+  {
+    "source_api": "Timestamp.is_quarter_start"
+  },
+  {
+    "source_api": "Timestamp.is_quarter_end"
+  },
+  {
+    "source_api": "Timestamp.is_year_start"
+  },
+  {
+    "source_api": "Timestamp.is_year_end"
+  },
+  {
+    "source_api": "Timestamp.isoformat(...)"
+  },
+  {
+    "source_api": "Timestamp.date()"
+  },
+  {
+    "source_api": "Timestamp.time()"
+  },
+  {
+    "source_api": "Timestamp.to_pydatetime()"
+  },
+  {
+    "source_api": "Timestamp.to_datetime64() / to_numpy()"
+  },
+  {
+    "source_api": "Timestamp.value"
+  },
+  {
+    "source_api": "Timestamp.timestamp()"
+  },
+  {
+    "source_api": "pandas.arrays.BooleanArray"
+  },
+  {
+    "source_api": "pandas.BooleanDtype"
+  },
+  {
+    "source_api": "pandas.Int8Dtype"
+  },
+  {
+    "source_api": "pandas.Int16Dtype"
+  },
+  {
+    "source_api": "pandas.Int32Dtype"
+  },
+  {
+    "source_api": "pandas.Int64Dtype"
+  },
+  {
+    "source_api": "pandas.UInt8Dtype"
+  },
+  {
+    "source_api": "pandas.UInt16Dtype"
+  },
+  {
+    "source_api": "pandas.UInt32Dtype"
+  },
+  {
+    "source_api": "pandas.UInt64Dtype"
+  },
+  {
+    "source_api": "pandas.arrays.FloatingArray"
+  },
+  {
+    "source_api": "pandas.Float32Dtype"
+  },
+  {
+    "source_api": "pandas.Float64Dtype"
+  },
+  {
+    "source_api": "pandas.CategoricalDtype(categories, ordered)"
+  },
+  {
+    "source_api": "CategoricalDtype.categories"
+  },
+  {
+    "source_api": "CategoricalDtype.ordered"
+  },
+  {
+    "source_api": "pandas.Categorical(values, categories, ordered)"
+  },
+  {
+    "source_api": "pandas.Categorical.from_codes(codes, categories, ordered)"
+  },
+  {
+    "source_api": "Categorical.dtype"
+  },
+  {
+    "source_api": "Categorical.categories"
+  },
+  {
+    "source_api": "Categorical.ordered"
+  },
+  {
+    "source_api": "Categorical.codes"
+  },
+  {
+    "source_api": "Categorical.as_ordered()"
+  },
+  {
+    "source_api": "Categorical.as_unordered()"
+  },
+  {
+    "source_api": "pandas.DataFrame.astype"
+  },
+  {
+    "source_api": "pandas.DataFrame.convert_dtypes"
+  },
+  {
+    "source_api": "pandas.DataFrame.infer_objects"
+  },
+  {
+    "source_api": "pandas.DataFrame.copy"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_numpy"
+  },
+  {
+    "source_api": "pandas.DataFrame.head"
+  },
+  {
+    "source_api": "pandas.DataFrame.tail"
+  },
+  {
+    "source_api": "pandas.DataFrame.at"
+  },
+  {
+    "source_api": "pandas.DataFrame.iat"
+  },
+  {
+    "source_api": "pandas.DataFrame.loc"
+  },
+  {
+    "source_api": "pandas.DataFrame.iloc"
+  },
+  {
+    "source_api": "pandas.DataFrame.insert"
+  },
+  {
+    "source_api": "pandas.DataFrame.items"
+  },
+  {
+    "source_api": "pandas.DataFrame.keys"
+  },
+  {
+    "source_api": "pandas.DataFrame.iterrows"
+  },
+  {
+    "source_api": "pandas.DataFrame.itertuples"
+  },
+  {
+    "source_api": "pandas.DataFrame.pop"
+  },
+  {
+    "source_api": "pandas.DataFrame.xs"
+  },
+  {
+    "source_api": "pandas.DataFrame.get"
+  },
+  {
+    "source_api": "pandas.DataFrame.isin"
+  },
+  {
+    "source_api": "pandas.DataFrame.where"
+  },
+  {
+    "source_api": "pandas.DataFrame.mask"
+  },
+  {
+    "source_api": "pandas.DataFrame.query"
+  },
+  {
+    "source_api": "pandas.DataFrame.isetitem"
+  },
+  {
+    "source_api": "pandas.DataFrame.sort_values"
+  },
+  {
+    "source_api": "pandas.DataFrame.sort_index"
+  },
+  {
+    "source_api": "pandas.DataFrame.droplevel"
+  },
+  {
+    "source_api": "pandas.DataFrame.pivot"
+  },
+  {
+    "source_api": "pandas.DataFrame.pivot_table"
+  },
+  {
+    "source_api": "pandas.DataFrame.reorder_levels"
+  },
+  {
+    "source_api": "pandas.DataFrame.nlargest"
+  },
+  {
+    "source_api": "pandas.DataFrame.nsmallest"
+  },
+  {
+    "source_api": "pandas.DataFrame.swaplevel"
+  },
+  {
+    "source_api": "pandas.DataFrame.stack"
+  },
+  {
+    "source_api": "pandas.DataFrame.unstack"
+  },
+  {
+    "source_api": "pandas.DataFrame.melt"
+  },
+  {
+    "source_api": "pandas.DataFrame.explode"
+  },
+  {
+    "source_api": "pandas.DataFrame.squeeze"
+  },
+  {
+    "source_api": "pandas.DataFrame.assign"
+  },
+  {
+    "source_api": "pandas.DataFrame.compare"
+  },
+  {
+    "source_api": "pandas.DataFrame.join"
+  },
+  {
+    "source_api": "pandas.DataFrame.merge"
+  },
+  {
+    "source_api": "pandas.DataFrame.update"
+  },
+  {
+    "source_api": "pandas.DataFrame.asfreq"
+  },
+  {
+    "source_api": "pandas.DataFrame.asof"
+  },
+  {
+    "source_api": "pandas.DataFrame.shift"
+  },
+  {
+    "source_api": "pandas.DataFrame.first_valid_index"
+  },
+  {
+    "source_api": "pandas.DataFrame.last_valid_index"
+  },
+  {
+    "source_api": "pandas.DataFrame.resample"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_period"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_timestamp"
+  },
+  {
+    "source_api": "pandas.DataFrame.tz_convert"
+  },
+  {
+    "source_api": "pandas.DataFrame.tz_localize"
+  },
+  {
+    "source_api": "pandas.DataFrame.from_records"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_hdf"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_records"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_string"
+  },
+  {
+    "source_api": "pandas.DataFrame.to_markdown"
+  },
+  {
+    "source_api": "pandas.DataFrame.plot"
+  },
+  {
+    "source_api": "pandas.DataFrame.hist"
+  },
+  {
+    "source_api": "pandas.DataFrame.boxplot"
+  },
+  {
+    "source_api": "pandas.DataFrame.attrs"
+  },
+  {
+    "source_api": "pandas.DataFrame.style"
+  }
+]

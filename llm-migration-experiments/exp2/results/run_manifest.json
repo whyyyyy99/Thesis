@@ -10,6 +10,6 @@
   "prompt_template": "exp2/prompts/prompt_template.txt",
   "polars_docs": "shared/knowledge/polars_docs_union.json",
   "pandas_docs": "shared/knowledge/pandas_api_structured.json",
-  "mapping_metadata": "shared/knowledge/api_mapping.json",
+  "ast_source_registry": "../ast-api-detector/data/registry/pandas_source_api_registry.json",
   "source_script": "exp2/code/run_exp2_v2.py"
 }

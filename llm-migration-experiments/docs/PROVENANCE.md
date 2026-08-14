@@ -10,6 +10,7 @@
 ## Exp1
 
 - Generation code: `run_exp1_ast_guided.py`, `ast_migration.py`, and the prompt template.
+- Static knowledge source: `exp1/knowledge/api_mapping.json`.
 - Generation records: 238 final snippet records selected from the stored historical JSON using the final dataset identifiers; no generation was rerun.
 - Generated Python: 238 stored files.
 - Final tests: `exp1_test_results_v3.csv`.
@@ -19,11 +20,13 @@
 - Generation directory: `exp2_v2_reasoning_low_20260810`.
 - Final evaluation directory: `test_rerun_exp2_reasoning_low_20260810/outputs/final`.
 - Retrieval input fields were recorded as identical to the earlier Exp2 V2 retrieval run; generation was rerun with the Responses API and low reasoning effort.
+- Exp2 did not use target-side mapping records for retrieval or prompt augmentation. The release reproduction script uses the source-only API registry in the sibling `ast-api-detector/` directory for shared API normalisation.
 - The package includes the run and preparation manifests, validation summary, complete manual review, structural audit, final primary outcomes, and final taxonomy files.
 
 ## Exp3
 
 - Generation code: `run_exp3_v2.py`, `hybrid_pipeline.py`, and the stored prompt template.
+- Static knowledge source: `exp3/knowledge/api_mapping.json`, an identical copy of the mapping used by Exp1.
 - Retrieval/generation records and generated Python: 238 stored entries.
 - Final tests: `exp3_test_results_v3.csv`.
 

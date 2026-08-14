@@ -6,19 +6,19 @@ Method: AST-assisted API-guided prompting
   - Uses AST analysis to detect pandas APIs, exact-matches against
     api_mapping.json, and injects matched records into the prompt.
 
-Usage (from data/ root):
+Usage (from the `llm-migration-experiments/` root):
     # Dry run (no LLM): build prompts and save coverage report only
-    python experiments/scripts/run_exp1_ast_guided.py \\
+    python exp1/code/run_exp1_ast_guided.py \\
         --snippets-dir extracted_snippets \\
-        --mapping RAG/RAG1/api_mapping.json \\
-        --output experiments/results/exp1_ast_guided/ast_guided_outputs.json \\
+        --mapping exp1/knowledge/api_mapping.json \\
+        --output exp1/results/reproduced_ast_guided_outputs.json \\
         --model ""
 
     # With LLM (requires OPENAI_API_KEY in environment)
-    python experiments/scripts/run_exp1_ast_guided.py \\
+    python exp1/code/run_exp1_ast_guided.py \\
         --snippets-dir extracted_snippets \\
-        --mapping RAG/RAG1/api_mapping.json \\
-        --output experiments/results/exp1_ast_guided/ast_guided_outputs.json \\
+        --mapping exp1/knowledge/api_mapping.json \\
+        --output exp1/results/reproduced_ast_guided_outputs.json \\
         --model gpt-5.4-mini
 """
 

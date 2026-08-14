@@ -63,7 +63,7 @@ PREV_RESULTS           = RELEASE_ROOT / "exp2" / "results"
 OUTPUT_DIR             = RELEASE_ROOT / "exp2" / "results" / "reproduced"
 POLARS_DOCS            = RELEASE_ROOT / "shared" / "knowledge" / "polars_docs_union.json"
 PANDAS_DOCS_STRUCTURED = RELEASE_ROOT / "shared" / "knowledge" / "pandas_api_structured.json"
-MAPPING_JSON           = RELEASE_ROOT / "shared" / "knowledge" / "api_mapping.json"
+SOURCE_API_REGISTRY    = RELEASE_ROOT.parent / "ast-api-detector" / "data" / "registry" / "pandas_source_api_registry.json"
 PROMPT_TEMPLATE        = RELEASE_ROOT / "exp2" / "prompts" / "prompt_template.txt"
 GOLD_LABELS            = RELEASE_ROOT / "shared" / "input" / "gold_labels_review.csv"
 
@@ -303,8 +303,8 @@ def main():
     parser = argparse.ArgumentParser(description="EXP2 V2 — Embedding-only retrieval")
     parser.add_argument("--polars-docs",    default=str(POLARS_DOCS))
     parser.add_argument("--pandas-docs",   default=str(PANDAS_DOCS_STRUCTURED))
-    parser.add_argument("--mapping",       default=str(MAPPING_JSON),
-                        help="Mapping metadata used only by the shared AST detector")
+    parser.add_argument("--mapping",       default=str(SOURCE_API_REGISTRY),
+                        help="Source-only API registry used by the shared AST detector")
     parser.add_argument("--prev-results",  default=str(PREV_RESULTS))
     parser.add_argument("--gold-labels",   default=str(GOLD_LABELS))
     parser.add_argument("--output",        default=str(OUTPUT_DIR))

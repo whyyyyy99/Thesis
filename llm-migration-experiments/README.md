@@ -25,7 +25,7 @@ Each condition contains:
 
 Files under `results/generated_py/` are preserved model outputs. Some are fragments that depend on enclosing code, and some contain syntax or indentation failures observed during evaluation. They are evidence, not a clean installable Python package, and have intentionally not been repaired.
 
-The `shared/` directory contains the AST helper, knowledge corpora, common evaluation scripts, the fixed seven-snippet exclusion list, review material, and a rebuilt 952-row cross-condition result table.
+The `shared/` directory contains the AST helper, documentation corpora, common evaluation scripts, the fixed seven-snippet exclusion list, review material, and a rebuilt 952-row cross-condition result table. The full static mapping table is stored under both `exp1/knowledge/` and `exp3/knowledge/`, the two conditions that use it. The source-only registry used for shared AST normalisation is stored in the separate `ast-api-detector/` package.
 
 ## Final End-to-End Results
 

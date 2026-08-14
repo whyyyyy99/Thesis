@@ -6,7 +6,7 @@ This directory contains the AST detector, input snapshot, manually annotated gol
 
 - `src/ast_api_locator.py`: detector implementation.
 - `data/input/snippets.csv`: the 238 pandas snippets evaluated by the detector.
-- `data/mapping/api_mapping.json`: mapping records used to construct receiver-specific API maps.
+- `data/registry/pandas_source_api_registry.json`: source-side pandas API names used to construct receiver-specific normalisation maps. It contains no target APIs or migration guidance.
 - `data/gold/ast_gold_labels.csv`: manually annotated pandas API sets.
 - `results/ast_detections.jsonl`: AST fields extracted from the previously stored experiment output. This file was not regenerated for this release.
 - `results/ast_gold_comparison.csv`: stored snippet-level comparison with the gold labels.
@@ -36,7 +36,7 @@ python3 -m unittest discover -s tests
 ```bash
 python3 scripts/run_detector.py \
   --input data/input/snippets.csv \
-  --mapping data/mapping/api_mapping.json \
+  --mapping data/registry/pandas_source_api_registry.json \
   --output results/reproduced_ast_detections.jsonl
 ```
 
@@ -50,4 +50,4 @@ python3 scripts/evaluate_against_gold.py \
 
 ## Version Note
 
-The mapping snapshot included here contains 765 JSON records. This is the actual count in the archived file used for this release.
+The source-API registry contains 765 records derived from the source-name field of the archived mapping table. The full pandas-to-Polars mapping is stored with Exp1 and Exp3, where it is used as migration knowledge.
