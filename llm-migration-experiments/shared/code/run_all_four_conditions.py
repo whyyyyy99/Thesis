@@ -1,14 +1,12 @@
-"""
-Run test notebooks for all 4 conditions in parallel and collect L1/L2/L3 results.
+"""Run the four conditions' test notebooks and collect L1/L2/L3 results.
 
-Conditions:
-  baseline   – generated_outputs/*/test/**/*.ipynb  (excl. legacy/)
-  exp1       – experiments/results/exp1_ast_guided/test_notebooks_v2/*.ipynb
-  exp2       – experiments/results/exp2_v2/test_notebooks_v2/*.ipynb
-  exp3       – experiments/results/exp3_v2/test_notebooks_v2/*.ipynb
+Run from ``llm-migration-experiments`` with, for example:
 
-Run from data/ root:
-  /opt/anaconda3/envs/my_nlp_env/bin/python3 experiments/scripts/run_all_four_conditions.py
+    python shared/code/run_all_four_conditions.py
+
+The common 231-snippet evaluation set is read from the sibling dataset package.
+All 238 notebooks are retained and may be executed, but the seven snippets marked
+``evaluation_valid = false`` are excluded from aggregate scoring.
 """
 
 import argparse
@@ -27,7 +25,13 @@ PYTHON  = sys.executable
 JUPYTER = shutil.which("jupyter") or "jupyter"
 PIP     = [sys.executable, "-m", "pip"]
 
-GOLD_LABELS_CSV = ROOT / "shared/input/gold_labels_review.csv"
+DATASET_CSV = (
+    ROOT.parent
+    / "pandas-to-polars-migration-dataset"
+    / "data"
+    / "final"
+    / "migration_pairs.csv"
+)
 
 NOTEBOOK_ROOTS = {
     "baseline": ROOT / "baseline/tests",
@@ -38,16 +42,18 @@ NOTEBOOK_ROOTS = {
 
 
 def _load_excluded_snippet_ids() -> set[str]:
-    """snippet_ids flagged 'unsuitable' in the gold-label review (curated once,
-    shared across all 4 conditions since it reflects the snippet, not the
-    generated code)."""
-    if not GOLD_LABELS_CSV.exists():
-        return set()
-    with open(GOLD_LABELS_CSV, newline="", encoding="utf-8") as f:
+    """Load the seven dataset-level exclusions used by the final evaluation."""
+    if not DATASET_CSV.exists():
+        raise FileNotFoundError(
+            "The canonical migration dataset is required to identify the common "
+            f"evaluation set: {DATASET_CSV}"
+        )
+    with open(DATASET_CSV, newline="", encoding="utf-8") as f:
         return {
             row["snippet_id"]
             for row in csv.DictReader(f)
-            if row.get("exclude", "").strip()
+            if row.get("evaluation_valid", "").strip().lower()
+            not in {"1", "true", "yes"}
         }
 
 

@@ -20,15 +20,14 @@ in the thesis.
 - `scripts/`: cleaned scripts for collection, detection, inventory construction,
   and final-table assembly.
 
-## Rebuilding the final table
+## Construction-script provenance
 
-Run from the thesis data workspace:
-
-```bash
-python github_release/dataset/scripts/build_final_dataset.py \
-  --workspace . \
-  --output-dir github_release/dataset/data/final
-```
+`scripts/build_final_dataset.py` is the cleaned script used to assemble the
+canonical table in the original thesis workspace. It depends on intermediate
+manual-review artifacts and extracted snippets from that workspace, some of
+which are not redistributed here. The checked-in files under `data/final/` are
+therefore the authoritative release rather than a claim of a fully reproducible
+rebuild from the public package alone.
 
 GitHub API access is read from the `GITHUB_TOKEN` environment variable. No
 credentials are stored in this release.

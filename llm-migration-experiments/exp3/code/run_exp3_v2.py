@@ -8,12 +8,12 @@ Experiment 3 V2 — Static mapping (exact lookup) + Embedding-only retrieval.
   mapping_no_direct_equivalent: static mapping says no equivalent → embedding supplementary
   mapping_miss                : not in static mapping → pure embedding
 
-Corpus: merged_polars_docs_filtered.json (1066 docs, polars.Config.* removed)
+Corpus: polars_docs_union.json (polars.Config.* removed upstream)
 
-Usage (from data/ root):
-    python experiments/scripts/run_exp3_v2.py --limit 40
-    python experiments/scripts/run_exp3_v2.py                     # all 238
-    python experiments/scripts/run_exp3_v2.py --model gpt-4.1-mini  # with generation
+Usage (from ``llm-migration-experiments``):
+    python exp3/code/run_exp3_v2.py --limit 40
+    python exp3/code/run_exp3_v2.py                         # all 238
+    python exp3/code/run_exp3_v2.py --model gpt-5.4-mini    # with generation
 """
 
 # Must be set before any torch / numpy import to avoid macOS mutex crash

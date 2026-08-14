@@ -5,7 +5,7 @@
 - Generation code: cleaned copy of `baseline_zero_shot_generation.ipynb`.
 - Prompt: fixed `zero_shot_v1` user template from the generation notebook.
 - Generation records: path-normalised view of the stored 238-row `generated_outputs/results.jsonl`.
-- Final tests: `baseline_test_results_v3.csv`.
+- Final tests: `baseline/results/test_results_v3.csv`.
 
 ## Exp1
 
@@ -13,7 +13,7 @@
 - Static knowledge source: `exp1/knowledge/api_mapping.json`.
 - Generation records: 238 final snippet records selected from the stored historical JSON using the final dataset identifiers; no generation was rerun.
 - Generated Python: 238 stored files.
-- Final tests: `exp1_test_results_v3.csv`.
+- Final tests: `exp1/results/test_results_v3.csv`.
 
 ## Exp2
 

@@ -10,4 +10,4 @@ This repository contains the dataset, AST-based API detector, and experimental a
 
 The migration experiments generated outputs for all 238 snippets. Seven snippets lacked a defensible executable and behavioural contract, leaving a common evaluation set of 231 snippets. The latest Exp2 rerun is included.
 
-Each directory contains its own README and provenance information. No API credentials are included; generation scripts expect `OPENAI_API_KEY` to be supplied through the environment.
+Each directory contains its own README and supporting documentation. No API credentials are included; generation scripts expect `OPENAI_API_KEY` to be supplied through the environment.

@@ -1,0 +1,13 @@
+condition,profile,snippets,baseline_pass,augmented_pass,difference_pp,rescued,regressed
+Exp1,Fully covered,166,129,132,1.8,13,10
+Exp1,Partially covered,26,17,16,-3.9,3,4
+Exp1,No mapping,39,24,24,0.0,2,2
+Exp2,Full gold-target coverage,47,40,41,2.1,5,4
+Exp2,Partial gold-target coverage,49,35,35,0.0,4,4
+Exp2,Gold target not retrieved,54,41,40,-1.9,3,4
+Exp2,Candidates supplied; no labelled target,40,28,32,10.0,8,4
+Exp2,No candidates supplied,41,26,26,0.0,3,3
+Exp3,Exact lookup only,75,62,66,5.3,6,2
+Exp3,Exact lookup plus fallback,76,52,48,-5.3,5,9
+Exp3,Fallback only,39,30,32,5.1,4,2
+Exp3,No routed API,41,26,24,-4.9,2,4

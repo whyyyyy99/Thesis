@@ -14,19 +14,19 @@ not used.
 
 Corpus: polars_docs_union.json (polars.Config.* removed upstream)
 
-Usage (from data/ root):
+Usage (from ``llm-migration-experiments``):
     # Retrieval only (default):
-    python experiments/scripts/run_exp2_v2.py
+    python exp2/code/run_exp2_v2.py
 
     # Limit to N snippets (smoke test):
-    python experiments/scripts/run_exp2_v2.py --limit 30
+    python exp2/code/run_exp2_v2.py --limit 30
 
     # With LLM generation:
-    python experiments/scripts/run_exp2_v2.py --model gpt-4.1-mini
+    python exp2/code/run_exp2_v2.py --model gpt-5.4-mini
 
     # Custom polars docs:
-    python experiments/scripts/run_exp2_v2.py \\
-        --polars-docs experiments/results/merged_polars_docs_filtered.json
+    python exp2/code/run_exp2_v2.py \\
+        --polars-docs shared/knowledge/polars_docs_union.json
 """
 
 import argparse

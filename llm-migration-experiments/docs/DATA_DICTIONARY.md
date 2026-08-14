@@ -24,6 +24,14 @@ Exp2 additionally stores the raw Responses API object. The public copy retains r
 
 `shared/results/all_conditions_test_results_v3.csv` contains 952 rows: 238 snippets for each of four conditions. Exactly seven rows per condition have `excluded = 1`; analyses use the remaining 231 rows per condition.
 
+## Gold-label review
+
+`shared/input/gold_labels_review.csv` preserves API annotations used for the
+mapping- and retrieval-profile analyses. Its `exclude` field belongs to an
+earlier screening stage and contains 27 non-empty labels. It is not the final
+behavioural-evaluation exclusion. The common 231-snippet evaluation set is
+defined by `evaluation_valid` in the final migration dataset.
+
 ## Taxonomy Classification
 
 Each `results/taxonomy_classification_final.csv` contains only primary failures; end-to-end passes are not included. `primary_layer` records the earliest independently failing layer, and `primary_category` or `final_primary_category` records the final domain-specific category. Later-layer failures caused by the primary failure remain diagnostic evidence and are not additional primary rows.
@@ -35,3 +43,8 @@ condition-specific end-to-end pass counts and rates, and percentage-point
 differences from the Baseline. It joins the multi-label category assignments in
 the final migration dataset with the 231 evaluation-valid outcomes in the
 combined test-results file.
+
+`shared/results/knowledge_profile_outcomes.csv` reports the mutually exclusive
+snippet-level profiles used for the Exp1 mapping-coverage, Exp2
+documentation-retrieval, and Exp3 routing analyses. `difference_pp` is the
+augmented pass rate minus the paired Baseline pass rate within the profile.

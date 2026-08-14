@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Classify the latest four-condition failures with the thesis taxonomy.
+"""Reproduce the latest four-condition thesis taxonomy.
 
 The classifier deliberately excludes the snippet identifier from rule evidence.
 Rules with insufficient evidence return ``manual review required`` rather than a
 substantive default category.  Only the earliest observed failing layer is used
 for the primary classification; raw downstream failures are retained for a
 separate causal (cascade-versus-independent) review.
+
+The deterministic rules provide the initial classification. Final categories
+are then loaded from the condition-specific manual-adjudication files, matching
+the classification procedure used in the thesis. Outputs are written under
+``shared/results/reproduced`` so the canonical reviewed files are not replaced.
 """
 
 from __future__ import annotations
@@ -17,16 +22,28 @@ from collections import Counter
 from pathlib import Path
 
 
-DATA = Path(__file__).resolve().parents[2]
-RESULTS = DATA / "experiments/results"
-OUTPUT = RESULTS / "taxonomy_classification_final.csv"
-SUMMARY = RESULTS / "taxonomy_classification_summary.csv"
+ROOT = Path(__file__).resolve().parents[2]
+RESULTS = ROOT / "shared" / "results" / "reproduced"
+OUTPUT = RESULTS / "all_conditions_taxonomy_classification.csv"
+SUMMARY = RESULTS / "all_conditions_taxonomy_summary.csv"
 
 NOTEBOOK_ROOTS = {
-    "baseline": DATA / "generated_outputs/baseline_test_notebooks_v2",
-    "exp1": RESULTS / "exp1_ast_guided/test_notebooks_v2",
-    "exp2": RESULTS / "exp2_v2/test_notebooks_v2",
-    "exp3": RESULTS / "exp3_v2/test_notebooks_v2",
+    "baseline": ROOT / "baseline" / "tests",
+    "exp1": ROOT / "exp1" / "tests",
+    "exp2": ROOT / "exp2" / "tests",
+    "exp3": ROOT / "exp3" / "tests",
+}
+
+RESULT_FILES = {
+    "baseline": ROOT / "baseline" / "results" / "test_results_v3.csv",
+    "exp1": ROOT / "exp1" / "results" / "test_results_v3.csv",
+    "exp2": ROOT / "exp2" / "results" / "test_results_v3.csv",
+    "exp3": ROOT / "exp3" / "results" / "test_results_v3.csv",
+}
+
+REVIEW_FILES = {
+    condition: ROOT / condition / "results" / "taxonomy_classification_final.csv"
+    for condition in NOTEBOOK_ROOTS
 }
 
 EVALUATION_CATEGORIES = {
@@ -334,10 +351,24 @@ def top_level_category(category: str) -> str:
     raise ValueError(f"Category is not part of the thesis taxonomy: {category!r}")
 
 
+def load_reviewed_categories() -> dict[tuple[str, str], str]:
+    """Load the final manual adjudications preserved with each condition."""
+    reviewed: dict[tuple[str, str], str] = {}
+    for condition, path in REVIEW_FILES.items():
+        with path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                category = row.get("final_primary_category") or row.get("primary_category")
+                if category:
+                    reviewed[(condition, row["snippet_id"])] = category
+    return reviewed
+
+
 def main() -> None:
+    RESULTS.mkdir(parents=True, exist_ok=True)
+    reviewed_categories = load_reviewed_categories()
     rows: list[dict[str, str]] = []
     for condition, root in NOTEBOOK_ROOTS.items():
-        result_path = RESULTS / f"{condition}_test_results_v3.csv"
+        result_path = RESULT_FILES[condition]
         with result_path.open(newline="", encoding="utf-8") as handle:
             results = list(csv.DictReader(handle))
         for result in results:
@@ -357,6 +388,7 @@ def main() -> None:
             rule_text = payload(evidence, result["func_name"])
             category = classify(primary, rule_text)
             category = MANUAL_PRIMARY_OVERRIDES.get((condition, snippet), category)
+            category = reviewed_categories.get((condition, snippet), category)
             top = None if category == "manual review required" else top_level_category(category)
             downstream = [
                 layer for layer in ("L2", "L3")
