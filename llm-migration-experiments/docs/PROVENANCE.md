@@ -25,7 +25,7 @@
 
 ## Exp3
 
-- Generation code: `run_exp3_v2.py`, `hybrid_pipeline.py`, and the stored prompt template.
+- Generation code: `run_exp3_v2.py`, `static_mapping.py`, the shared embedding-only retrieval utilities, and the stored prompt template.
 - Static knowledge source: `exp3/knowledge/api_mapping.json`, an identical copy of the mapping used by Exp1.
 - Retrieval/generation records and generated Python: 238 stored entries.
 - Final tests: `exp3_test_results_v3.csv`.

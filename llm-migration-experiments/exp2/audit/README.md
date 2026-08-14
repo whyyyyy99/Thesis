@@ -6,4 +6,4 @@
 - `taxonomy_manual_overrides.csv`: cases in which manual review replaced the initial rule-based category.
 - `taxonomy_summary_before_manual_review.csv`: intermediate category counts before the manual overrides. This file is retained as audit history and is not the final taxonomy summary.
 
-The final reviewed results are stored under `../results/`. Earlier gold/silver API scoring and RRF document-retrieval workbooks were removed because they do not describe the latest all-mpnet cosine-retrieval rerun.
+The final reviewed results are stored under `../results/`. Earlier gold/silver API scoring and hybrid document-retrieval workbooks were removed because they do not describe the latest all-mpnet cosine-retrieval rerun.

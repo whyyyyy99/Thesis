@@ -2,7 +2,7 @@
 Experiment 1 — AST-guided exact API mapping injection.
 
 Method: AST-assisted API-guided prompting
-  - No Chroma, no embeddings, no vector search, no BM25, no RAG retrieval.
+  - Exact static mappings only; no documentation retrieval.
   - Uses AST analysis to detect pandas APIs, exact-matches against
     api_mapping.json, and injects matched records into the prompt.
 

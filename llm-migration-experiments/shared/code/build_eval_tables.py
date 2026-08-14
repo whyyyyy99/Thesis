@@ -297,8 +297,8 @@ def process_exp2():
         g         = gold.get(sid, {})
         det_apis  = [e["api_name"] if isinstance(e, dict) else e
                      for e in r.get("detected_apis", [])]
-        # chunks = top RRF Polars doc chunks retrieved
-        chunks    = ",".join(r.get("top_rrf_candidates", []))
+        # chunks = top embedding-retrieved Polars documentation candidates
+        chunks = ",".join(r.get("top_embedding_candidates", []))
         gen_code  = r.get("generated_polars_code", "")
         ref_code  = g.get("reference_polars_code", "")
         gold_apis = g.get("gold_target_polars_apis", "")

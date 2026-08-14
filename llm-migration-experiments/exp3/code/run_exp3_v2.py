@@ -38,7 +38,7 @@ sys.path.insert(0, str(RELEASE_ROOT / "shared" / "code"))
 sys.path.insert(0, str(RELEASE_ROOT / "exp2" / "code"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from doc_rag_pipeline import (
+from documentation_retrieval import (
     build_pandas_doc_index,
     lookup_all_pandas_docs,
     build_embedding_query,
@@ -48,7 +48,7 @@ from retrieval import (
     filter_conversion_candidates,
     is_conversion_intent,
 )
-from hybrid_pipeline import (
+from static_mapping import (
     load_static_mapping_index,
     lookup_static_mapping,
     build_query_case_a,

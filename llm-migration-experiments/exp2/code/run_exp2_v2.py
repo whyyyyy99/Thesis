@@ -1,8 +1,8 @@
 """
-Experiment 2 V2 — Embedding-only retrieval (no BM25, no RRF).
+Experiment 2 V2 — Embedding-only documentation retrieval.
 
-Differences from the original EXP2 (run_exp2_v2_separated.py):
-  - No BM25 retriever, no RRF fusion
+Final retrieval design:
+  - all-mpnet-base-v2 cosine retrieval
   - Single embedding query per pandas API (rich semantic query)
   - Same retrieval noise filtering (RETRIEVAL_NOISE_APIS)
   - top_k=5 per detected pandas API
@@ -44,7 +44,7 @@ RELEASE_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RELEASE_ROOT / "shared" / "code"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from doc_rag_pipeline import (
+from documentation_retrieval import (
     build_pandas_doc_index,
     lookup_all_pandas_docs,
     build_embedding_query,
