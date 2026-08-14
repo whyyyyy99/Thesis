@@ -42,7 +42,7 @@ The paired comparisons did not identify a statistically significant improvement 
 
 ## Latest Exp2
 
-The Exp2 package contains 238 rendered prompts, 238 raw Responses API objects, 238 generated Python files, and the final manually reviewed test and taxonomy outputs. The run manifest records:
+The Exp2 package contains 238 rendered prompts, 238 raw Responses API objects, 238 generated Python files, and the final manually reviewed test and taxonomy outputs. `exp2/results/exp2_final_summary.json` is the concise final result summary, `exp2_test_results_reviewed_238.csv` contains the reviewed per-snippet outcomes, and `taxonomy_classification_final.csv` contains the 57 final primary-failure classifications. The run manifest records:
 
 - requested model: `gpt-5.4-mini`
 - actual model snapshot: `gpt-5.4-mini-2026-03-17`
