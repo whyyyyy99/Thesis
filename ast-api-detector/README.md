@@ -15,7 +15,6 @@ This directory contains the AST detector, input snapshot, manually annotated gol
 - `docs/METHOD.md`: detector and evaluation methodology.
 - `docs/RESULTS.md`: verified headline results.
 - `docs/DATA_DICTIONARY.md`: field definitions.
-- `docs/thesis_tables.tex`: LaTeX tables corresponding to the reported results.
 - `scripts/`: reusable detector and evaluation utilities.
 - `tests/`: focused regression tests, including a non-pandas negative case.
 
