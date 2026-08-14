@@ -1,0 +1,5 @@
+    df_cells = (df_cells.sort(by=["x1", "x2", "y1", "y2"])
+                .with_columns(pl.lit(1).alias('ones'))
+                .with_columns(pl.col('ones').cumsum().over(["x1", "x2", "y1"]).alias('cell_rk'))
+                .filter(pl.col('cell_rk') == 1)
+                )

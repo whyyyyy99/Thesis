@@ -11,6 +11,8 @@ in the thesis.
 
 - `data/final/migration_pairs.csv`: canonical 238-pair table.
 - `data/final/migration_pairs.xlsx`: Excel version of the canonical table.
+- `data/final/pairs/`: 238 directories containing the paired `pandas.py` and
+  `polars.py` source fragments.
 - `data/final/migration_category_counts.csv`: full-dataset category counts.
 - `data/source/`: candidate pull-request records used to identify repositories.
 - `data/intermediate/`: selected commit, file, and pair inventories.

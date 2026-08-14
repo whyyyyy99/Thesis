@@ -1,0 +1,6 @@
+        train_X = ds.X[train_idx]
+        train_y = ds.y[train_idx]
+        train_w = ds.w[train_idx]
+        valid_X = ds.X[valid_idx]
+        valid_y = ds.y[valid_idx]
+        valid_w = ds.w[valid_idx]
