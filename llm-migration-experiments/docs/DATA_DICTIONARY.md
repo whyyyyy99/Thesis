@@ -23,3 +23,9 @@ Exp2 additionally stores the raw Responses API object. The public copy retains r
 ## Combined Results
 
 `shared/results/all_conditions_test_results_v3.csv` contains 952 rows: 238 snippets for each of four conditions. Exactly seven rows per condition have `excluded = 1`; analyses use the remaining 231 rows per condition.
+
+## Taxonomy Classification
+
+Each `results/taxonomy_classification_final.csv` contains only primary failures; end-to-end passes are not included. `primary_layer` records the earliest independently failing layer, and `primary_category` or `final_primary_category` records the final domain-specific category. Later-layer failures caused by the primary failure remain diagnostic evidence and are not additional primary rows.
+
+The canonical cross-condition file is `shared/results/all_conditions_taxonomy_classification_final.csv`. It standardises the final category column as `primary_category` and contains 238 primary failures: 61 Baseline, 59 Exp1, 57 Exp2, and 61 Exp3.

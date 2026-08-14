@@ -27,6 +27,8 @@ Files under `results/generated_py/` are preserved model outputs. Some are fragme
 
 The `shared/` directory contains the AST helper, documentation corpora, common evaluation scripts, the fixed seven-snippet exclusion list, review material, and a rebuilt 952-row cross-condition result table. The full static mapping table is stored under both `exp1/knowledge/` and `exp3/knowledge/`, the two conditions that use it. The source-only registry used for shared AST normalisation is stored in the separate `ast-api-detector/` package.
 
+Each condition's `results/taxonomy_classification_final.csv` contains one row for every primary migration failure in that condition. `shared/results/all_conditions_taxonomy_classification_final.csv` combines the four conditions using the latest Exp2 rerun, while `shared/results/all_conditions_taxonomy_summary.csv` contains the corresponding category counts.
+
 ## Final End-to-End Results
 
 | Condition | Passes | Pass rate | Rescued | Regressed |

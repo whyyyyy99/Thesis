@@ -1,0 +1,55 @@
+experiment,primary_layer,primary_category,count
+baseline,L1,incomplete runnable code,5
+baseline,L1,invalid target API usage,9
+baseline,L1,lazy/eager misuse,1
+baseline,L1,type or runtime error,11
+baseline,L2,incorrect condition,1
+baseline,L2,index or datetime contract mismatch,5
+baseline,L2,missing one or more steps,2
+baseline,L2,return-type mismatch,4
+baseline,L2,schema mismatch,9
+baseline,L2,"wrong aggregation, filtering, or join logic",5
+baseline,L3,dtype-sensitive behaviour,1
+baseline,L3,empty-input handling,1
+baseline,L3,index-related edge behaviour,5
+baseline,L3,ordering stability,2
+exp1,L1,incomplete runnable code,5
+exp1,L1,invalid target API usage,9
+exp1,L1,type or runtime error,12
+exp1,L2,helper input-type mismatch,1
+exp1,L2,index or datetime contract mismatch,5
+exp1,L2,lazy/eager misuse,1
+exp1,L2,missing one or more steps,3
+exp1,L2,return-type mismatch,3
+exp1,L2,schema mismatch,10
+exp1,L2,"wrong aggregation, filtering, or join logic",4
+exp1,L3,dtype-sensitive behaviour,1
+exp1,L3,index-related edge behaviour,3
+exp1,L3,null- or missing-value handling,2
+exp2,L1,import or unresolved-reference error,1
+exp2,L1,incomplete runnable code,3
+exp2,L1,invalid target API usage,25
+exp2,L1,type or runtime error,3
+exp2,L2,index or datetime contract mismatch,6
+exp2,L2,invalid target API usage,1
+exp2,L2,missing one or more steps,4
+exp2,L2,return-type mismatch,5
+exp2,L2,schema mismatch,2
+exp2,L2,"wrong aggregation, filtering, or join logic",2
+exp2,L2,wrong logical direction,1
+exp2,L3,dtype-sensitive behaviour,3
+exp2,L3,empty-input handling,1
+exp3,L1,import or unresolved-reference error,1
+exp3,L1,incomplete runnable code,6
+exp3,L1,invalid target API usage,13
+exp3,L1,type or runtime error,11
+exp3,L2,incorrect condition,1
+exp3,L2,index or datetime contract mismatch,3
+exp3,L2,lazy/eager misuse,1
+exp3,L2,missing one or more steps,3
+exp3,L2,return-type mismatch,3
+exp3,L2,schema mismatch,8
+exp3,L2,"wrong aggregation, filtering, or join logic",6
+exp3,L3,index-related edge behaviour,3
+exp3,L3,null- or missing-value handling,1
+exp3,L3,ordering stability,1
